@@ -23,10 +23,25 @@ Overview
 In this guide, you can learn how to use {+django-odm+} to specify
 a database query.
 
+The Django ``QuerySet`` API provides functions that allow you to retrieve
+model objects. To run a MongoDB database query, create a ``QuerySet`` object
+that specifies your query and the model you're querying. Then, {+django-odm+}
+runs the operation on the MongoDB collection that the model represents.
+
+When you assign a ``QuerySet`` object to a variable, {+django-odm+} does not
+perform the operation until you evaluate the variable, usually by printing. After
+evaluating the ``QuerySet``, Django saves the query results in the ``QuerySet``
+cache. Future evaluations of the ``QuerySet`` reuse the cached results.
+
+.. tip::
+
+    To learn more about the Django ``QuerySet`` API, see `QuerySet API reference
+    <{+django-docs+}/models/querysets/>`__ in the Django documentation.
+
 You can refine the set of documents that a query returns by creating a
 **query filter**. A query filter is an expression that specifies the search
 criteria MongoDB uses to match documents in a read or write operation.
-In a query filter, you can prompt the driver to search for documents with an
+In a query filter, you can prompt {+django-odm+} to search for documents with an
 exact match to your query, or you can compose query filters to express more
 complex matching criteria.
 
@@ -35,29 +50,14 @@ Sample Data
 
 The examples in this guide use the ``Movie`` model, which represents
 the ``sample_mflix.movies`` collection from the :atlas:`Atlas sample datasets </sample-data>`.
-The ``Movie`` model class has the following definition:
+The ``Movie`` model contains an embedded ``Award`` model as the value
+of its ``awards`` field. These model classes have the following definitions:
 
-.. code-block:: python
-
-    from django.db import models
-    from django_mongodb_backend.fields import EmbeddedModelField, ArrayField
-    from django_mongodb_backend.managers import MongoManager
-
-   class Movie(models.Model):
-       title = models.CharField(max_length=200)
-       plot = models.TextField(blank=True)
-       runtime = models.IntegerField(default=0)
-       released = models.DateTimeField("release date", null=True, blank=True)
-       awards = EmbeddedModelField(Award)
-       genres = ArrayField(models.CharField(max_length=100), null=True, blank=True)
-       objects = MongoManager()
-
-       class Meta:
-           db_table = "movies"
-           managed = False
-      
-       def __str__(self):
-           return self.title
+.. literalinclude:: /includes/interact-data/specify-a-query.py
+   :start-after: start-models
+   :end-before: end-models
+   :language: python
+   :copyable:
 
 You can use the Python interactive shell to run the code examples.
 To enter the shell, run the following command from your project's 
@@ -71,20 +71,263 @@ To learn how to create a Django application that uses the ``Movie``
 model and the Python interactive shell to interact with MongoDB documents,
 visit the :ref:`django-get-started` tutorial.
 
-Overview
-- each query returns new instance of QuerySet class
-- lazy: doesn't run query until you retrieve results
+Run a Query
+-----------
 
-Methods:
-- all()
-- filter()
-- exclude()
-- get()
+To query your MongoDB data, call a ``QuerySet`` function on the 
+model that represents your collection and specify your matching
+criteria in a query filter.
 
-Modify:
-- order_by()
-- first()
-- limit -- [5:10]
+This section describes how to use the following functions from
+the ``QuerySet`` API:
 
-Query filters:
-- field lookups (__lt, __gt, etc; __exact, __iexact; __contains; embedded lookups; __isnull)
+- :ref:`all() <django-query-retrieve-all>`
+- :ref:`filter() <django-query-retrieve-matching>`
+- :ref:`get() <django-query-retrieve-one>`
+- :ref:`exclude() <django-query-exclude>`
+
+.. _django-query-retrieve-all:
+
+Retrieve All Documents
+~~~~~~~~~~~~~~~~~~~~~~
+
+To retrieve all documents from a collection, call the ``all()``
+method on the collection's corresponding Django model.
+
+The following example calls the ``all()`` method on the
+``Movie`` model to retrieve all documents in the ``sample_mflix.movies``
+collection:
+
+.. _django-query-retrieve-matching:
+
+Retrieve Matching Documents
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To query a collection for documents that match a set of criteria,
+call the ``filter()`` method on the collection's corresponding Django
+model. Pass a query filter to the ``filter()`` method that specifies your
+query criteria.
+
+The following example calls the ``filter()`` method on the
+``Movie`` model to query the ``sample_mflix.movies`` collection
+for documents that have a ``runtime`` value of ``300``:
+
+
+.. _django-query-retrieve-one:
+
+Retrieve One Document
+~~~~~~~~~~~~~~~~~~~~~
+
+To retrieve one document from a collection, call the ``get()``
+method on the collection's corresponding Django model. Pass 
+a query filter to the ``get()`` method that specifies your
+query criteria.
+
+.. important::
+
+   If your query matches no documents or multiple documents, the ``get()``
+   method generates an error. To retrieve one document from a query
+   that might match multiple, use the :ref:`first() <django-query-first>`
+   method.
+
+
+The following example calls the ``get()`` method on the
+``Movie`` model to retrieve one document that has a ``title``
+value of ``"Finding Nemo"``:
+
+
+.. _django-query-exclude:
+
+Exclude Matching Documents
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To query a collection for documents that do not meet your
+search criteria, call the ``exclude()`` method on the collection's
+corresponding Django model. Pass the exclusion criteria as an 
+argument to the ``exclude()`` method.
+
+The following example calls the ``exclude()`` method on the
+``Movie`` model to exclude documents released after January 1,
+1950 from the results:
+
+.. tip::
+
+   The preceding example uses the ``gt`` comparison operator
+   to query the collection. To learn more about comparison
+   operators, see the :ref:`django-query-comparison` section
+   in this guide.
+
+Customize Your Query Filter
+---------------------------
+
+You can further refine your query criteria by using a **field lookup**
+in your query filter. Field lookups allow you to clarify the relationship
+between the field you're querying and the value you want to
+query for. Use the following syntax to specify a field lookup:
+
+.. code-block:: python
+   :copyable: false
+
+   Model.objects.filter(<field name>__<lookup type>=<value>)
+   
+You can use different lookup types to perform advanced queries,
+such as partial text matching, array element queries, regular
+expression matching, and year value matching for datetime fields. 
+
+.. tip::
+
+   To view a full list of lookup types, see `Field lookups
+   <{+django-docs+}/models/querysets/#field-lookups>`__ in the
+   ``QuerySet`` Django documentation.
+
+This section describes how to refine your query filters
+in the following ways:
+
+- :ref:`django-query-text-match`
+- :ref:`django-query-comparison`
+- :ref:`django-query-span-relationships`
+
+.. _django-query-text-match:
+
+Use Text Match Lookups
+~~~~~~~~~~~~~~~~~~~~~~
+
+The following table describes some of the lookup types
+that you can use to run queries that include specific
+matching criteria for text values:
+
+.. list-table::
+   :header-rows: 1
+   :widths: 20 80
+
+   * - Lookup Type
+     - Description
+
+   * - ``__exact``
+     - | Specifies an exact text match. If you do not provide a 
+         lookup type in your query filter, {+django-odm+} uses this
+         type by default.
+       
+       | You can specify a case-insensitive exact text match
+         by using ``__iexact``.
+   * - ``__contains``
+     - | Specifies a partial text match.
+       
+       | You can specify a case-insensitive partial text match
+         by using ``__icontains``.
+   * - ``__startswith``
+     - | Matches field values that begin with the specified text.
+       
+       | You can specify a case-insensitive partial text match
+         by using ``__istartswith``.
+   * - ``__endswith``
+     - | Matches field values that end with the specified text.
+       
+       | You can specify a case-insensitive partial text match
+         by using ``__iendswith``.
+
+Example
+```````
+
+The following example uses the ``__contains`` lookup to 
+query for documents in which the ``genres`` array field
+includes ``"Romance"``:
+
+
+.. _django-query-comparison:
+
+Use Comparison Lookups
+~~~~~~~~~~~~~~~~~~~~~~
+
+The following table describes some of the lookup types
+that you can use to run queries that include specific
+matching criteria for text values:
+
+.. list-table::
+   :header-rows: 1
+   :widths: 20 80
+
+   * - Lookup Type
+     - Description
+
+   * - ``__gt``
+     - | Matches field values that are greater than the
+         specified value.
+
+   * - ``__gte``
+     - | Matches field values that are greater than or equal
+         to the specified value.
+       
+   * - ``__lt``
+     - | Matches field values that are less than the specified
+         value.
+
+   * - ``__lte``
+     - | Matches field values that are less or equal to than the specified
+         value.
+
+   * - ``__ne``
+     - | Matches field values that are not equal
+         to the specified value.
+
+
+Example
+```````
+
+The following example uses the ``__lte`` lookup to 
+query for documents in which the ``runtime`` value
+is less than or equal to ``50``:
+
+
+.. _django-query-span-relationships:
+
+Filter Across Relationships
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This example retrieves all ``Entry`` objects with a ``Blog`` whose ``name``
+is ``'Beatles Blog'``:
+
+.. code-block:: python
+
+   Entry.objects.filter(blog__name="Beatles Blog")
+
+Modify Query Results
+--------------------
+
+This section describes how to modify your query
+results in the following ways:
+
+- :ref:`django-query-sort`
+- :ref:`django-query-limit`
+- :ref:`django-query-first`
+
+.. _django-query-sort:
+
+Sort Results
+~~~~~~~~~~~~
+
+.. _django-query-limit:
+
+Limit Results
+~~~~~~~~~~~~~
+
+.. _django-query-first:
+
+Retrieve the First Result
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Advanced Queries
+----------------
+
+Query a JSONField
+~~~~~~~~~~~~~~~~~
+
+Query a Primary Key Field
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Run a Destructive Operation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Additional Information
+----------------------
