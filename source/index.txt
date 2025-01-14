@@ -2,9 +2,22 @@
 Django MongoDB Backend
 ======================
 
-.. default-domain:: mongodb
+.. facet::
+   :name: programming_language
+   :values: python
 
-Your words here. Don't forget to add a toctree!
+.. meta::
+   :keywords: home
 
-Have a lovely day!
+.. toctree::
 
+   Interact with Data </interact-data>
+
+Welcome to the documentation site for the official {+django-odm+},
+a Django database backend that uses PyMongo to connect to MongoDB. 
+
+Interact with Data
+------------------
+
+Learn how to use {+ddjango-odm+} to perform operations on MongoDB data
+in the :ref:`django-interact-data` section.
