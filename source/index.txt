@@ -2,9 +2,13 @@
 Django MongoDB Backend
 ======================
 
-.. default-domain:: mongodb
+.. facet::
+   :name: programming_language
+   :values: python
 
-Your words here. Don't forget to add a toctree!
+.. meta::
+   :keywords: home
 
-Have a lovely day!
+.. toctree::
 
+   Interact with Data </interact-data>

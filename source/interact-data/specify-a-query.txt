@@ -1,0 +1,90 @@
+.. _django-specify-query:
+
+===============
+Specify a Query
+===============
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 2
+   :class: singlecol
+
+.. facet::
+   :name: genre
+   :values: reference
+
+.. meta::
+   :keywords: expressions, operations, read, filter, code example
+
+Overview
+--------
+
+In this guide, you can learn how to use {+django-odm+} to specify
+a database query.
+
+You can refine the set of documents that a query returns by creating a
+**query filter**. A query filter is an expression that specifies the search
+criteria MongoDB uses to match documents in a read or write operation.
+In a query filter, you can prompt the driver to search for documents with an
+exact match to your query, or you can compose query filters to express more
+complex matching criteria.
+
+Sample Data
+~~~~~~~~~~~
+
+The examples in this guide use the ``Movie`` model, which represents
+the ``sample_mflix.movies`` collection from the :atlas:`Atlas sample datasets </sample-data>`.
+The ``Movie`` model class has the following definition:
+
+.. code-block:: python
+
+    from django.db import models
+    from django_mongodb_backend.fields import EmbeddedModelField, ArrayField
+    from django_mongodb_backend.managers import MongoManager
+
+   class Movie(models.Model):
+       title = models.CharField(max_length=200)
+       plot = models.TextField(blank=True)
+       runtime = models.IntegerField(default=0)
+       released = models.DateTimeField("release date", null=True, blank=True)
+       awards = EmbeddedModelField(Award)
+       genres = ArrayField(models.CharField(max_length=100), null=True, blank=True)
+       objects = MongoManager()
+
+       class Meta:
+           db_table = "movies"
+           managed = False
+      
+       def __str__(self):
+           return self.title
+
+You can use the Python interactive shell to run the code examples.
+To enter the shell, run the following command from your project's 
+root directory:
+
+.. code-block:: bash
+
+   python manage.py shell
+
+To learn how to create a Django application that uses the ``Movie``
+model and the Python interactive shell to interact with MongoDB documents,
+visit the :ref:`django-get-started` tutorial.
+
+Overview
+- each query returns new instance of QuerySet class
+- lazy: doesn't run query until you retrieve results
+
+Methods:
+- all()
+- filter()
+- exclude()
+- get()
+
+Modify:
+- order_by()
+- first()
+- limit -- [5:10]
+
+Query filters:
+- field lookups (__lt, __gt, etc; __exact, __iexact; __contains; embedded lookups; __isnull)
