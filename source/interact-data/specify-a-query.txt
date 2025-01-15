@@ -24,11 +24,13 @@ In this guide, you can learn how to use {+django-odm+} to specify
 a database query.
 
 The Django ``QuerySet`` API provides functions that allow you to retrieve
-model objects. To run a MongoDB database query, create a ``QuerySet`` object
-that specifies your query and the model you're querying. Then, {+django-odm+}
-runs the operation on the MongoDB collection that the model represents.
+model objects. To run a MongoDB database query, call ``QuerySet`` functions
+on your model's ``Manager``. The ``Manager`` class handles database
+operations and allows you to interact with your MongoDB data by referencing
+Django models. By default, Django adds a ``Manager`` named ``objects``
+to every model class. 
 
-When you assign a ``QuerySet`` object to a variable, {+django-odm+} does not
+When you assign a ``QuerySet`` to a variable, {+django-odm+} does not
 perform the operation until you evaluate the variable, usually by printing. After
 evaluating the ``QuerySet``, Django saves the query results in the ``QuerySet``
 cache. Future evaluations of the ``QuerySet`` reuse the cached results.
@@ -83,9 +85,9 @@ visit the :ref:`django-get-started` tutorial.
 Run a Query
 -----------
 
-To query your MongoDB data, call a ``QuerySet`` function on the 
-model that represents your collection and specify your matching
-criteria in a query filter.
+To query your MongoDB data, call a ``QuerySet`` function on your 
+model's ``Manager`` class and specify your matching criteria in a
+query filter.
 
 This section describes how to use the following functions from
 the ``QuerySet`` API:
@@ -101,11 +103,10 @@ Retrieve All Documents
 ~~~~~~~~~~~~~~~~~~~~~~
 
 To retrieve all documents from a collection, call the ``all()``
-function on the collection's corresponding Django model.
+function on your model's ``Manager`` class.
 
-The following example calls the ``all()`` function on the
-``Movie`` model to retrieve all documents in the ``sample_mflix.movies``
-collection:
+The following example calls the ``all()`` function to retrieve
+all documents in the ``sample_mflix.movies`` collection:
 
 .. io-code-block::
    :copyable:
@@ -135,12 +136,12 @@ Retrieve Matching Documents
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To query a collection for documents that match a set of criteria,
-call the ``filter()`` function on the collection's corresponding Django
-model. Pass a query filter to the ``filter()`` function that specifies your
+call the ``filter()`` function on your model's ``Manager`` class.
+Pass a query filter to the ``filter()`` function that specifies your
 query criteria.
 
-The following example calls the ``filter()`` function on the
-``Movie`` model to query the ``sample_mflix.movies`` collection
+The following example calls the ``filter()`` function
+to query the ``sample_mflix.movies`` collection
 for documents that have a ``runtime`` value of ``300``:
 
 .. io-code-block::
@@ -163,7 +164,7 @@ Retrieve One Document
 ~~~~~~~~~~~~~~~~~~~~~
 
 To retrieve one document from a collection, call the ``get()``
-function on the collection's corresponding Django model. Pass 
+function on your model's ``Manager`` class. Pass 
 a query filter to the ``get()`` function that specifies your
 query criteria.
 
@@ -175,8 +176,8 @@ query criteria.
    function.
 
 
-The following example calls the ``get()`` function on the
-``Movie`` model to retrieve one document that has a ``title``
+The following example calls the ``get()`` function
+to retrieve one document that has a ``title``
 value of ``"Finding Nemo"``:
 
 .. io-code-block::
@@ -198,13 +199,12 @@ Exclude Matching Documents
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To query a collection for documents that do not meet your
-search criteria, call the ``exclude()`` function on the collection's
-corresponding Django model. Pass the exclusion criteria as an 
+search criteria, call the ``exclude()`` function on your model's
+``Manager`` class. Pass the exclusion criteria as an 
 argument to the ``exclude()`` function.
 
-The following example calls the ``exclude()`` function on the
-``Movie`` model to exclude documents released before January 1,
-1980 from the results:
+The following example calls the ``exclude()`` function to
+exclude documents released before January 1, 1980 from the results:
 
 .. io-code-block::
    :copyable:
@@ -498,7 +498,7 @@ Example
 
 This example performs the following actions:
 
-- Calls the ``filter()`` function on the ``Movie`` model to query
+- Calls the ``filter()`` function on the ``Movie`` model's ``Manager`` to query
   the ``sample_mflix.movies`` collection
 - Queries documents that have a ``title`` value starting
   with the text ``"Rocky"``
@@ -550,7 +550,7 @@ Example
 
 This example performs the following actions:
 
-- Calls the ``filter()`` function on the ``Movie`` model to query
+- Calls the ``filter()`` function on the ``Movie`` model's ``Manager`` to query
   the ``sample_mflix.movies`` collection
 - Queries documents that have a ``released`` value of 
   ``datetime(2010, 7, 16)`` (July 16, 2010)
@@ -579,10 +579,9 @@ multiple results, chain the ``first()`` function to the ``filter()``
 function. Pass a query filter to the ``filter()`` function that specifies your
 query criteria.
 
-The following example calls the ``filter()`` and ``first()`` functions on the
-``Movie`` model to query the ``sample_mflix.movies`` collection
-for the first document in which the ``genres`` value is 
-``["Crime", "Comedy"]``:
+The following example calls the ``filter()`` and ``first()`` functions
+to query the ``sample_mflix.movies`` collection for the first
+document in which the ``genres`` value is  ``["Crime", "Comedy"]``:
 
 .. io-code-block::
    :copyable:
