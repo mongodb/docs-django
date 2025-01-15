@@ -36,7 +36,7 @@ cache. Future evaluations of the ``QuerySet`` reuse the cached results.
 .. tip::
 
     To learn more about the Django ``QuerySet`` API, see `QuerySet API reference
-    <{+django-docs+}/models/querysets/>`__ in the Django documentation.
+    <{+django-docs+}/ref/models/querysets/>`__ in the Django documentation.
 
 You can refine the set of documents that a query returns by creating a
 **query filter**. A query filter is an expression that specifies the search
@@ -255,7 +255,7 @@ expression matching, and year value matching for datetime fields.
 .. tip::
 
    To view a full list of lookup types, see `Field lookups
-   <{+django-docs+}/models/querysets/#field-lookups>`__ in the
+   <{+django-docs+}/ref/models/querysets/#field-lookups>`__ in the
    ``QuerySet`` Django documentation.
 
 This section describes how to refine your query filters
