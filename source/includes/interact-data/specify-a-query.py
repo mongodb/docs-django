@@ -82,9 +82,13 @@ Movie.objects.annotate(score=KT("imdb__rating")).all().order_by("-score")
 # end-kt
 
 # start-primary-key-pk
+from bson import ObjectId
+
 Movie.objects.get(pk=ObjectId("573a1394f29313caabce0d37"))
 # end-primary-key-pk
 
 # start-primary-key-id
+from bson import ObjectId
+
 Movie.objects.get(id=ObjectId("573a1394f29313caabce0d37"))
 # end-primary-key-id

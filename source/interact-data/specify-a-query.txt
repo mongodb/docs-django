@@ -230,9 +230,9 @@ exclude documents released before January 1, 1980 from the results:
 
 .. tip::
 
-   The preceding example uses the ``lt`` comparison operator
+   The preceding example uses the ``lt`` field lookup
    to query the collection. To learn more about comparison
-   operators, see the :ref:`django-query-comparison` section
+   lookups, see the :ref:`django-query-comparison` section
    in this guide.
 
 Customize Your Query Filter
@@ -320,6 +320,7 @@ includes the text ``"coming-of-age"``:
       :language: python
 
    .. output::
+      :language: none
       :visible: false
 
       <QuerySet [<Movie: Murmur of the Heart>, <Movie: Desert Bloom>,
