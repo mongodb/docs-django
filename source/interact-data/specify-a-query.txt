@@ -67,6 +67,15 @@ root directory:
 
    python manage.py shell
 
+After entering the Python shell, ensure that you import the following models and
+modules:
+
+.. code-block:: python
+
+   from <your application name>.models import Movie, Award
+   from django.utils import timezone
+   from datetime import datetime
+
 To learn how to create a Django application that uses the ``Movie``
 model and the Python interactive shell to interact with MongoDB documents,
 visit the :ref:`django-get-started` tutorial.
@@ -98,6 +107,27 @@ The following example calls the ``all()`` method on the
 ``Movie`` model to retrieve all documents in the ``sample_mflix.movies``
 collection:
 
+.. io-code-block::
+   :copyable:
+
+   .. input:: /includes/interact-data/specify-a-query.py
+      :start-after: start-all
+      :end-before: end-all
+      :language: python
+
+   .. output::
+
+      <QuerySet [<Movie: The Great Train Robbery>, <Movie: A Corner in Wheat>,
+      <Movie: Winsor McCay, the Famous Cartoonist of the N.Y. Herald and His Moving Comics>,
+      <Movie: Traffic in Souls>, <Movie: Gertie the Dinosaur>,
+      <Movie: In the Land of the Head Hunters>, <Movie: The Perils of Pauline>,
+      <Movie: The Italian>, <Movie: Regeneration>, <Movie: Civilization>,
+      <Movie: Where Are My Children?>, <Movie: The Poor Little Rich Girl>,
+      <Movie: Wild and Woolly>, <Movie: The Blue Bird>, <Movie: From Hand to Mouth>,
+      <Movie: High and Dizzy>, <Movie: One Week>, <Movie: The Saphead>,
+      <Movie: The Ace of Hearts>, <Movie: The Four Horsemen of the Apocalypse>,
+      '...(remaining elements truncated)...']>
+
 .. _django-query-retrieve-matching:
 
 Retrieve Matching Documents
@@ -112,6 +142,18 @@ The following example calls the ``filter()`` method on the
 ``Movie`` model to query the ``sample_mflix.movies`` collection
 for documents that have a ``runtime`` value of ``300``:
 
+.. io-code-block::
+   :copyable:
+
+   .. input:: /includes/interact-data/specify-a-query.py
+      :start-after: start-filter
+      :end-before: end-filter
+      :language: python
+
+   .. output::
+
+      <QuerySet [<Movie: Wild Palms>, <Movie: Streets of Laredo>,
+      <Movie: The Way We Live Now>]>
 
 .. _django-query-retrieve-one:
 
@@ -135,6 +177,17 @@ The following example calls the ``get()`` method on the
 ``Movie`` model to retrieve one document that has a ``title``
 value of ``"Finding Nemo"``:
 
+.. io-code-block::
+   :copyable:
+
+   .. input:: /includes/interact-data/specify-a-query.py
+      :start-after: start-get
+      :end-before: end-get
+      :language: python
+
+   .. output::
+
+      <Movie: Finding Nemo>
 
 .. _django-query-exclude:
 
@@ -147,12 +200,33 @@ corresponding Django model. Pass the exclusion criteria as an
 argument to the ``exclude()`` method.
 
 The following example calls the ``exclude()`` method on the
-``Movie`` model to exclude documents released after January 1,
-1950 from the results:
+``Movie`` model to exclude documents released before January 1,
+1980 from the results:
+
+.. io-code-block::
+   :copyable:
+
+   .. input:: /includes/interact-data/specify-a-query.py
+      :start-after: start-exclude
+      :end-before: end-exclude
+      :language: python
+
+   .. output::
+
+      <QuerySet [<Movie: The Iron Horse>, <Movie: Le grand jeu>,
+      <Movie: The Devil Is a Woman>, <Movie: Children in the Wind>,
+      <Movie: Too Much Johnson>, <Movie: Dots>, <Movie: The Blood of Jesus>,
+      <Movie: The Land>, <Movie: The Brothers and Sisters of the Toda Family>,
+      <Movie: People on the Alps>, <Movie: Der groèe Kènig>,
+      <Movie: Kate & Leopold>, <Movie: Meshes of the Afternoon>,
+      <Movie: The Body Snatcher>, <Movie: Let There Be Light>,
+      <Movie: La porta del cielo>, <Movie: A Double Life>,
+      <Movie: One Wonderful Sunday>, <Movie: La Terra Trema>,
+      <Movie: Begone Dull Care>, '...(remaining elements truncated)...']>
 
 .. tip::
 
-   The preceding example uses the ``gt`` comparison operator
+   The preceding example uses the ``lt`` comparison operator
    to query the collection. To learn more about comparison
    operators, see the :ref:`django-query-comparison` section
    in this guide.
@@ -230,9 +304,28 @@ Example
 ```````
 
 The following example uses the ``__contains`` lookup to 
-query for documents in which the ``genres`` array field
-includes ``"Romance"``:
+query for documents in which the ``plot`` field
+includes ``"coming-of-age"``:
 
+.. io-code-block::
+   :copyable:
+
+   .. input:: /includes/interact-data/specify-a-query.py
+      :start-after: start-filter-contains
+      :end-before: end-filter-contains
+      :language: python
+
+   .. output::
+
+      <QuerySet [<Movie: Murmur of the Heart>, <Movie: Desert Bloom>,
+      <Movie: Girls Town>, <Movie: Get Real>, <Movie: Man of Steel>,
+      <Movie: The Holy Land>, <Movie: Secondhand Lions>, <Movie: How to Be Louise>,
+      <Movie: Mouth to Mouth>, <Movie: Che ne sarè di noi>, <Movie: Roll Bounce>,
+      <Movie: Quando sei nato non puoi piè nasconderti>,
+      <Movie: Hey Hey It's Esther Blueburger>, <Movie: A Guide to Recognizing Your Saints>,
+      <Movie: Archie's Final Project>, <Movie: Persepolis>, <Movie: The Runaways>,
+      <Movie: An Education>, <Movie: SoulBoy>, <Movie: The French Kissers>,
+      '...(remaining elements truncated)...']>
 
 .. _django-query-comparison:
 
@@ -278,18 +371,33 @@ The following example uses the ``__lte`` lookup to
 query for documents in which the ``runtime`` value
 is less than or equal to ``50``:
 
+.. io-code-block::
+   :copyable:
+
+   .. input:: /includes/interact-data/specify-a-query.py
+      :start-after: start-filter-lte
+      :end-before: end-filter-lte
+      :language: python
+
+   .. output::
+
+      <QuerySet [<Movie: The Great Train Robbery>, <Movie: A Corner in Wheat>,
+      <Movie: Winsor McCay, the Famous Cartoonist of the N.Y. Herald and His Moving Comics>,
+      <Movie: Gertie the Dinosaur>, <Movie: From Hand to Mouth>,
+      <Movie: High and Dizzy>, <Movie: One Week>, <Movie: Now or Never>,
+      <Movie: Steamboat Willie>, <Movie: The Music Box>, <Movie: Three Little Pigs>,
+      <Movie: The Band Concert>, <Movie: Who Killed Cock Robin?>,
+      <Movie: Popeye the Sailor Meets Sindbad the Sailor>, <Movie: Dots>, <Movie: The Land>,
+      <Movie: Meshes of the Afternoon>, <Movie: The Memphis Belle: A Story of a Flying Fortress>,
+      <Movie: Report from the Aleutians>, <Movie: Saludos Amigos>,
+      '...(remaining elements truncated)...']>
 
 .. _django-query-span-relationships:
 
 Filter Across Relationships
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This example retrieves all ``Entry`` objects with a ``Blog`` whose ``name``
-is ``'Beatles Blog'``:
-
-.. code-block:: python
-
-   Entry.objects.filter(blog__name="Beatles Blog")
+This example
 
 Modify Query Results
 --------------------

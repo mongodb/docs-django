@@ -27,4 +27,21 @@ class Award(models.Model):
 # end-models
 
 # start-all
+Movie.objects.all()
 # end-all
+
+# start-filter
+Movie.objects.filter(runtime=300)
+# end-filter
+
+# start-get
+Movie.objects.get(title="Finding Nemo")
+# end-get
+
+# start-exclude
+Movie.objects.exclude(released__lt=timezone.make_aware(datetime(1980, 1, 1)))
+# end-exclude
+
+# start-filter-contains
+Movie.objects.filter(plot__contains="coming-of-age")
+# end-filter-contains
