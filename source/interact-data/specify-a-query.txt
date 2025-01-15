@@ -116,6 +116,7 @@ collection:
       :language: python
 
    .. output::
+      :visible: false
 
       <QuerySet [<Movie: The Great Train Robbery>, <Movie: A Corner in Wheat>,
       <Movie: Winsor McCay, the Famous Cartoonist of the N.Y. Herald and His Moving Comics>,
@@ -151,6 +152,7 @@ for documents that have a ``runtime`` value of ``300``:
       :language: python
 
    .. output::
+      :visible: false
 
       <QuerySet [<Movie: Wild Palms>, <Movie: Streets of Laredo>,
       <Movie: The Way We Live Now>]>
@@ -186,6 +188,7 @@ value of ``"Finding Nemo"``:
       :language: python
 
    .. output::
+      :visible: false
 
       <Movie: Finding Nemo>
 
@@ -212,6 +215,7 @@ The following example calls the ``exclude()`` method on the
       :language: python
 
    .. output::
+      :visible: false
 
       <QuerySet [<Movie: The Iron Horse>, <Movie: Le grand jeu>,
       <Movie: The Devil Is a Woman>, <Movie: Children in the Wind>,
@@ -316,6 +320,7 @@ includes the text ``"coming-of-age"``:
       :language: python
 
    .. output::
+      :visible: false
 
       <QuerySet [<Movie: Murmur of the Heart>, <Movie: Desert Bloom>,
       <Movie: Girls Town>, <Movie: Get Real>, <Movie: Man of Steel>,
@@ -359,10 +364,6 @@ matching criteria for text values:
      - | Matches field values that are less or equal to than the specified
          value.
 
-   * - ``__ne``
-     - | Matches field values that are not equal
-         to the specified value.
-
 
 Example
 ```````
@@ -380,6 +381,7 @@ is less than or equal to ``50``:
       :language: python
 
    .. output::
+      :visible: false
 
       <QuerySet [<Movie: The Great Train Robbery>, <Movie: A Corner in Wheat>,
       <Movie: Winsor McCay, the Famous Cartoonist of the N.Y. Herald and His Moving Comics>,
@@ -412,10 +414,11 @@ Example
 
 This example uses a lookup that spans the ``Movie`` and ``Award``
 relationship. The ``Movie`` model's ``awards`` field has an
-embedded ``Award`` model value, which represents the ``awards`` 
-object field in the MongoDB collection and its nested ``wins``, 
-``nominations``, and ``text`` fields. The code uses a lookup to query for
-documents in which the ``awards.wins`` nested field value is ``93``:
+embedded ``Award`` model value. This embedded model represents
+the ``awards``  object field in the ``sample_mflix.movies`` collection
+and its nested ``wins``,  ``nominations``, and ``text`` fields. The
+following code uses a lookup to query for documents in which the ``awards.wins``
+nested field value is ``93``:
 
 .. io-code-block::
    :copyable:
@@ -426,6 +429,7 @@ documents in which the ``awards.wins`` nested field value is ``93``:
       :language: python
 
    .. output::
+      :visible: false
 
       <QuerySet [<Movie: The Queen>, <Movie: Dallas Buyers Club>]>
 
@@ -456,6 +460,7 @@ begins with the text ``"nominated"``, instructing
       :language: python
 
    .. output::
+      :visible: false
 
       <QuerySet [<Movie: Hallelujah>, <Movie: Little Caesar>,
       <Movie: Morocco>, <Movie: Romance>, <Movie: The Guardsman>,
@@ -509,6 +514,7 @@ This example performs the following actions:
       :language: python
 
    .. output::
+      :visible: false
 
       <QuerySet [<Movie: Rocky>, <Movie: Rocky II>, <Movie: Rocky III>,
       <Movie: Rocky IV>, <Movie: Rocky V>, <Movie: Rocky Marciano>,
@@ -556,6 +562,7 @@ This example performs the following actions:
       :language: python
 
    .. output::
+      :visible: false
 
       <QuerySet [<Movie: Inception>, <Movie: Winter's Bone>]>
 
@@ -583,21 +590,142 @@ for the first document in which the ``genres`` value is
       :language: python
 
    .. output::
+      :visible: false
 
       <Movie: The Crew>
 
 
-Advanced Queries
-----------------
+Advanced Field Queries
+----------------------
+
+This section describes how to run queries on the
+following field types:
+
+- :ref:`JSONField <django-query-jsonfield>`
+- :ref:`Primary Key <django-query-primary-key>`
+
+.. _django-query-jsonfield:
 
 Query a JSONField
 ~~~~~~~~~~~~~~~~~
 
+You can query data stored in a ``JSONField`` value by using the 
+same syntax as show in the :ref:`django-query-span-relationships`
+section. Chain each field and nested field name together, separated
+by double underscores (``__``), until you reach the field you want
+to query.
+
+The following example queries the ``imdb`` field, a ``JSONField``,
+for values of its nested ``votes`` field that exceed ``900000``:
+
+.. io-code-block::
+   :copyable:
+
+   .. input:: /includes/interact-data/specify-a-query.py
+      :start-after: start-json
+      :end-before: end-json
+      :language: python
+
+   .. output::
+      :visible: false
+
+      <QuerySet [<Movie: La nao capitana>, <Movie: The Godfather>,
+      <Movie: This Is Spinal Tap>, <Movie: Forrest Gump>, <Movie: Pulp Fiction>,
+      <Movie: The Shawshank Redemption>, <Movie: Se7en>,
+      <Movie: The Lord of the Rings: The Fellowship of the Ring>,
+      <Movie: The Matrix>, <Movie: Fight Club>,
+      <Movie: The Lord of the Rings: The Return of the King>,
+      <Movie: The Lord of the Rings: The Two Towers>, <Movie: The Shawshank Redemption>,
+      <Movie: Landet som icke èr>, <Movie: The Dark Knight>,
+      <Movie: The Danish Girl>, <Movie: The Dark Knight Rises>, <Movie: Inception>,
+      <Movie: Catching the Sun>, <Movie: Scouts Guide to the Zombie Apocalypse>,
+      '...(remaining elements truncated)...']>
+
+JSONField Transforms
+````````````````````
+
+You can use the ``KT()`` method to specify a key, index, or path
+transform of a ``JSONField``. For example, the following code uses
+the ``annotate()`` and ``KT()`` methods to create a new ``score`` key, which
+stores ``imdb.rating`` nested field values. Then, the code sorts 
+each document in the ``sample_mflix.movies`` collection by 
+their descending ``score`` values:
+
+.. io-code-block::
+   :copyable:
+
+   .. input:: /includes/interact-data/specify-a-query.py
+      :start-after: start-kt
+      :end-before: end-kt
+      :language: python
+
+   .. output::
+      :visible: false
+
+      <QuerySet [<Movie: No Tomorrow>, <Movie: The Deposit>, <Movie: Man Down>,
+      <Movie: Convenience>, <Movie: Scouts Guide to the Zombie Apocalypse>,
+      <Movie: Another World>, <Movie: The Danish Girl>, <Movie: Ad Inexplorata>,
+      <Movie: Landet som icke èr>, <Movie: The Ghost and the Whale>,
+      <Movie: Coming to Terms>, <Movie: La nao capitana>, <Movie: All Eyes and Ears>,
+      <Movie: Catching the Sun>, <Movie: Manhattan Romance>, <Movie: Anomalisa>,
+      <Movie: Outliving Emily>, <Movie: Mary Loss of Soul>,
+      <Movie: The Childhood of a Leader>, <Movie: Krot na more>,
+      '...(remaining elements truncated)...']>
+
+.. _django-query-primary-key:
+
 Query a Primary Key Field
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Run a Destructive Operation
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+You can use the ``pk`` lookup shortcut to query primary key
+values, which MongoDB stores as ``ObjectId`` values.
+
+The following example queries the ``sample_mflix.movies`` collection
+for a document whose primary key is ``ObjectId("573a1394f29313caabce0d37")``:
+
+.. io-code-block::
+   :copyable:
+
+   .. input:: /includes/interact-data/specify-a-query.py
+      :start-after: start-primary-key-pk
+      :end-before: end-primary-keypk
+      :language: python
+
+   .. output::
+      :visible: false
+     
+      // Your ObjectId values might differ
+
+      <Movie: Vertigo>
+
+The ``Movie`` model, which represents the ``sample_mflix.movies`` collection,
+uses the ``id`` field as its primary key. The following example constructs
+the same query as the preceding code:
+
+.. io-code-block::
+   :copyable:
+
+   .. input:: /includes/interact-data/specify-a-query.py
+      :start-after: start-primary-key-id
+      :end-before: end-primary-key-id
+      :language: python
+
+   .. output::
+      :visible: false
+     
+      // Your ObjectId values might differ
+
+      <Movie: Vertigo>
 
 Additional Information
 ----------------------
+
+To learn how to run raw database queries using MongoDB's aggregation 
+pipeline syntax, rather than ``QuerySet`` API functions, see the
+:ref:`django-raw-queries` guide.
+
+To learn how to perform other ``QuerySet`` operations, see the
+:ref:`django-crud` guide.
+
+To learn more about Django queries, see `Making queries <{+django-docs+}/topics/db/queries>`__
+in the Django documentation.

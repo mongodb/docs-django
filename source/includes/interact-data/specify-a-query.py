@@ -17,6 +17,7 @@ class Movie(models.Model):
     released = models.DateTimeField("release date", null=True, blank=True)
     awards = EmbeddedModelField(Award)
     genres = ArrayField(models.CharField(max_length=100), null=True, blank=True)
+    imdb = models.JSONField(null=True)
 
     class Meta:
         db_table = "movies"
@@ -63,9 +64,27 @@ Movie.objects.filter(title__startswith="Rocky").order_by("released")
 # end-sort
 
 # start-limit
-Movie.objects.filter(released=timezone.make_aware(datetime(2010, 7, 1)))[3:6]
+Movie.objects.filter(released=timezone.make_aware(datetime(2010, 7, 16)))[2:4]
 # end-limit
 
 # start-first
 Movie.objects.filter(genres=["Crime", "Comedy"]).first()
 # end-first
+
+# start-json
+Movie.objects.filter(imdb__votes__gt=900000)
+# end-json
+
+# start-kt
+from django.db.models.fields.json import KT
+
+Movie.objects.annotate(score=KT("imdb__rating")).all().order_by("-score")
+# end-kt
+
+# start-primary-key-pk
+Movie.objects.get(pk=ObjectId("573a1394f29313caabce0d37"))
+# end-primary-key-pk
+
+# start-primary-key-id
+Movie.objects.get(id=ObjectId("573a1394f29313caabce0d37"))
+# end-primary-key-id
