@@ -101,9 +101,9 @@ Retrieve All Documents
 ~~~~~~~~~~~~~~~~~~~~~~
 
 To retrieve all documents from a collection, call the ``all()``
-method on the collection's corresponding Django model.
+function on the collection's corresponding Django model.
 
-The following example calls the ``all()`` method on the
+The following example calls the ``all()`` function on the
 ``Movie`` model to retrieve all documents in the ``sample_mflix.movies``
 collection:
 
@@ -135,11 +135,11 @@ Retrieve Matching Documents
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To query a collection for documents that match a set of criteria,
-call the ``filter()`` method on the collection's corresponding Django
-model. Pass a query filter to the ``filter()`` method that specifies your
+call the ``filter()`` function on the collection's corresponding Django
+model. Pass a query filter to the ``filter()`` function that specifies your
 query criteria.
 
-The following example calls the ``filter()`` method on the
+The following example calls the ``filter()`` function on the
 ``Movie`` model to query the ``sample_mflix.movies`` collection
 for documents that have a ``runtime`` value of ``300``:
 
@@ -163,19 +163,19 @@ Retrieve One Document
 ~~~~~~~~~~~~~~~~~~~~~
 
 To retrieve one document from a collection, call the ``get()``
-method on the collection's corresponding Django model. Pass 
-a query filter to the ``get()`` method that specifies your
+function on the collection's corresponding Django model. Pass 
+a query filter to the ``get()`` function that specifies your
 query criteria.
 
 .. important::
 
    If your query matches no documents or multiple documents, the ``get()``
-   method generates an error. To retrieve one document from a query
+   function generates an error. To retrieve one document from a query
    that might match multiple, use the :ref:`first() <django-query-first>`
-   method.
+   function.
 
 
-The following example calls the ``get()`` method on the
+The following example calls the ``get()`` function on the
 ``Movie`` model to retrieve one document that has a ``title``
 value of ``"Finding Nemo"``:
 
@@ -198,11 +198,11 @@ Exclude Matching Documents
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To query a collection for documents that do not meet your
-search criteria, call the ``exclude()`` method on the collection's
+search criteria, call the ``exclude()`` function on the collection's
 corresponding Django model. Pass the exclusion criteria as an 
-argument to the ``exclude()`` method.
+argument to the ``exclude()`` function.
 
-The following example calls the ``exclude()`` method on the
+The following example calls the ``exclude()`` function on the
 ``Movie`` model to exclude documents released before January 1,
 1980 from the results:
 
@@ -489,7 +489,7 @@ Sort Results
 ~~~~~~~~~~~~
 
 You can provide a sort order for your query results by using the
-``order_by()`` method. To specify an ascending sort based on values
+``order_by()`` function. To specify an ascending sort based on values
 of a given field, pass the field name as an argument. To specify a descending
 sort, pass the field name prefixed with a minus symbol (``-``) as an argument.
 
@@ -498,7 +498,7 @@ Example
 
 This example performs the following actions:
 
-- Calls the ``filter()`` method on the ``Movie`` model to query
+- Calls the ``filter()`` function on the ``Movie`` model to query
   the ``sample_mflix.movies`` collection
 - Queries documents that have a ``title`` value starting
   with the text ``"Rocky"``
@@ -542,12 +542,15 @@ If you omit the ``<start>`` value, the query returns each result,
 beginning with the first match, until it returns the number specified
 by the ``<end>`` value.
 
+If you omit the ``<end>`` value, the query returns each result
+but skips the number of initial results specified by ``<start>``.
+
 Example
 ```````
 
 This example performs the following actions:
 
-- Calls the ``filter()`` method on the ``Movie`` model to query
+- Calls the ``filter()`` function on the ``Movie`` model to query
   the ``sample_mflix.movies`` collection
 - Queries documents that have a ``released`` value of 
   ``datetime(2010, 7, 16)`` (July 16, 2010)
@@ -572,11 +575,11 @@ Retrieve the First Result
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To retrieve the first result from a query that might match
-multiple results, chain the ``first()`` method to the ``filter()``
-method. Pass a query filter to the ``filter()`` method that specifies your
+multiple results, chain the ``first()`` function to the ``filter()``
+function. Pass a query filter to the ``filter()`` function that specifies your
 query criteria.
 
-The following example calls the ``filter()`` and ``first()`` methods on the
+The following example calls the ``filter()`` and ``first()`` functions on the
 ``Movie`` model to query the ``sample_mflix.movies`` collection
 for the first document in which the ``genres`` value is 
 ``["Crime", "Comedy"]``:
@@ -644,9 +647,9 @@ for values of its nested ``votes`` field that exceed ``900000``:
 JSONField Transforms
 ````````````````````
 
-You can use the ``KT()`` method to specify a key, index, or path
+You can use the ``KT()`` function to specify a key, index, or path
 transform of a ``JSONField``. For example, the following code uses
-the ``annotate()`` and ``KT()`` methods to create a new ``score`` key, which
+the ``annotate()`` and ``KT()`` functions to create a new ``score`` key, which
 stores ``imdb.rating`` nested field values. Then, the code sorts 
 each document in the ``sample_mflix.movies`` collection by 
 their descending ``score`` values:
@@ -688,7 +691,7 @@ for a document whose primary key is ``ObjectId("573a1394f29313caabce0d37")``:
 
    .. input:: /includes/interact-data/specify-a-query.py
       :start-after: start-primary-key-pk
-      :end-before: end-primary-keypk
+      :end-before: end-primary-key-pk
       :language: python
 
    .. output::
