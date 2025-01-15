@@ -65,5 +65,5 @@ a Django database backend that uses PyMongo to connect to MongoDB.
 Issues & Help
 -------------
 
- Learn how to report bugs, contribute to {+django-odm+}, and find more resources for
- asking questions and receiving help in the :ref:`Issues & Help <django-issues-and-help>` section.
+Learn how to report bugs, contribute to {+django-odm+}, and find more resources for
+receiving help in the :ref:`Issues & Help <django-issues-and-help>` section.
