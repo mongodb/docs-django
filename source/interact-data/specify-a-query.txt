@@ -304,8 +304,8 @@ Example
 ```````
 
 The following example uses the ``__contains`` lookup to 
-query for documents in which the ``plot`` field
-includes ``"coming-of-age"``:
+query for documents in which the ``plot`` value
+includes the text ``"coming-of-age"``:
 
 .. io-code-block::
    :copyable:
@@ -397,7 +397,76 @@ is less than or equal to ``50``:
 Filter Across Relationships
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This example
+You can run operations on your model that query fields of related
+models. To query across relationships, specify each related field
+name separated by double underscores (``__``) until you reach the 
+field you want to query, as shown in the following code:
+
+.. code-block:: python
+   :copyable: false
+
+   Model.objects.filter(<model field>__<related model field>=<value>)
+
+Example
+```````
+
+This example uses a lookup that spans the ``Movie`` and ``Award``
+relationship. The ``Movie`` model's ``awards`` field has an
+embedded ``Award`` model value, which represents the ``awards`` 
+object field in the MongoDB collection and its nested ``wins``, 
+``nominations``, and ``text`` fields. The code uses a lookup to query for
+documents in which the ``awards.wins`` nested field value is ``93``:
+
+.. io-code-block::
+   :copyable:
+
+   .. input:: /includes/interact-data/specify-a-query.py
+      :start-after: start-filter-relationships
+      :end-before: end-filter-relationships
+      :language: python
+
+   .. output::
+
+      <QuerySet [<Movie: The Queen>, <Movie: Dallas Buyers Club>]>
+
+.. _django-query-combine:
+
+Combine Lookups
+~~~~~~~~~~~~~~~
+
+You can combine field lookups to further specify your
+query criteria. To combine lookups, chain each lookup
+type together and separate them with a double underscore
+(``__``).
+
+Example
+```````
+
+The following example combines lookup types to query for documents
+in which the value of the ``awards.text`` nested field
+begins with the text ``"nominated"``, instructing 
+{+django-odm+} to perform a case-insensitive text search: 
+
+.. io-code-block::
+   :copyable:
+
+   .. input:: /includes/interact-data/specify-a-query.py
+      :start-after: start-filter-combine
+      :end-before: end-filter-combine
+      :language: python
+
+   .. output::
+
+      <QuerySet [<Movie: Hallelujah>, <Movie: Little Caesar>,
+      <Movie: Morocco>, <Movie: Romance>, <Movie: The Guardsman>,
+      <Movie: The Front Page>, <Movie: The Public Enemy>,
+      <Movie: è Nous la Libertè>, <Movie: Smilin' Through>,
+      <Movie: Flying Down to Rio>, <Movie: She Done Him Wrong>,
+      <Movie: State Fair>, <Movie: The Barretts of Wimpole Street>,
+      <Movie: Imitation of Life>, <Movie: The Lost Patrol>,
+      <Movie: Alice Adams>, <Movie: Black Fury>, <Movie: David Copperfield>,
+      <Movie: Les Misèrables>, <Movie: Roberta>,
+      '...(remaining elements truncated)...']>
 
 Modify Query Results
 --------------------
@@ -414,15 +483,108 @@ results in the following ways:
 Sort Results
 ~~~~~~~~~~~~
 
+You can provide a sort order for your query results by using the
+``order_by()`` method. To specify an ascending sort based on values
+of a given field, pass the field name as an argument. To specify a descending
+sort, pass the field name prefixed with a minus symbol (``-``) as an argument.
+
+Example
+```````
+
+This example performs the following actions:
+
+- Calls the ``filter()`` method on the ``Movie`` model to query
+  the ``sample_mflix.movies`` collection
+- Queries documents that have a ``title`` value starting
+  with the text ``"Rocky"``
+- Sorts the results in ascending order of their ``released`` field
+  values
+
+.. io-code-block::
+   :copyable:
+
+   .. input:: /includes/interact-data/specify-a-query.py
+      :start-after: start-sort
+      :end-before: end-sort
+      :language: python
+
+   .. output::
+
+      <QuerySet [<Movie: Rocky>, <Movie: Rocky II>, <Movie: Rocky III>,
+      <Movie: Rocky IV>, <Movie: Rocky V>, <Movie: Rocky Marciano>,
+      <Movie: Rocky Balboa>]>
+
 .. _django-query-limit:
 
 Limit Results
 ~~~~~~~~~~~~~
 
+You can specify the number of results that a query returns
+by using Python's array-slicing syntax, as shown
+in the following code:
+
+.. code-block:: python
+   :copyable: false
+
+   Model.objects.filter(<query filter>)[<start>:<end>]
+
+Replace the ``<start>`` and ``<end>`` placeholders with integer
+values representing the subset of results you want to return.
+The start value is non-inclusive and the end value is inclusive.
+
+If you omit the ``<start>`` value, the query returns each result,
+beginning with the first match, until it returns the number specified
+by the ``<end>`` value.
+
+Example
+```````
+
+This example performs the following actions:
+
+- Calls the ``filter()`` method on the ``Movie`` model to query
+  the ``sample_mflix.movies`` collection
+- Queries documents that have a ``released`` value of 
+  ``datetime(2010, 7, 16)`` (July 16, 2010)
+- Returns the third and fourth results
+
+.. io-code-block::
+   :copyable:
+
+   .. input:: /includes/interact-data/specify-a-query.py
+      :start-after: start-limit
+      :end-before: end-limit
+      :language: python
+
+   .. output::
+
+      <QuerySet [<Movie: Inception>, <Movie: Winter's Bone>]>
+
 .. _django-query-first:
 
 Retrieve the First Result
 ~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To retrieve the first result from a query that might match
+multiple results, chain the ``first()`` method to the ``filter()``
+method. Pass a query filter to the ``filter()`` method that specifies your
+query criteria.
+
+The following example calls the ``filter()`` and ``first()`` methods on the
+``Movie`` model to query the ``sample_mflix.movies`` collection
+for the first document in which the ``genres`` value is 
+``["Crime", "Comedy"]``:
+
+.. io-code-block::
+   :copyable:
+
+   .. input:: /includes/interact-data/specify-a-query.py
+      :start-after: start-first
+      :end-before: end-first
+      :language: python
+
+   .. output::
+
+      <Movie: The Crew>
 
 
 Advanced Queries
