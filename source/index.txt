@@ -11,13 +11,14 @@ Django MongoDB Backend
 
 .. toctree::
 
+    Connection Configuration </connect>
     Issues & Help </issues-and-help>
     Compatibility </compatibility>
 
 
 .. TODO:
    Get Started </get-started>
-   Connection Configuration </connect>
+
    Interact with Data </interact-data>
    Model Your Data </model-data>
    Django Feature Limitations </feature-limitations>
@@ -37,11 +38,11 @@ a Django database backend that uses PyMongo to connect to MongoDB.
 .. Learn how to install {+django-odm+}, establish a connection to MongoDB, and begin
    working with data in the :ref:`django-get-started` tutorial.
 
-.. Connect to MongoDB
-.. ------------------
+Connection Configuration
+------------------------
 
-.. Learn how to configure a connection to a MongoDB deployment
-   in the :ref:`django-connection-configuration` section.
+Learn how to configure a connection to a MongoDB deployment
+in the :ref:`django-connection-configuration` section.
 
 .. Interact with Data
 .. ------------------
