@@ -403,7 +403,7 @@ You can use ``Q`` objects to create query filters with multiple
 sets of matching criteria. To create a ``Q`` object, pass your query
 filter to the ``Q()`` method. You can pass multiple ``Q`` objects as 
 arguments to your query method and separate each Q object by an OR
-(``|``), AND (``&``), or NOT (``^``) operator. You can also negate
+(``|``), AND (``&``), or XOR (``^``) operator. You can also negate
 ``Q`` objects by prefixing them with the ``~`` symbol. The following example
 shows the syntax for passing multiple ``Q`` objects to the ``filter()``
 method:
@@ -733,7 +733,7 @@ provided ``KT()`` expressions.
    see the following resources in the Django documentation:
 
    - `KT() expressions <{+django-docs+}/topics/db/queries/#module-django.db.models.fields.json>`__
-   - `annotate() <{+django-docs+}/models/querysets/#django.db.models.query.QuerySet.annotate>`__
+   - `annotate() <{+django-docs+}/ref/models/querysets/#django.db.models.query.QuerySet.annotate>`__
 
 The following example uses  ``annotate()`` and ``KT()`` to create a
 new ``score`` key, which stores ``imdb.rating`` nested field values.
