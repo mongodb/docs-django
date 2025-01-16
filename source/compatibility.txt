@@ -42,9 +42,9 @@ Language Compatibility
 ----------------------
 
 The following compatibility table specifies the recommended version of
-{+django-odm+} for use with a specific version of Python.
+{+django-odm+} for use with a specific version of Python:
 
 .. include:: /includes/language-compatibility-table-django.rst
 
-For more information on how to read the compatibility tables, see our guide on 
-:ref:`MongoDB Compatibility Tables. <about-driver-compatibility>`
+For more information on how to read the compatibility tables, see our guide on
+:driver:`MongoDB Compatibility Tables. </about-driver-compatibility>`
