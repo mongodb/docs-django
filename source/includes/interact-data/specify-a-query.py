@@ -56,7 +56,9 @@ Movie.objects.filter(awards__wins=93)
 # end-filter-relationships
 
 # start-filter-combine
-Movie.objects.filter(awards__text__istartswith="nominated")
+Movie.objects.filter(
+    (Q(title__startswith="Funny") | Q(title__startswith="Laugh")) 
+    & ~Q(genres__contains=["Comedy"]))
 # end-filter-combine
 
 # start-sort
@@ -70,6 +72,10 @@ Movie.objects.filter(released=timezone.make_aware(datetime(2010, 7, 16)))[2:4]
 # start-first
 Movie.objects.filter(genres=["Crime", "Comedy"]).first()
 # end-first
+
+# start-array
+Movie.objects.filter(genres__overlap=["Adventure", "Family"])
+# end-array
 
 # start-json
 Movie.objects.filter(imdb__votes__gt=900000)
