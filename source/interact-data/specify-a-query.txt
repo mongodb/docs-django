@@ -399,10 +399,10 @@ is less than or equal to ``50``:
 Combine Lookups
 ~~~~~~~~~~~~~~~
 
-You can use ``Q`` objects to create query filters with multiple
+You can use ``Q`` objects to run queries with multiple
 sets of matching criteria. To create a ``Q`` object, pass your query
 filter to the ``Q()`` method. You can pass multiple ``Q`` objects as 
-arguments to your query method and separate each Q object by an OR
+arguments to your query method and separate each ``Q`` object by an OR
 (``|``), AND (``&``), or XOR (``^``) operator. You can also negate
 ``Q`` objects by prefixing them with the ``~`` symbol. The following example
 shows the syntax for passing multiple ``Q`` objects to the ``filter()``
@@ -791,27 +791,17 @@ The ``Movie`` model, which represents the ``sample_mflix.movies`` collection,
 uses the ``id`` field as its primary key. The following example constructs
 the same query as the preceding code:
 
-.. io-code-block::
-   :copyable:
-
-   .. input:: /includes/interact-data/specify-a-query.py
-      :start-after: start-primary-key-id
-      :end-before: end-primary-key-id
-      :language: python
-
-   .. output::
-      :visible: false
-     
-      // Your ObjectId values might differ
-
-      <Movie: Vertigo>
+.. literalinclude:: /includes/interact-data/specify-a-query.py
+    :language: python
+    :dedent:
+    :start-after: start-primary-key-id
+    :end-before: end-primary-key-id
 
 Additional Information
 ----------------------
 
-To learn how to run raw database queries using MongoDB's aggregation 
-pipeline syntax, rather than ``QuerySet`` API methods, see the
-:ref:`django-raw-queries` guide.
+To learn how to run raw database queries by using MongoDB's aggregation 
+pipeline syntax, see the :ref:`django-raw-queries` guide.
 
 To learn how to perform other ``QuerySet`` operations, see the
 :ref:`django-crud` guide.
