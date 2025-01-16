@@ -263,7 +263,7 @@ in the following ways:
 
 - :ref:`django-query-text-match`
 - :ref:`django-query-comparison`
-- :ref:`django-query-span-relationships`
+- :ref:`django-query-combine`
 
 .. _django-query-text-match:
 
@@ -393,8 +393,6 @@ is less than or equal to ``50``:
       <Movie: Meshes of the Afternoon>, <Movie: The Memphis Belle: A Story of a Flying Fortress>,
       <Movie: Report from the Aleutians>, <Movie: Saludos Amigos>,
       '...(remaining elements truncated)...']>
-
-
 
 .. _django-query-combine:
 
@@ -579,6 +577,7 @@ This section describes how to run queries on the
 following field types:
 
 - :ref:`EmbeddedModelField <django-query-embedded>`
+- :ref:`ArrayField <django-query-arrayfield>`
 - :ref:`JSONField <django-query-jsonfield>`
 - :ref:`Primary Key <django-query-primary-key>`
 
