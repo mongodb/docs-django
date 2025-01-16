@@ -9,6 +9,7 @@ intersphinx = [ "https://www.mongodb.com/docs/manual/objects.inv",
 
 [constants]
 django-odm = "Django MongoDB Backend"
-django-version = "5.0"
 api = "https://django-mongodb.readthedocs.io/en/latest/"
+mdb-server = "MongoDB Server"
+django-version = "5.0"
 django-docs = "https://docs.djangoproject.com/en/{+django-version+}"
