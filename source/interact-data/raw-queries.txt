@@ -25,11 +25,19 @@ raw queries on your MongoDB database. Raw queries allow you to
 query the database by using MongoDB's aggregation pipeline syntax
 rather than Django methods.
 
-The Django QuerySet API provides a ``QuerySet.raw()`` method, which allows
+The Django ``QuerySet`` API provides a ``QuerySet.raw()`` method, which allows
 you to perform raw SQL queries on relational databases. However, {+django-odm+}
 does not support the ``raw()`` method. Instead, the ODM provides the
 ``QuerySet.raw_aggregate()`` method, which you can use to send instructions
 to the database in pipeline stages.
+
+.. note::
+
+   Django provides a ``QuerySet.aggregate()`` method, which differs from the
+   ``QuerySet.raw_aggregate()`` method. You can use ``aggregate()`` to retrieve
+   values by aggregating a collection of model objects. To learn more about
+   the ``aggregate()`` method, see `Aggregation <{+django-docs+}/topics/db/aggregation/>`__
+   in the Django documentation.
 
 Sample Data
 ~~~~~~~~~~~
