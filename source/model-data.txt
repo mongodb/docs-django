@@ -1,0 +1,25 @@
+.. _django-model-data:
+
+===============
+Model Your Data
+===============
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 2
+   :class: singlecol
+
+.. facet::
+   :name: genre
+   :values: reference
+ 
+.. meta::
+   :description: Learn how to use Django MongoDB Backend to model MongoDB data.
+   :keywords: field, query, collection, object
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   Create Indexes </model-data/indexes>
