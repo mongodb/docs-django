@@ -76,9 +76,6 @@ cuisine = models.CharField(max_length=200, unique=True)
 # start-unique-compound
 class Meta:
     db_table = "recipes"
-    indexes = [
-        models.Index(fields=["title", "cuisine"]),
-    ]
     constraints = [
         models.UniqueConstraint(fields=["title", "cuisine"],
                                 name="unique_regional_meal"),
@@ -89,7 +86,7 @@ class Meta:
 class Meta:
     db_table = "recipes"
     indexes = [
-        models.Index(F("cook_time") + F("prep_time"),
+        models.Index(expressions=F("cook_time") + F("prep_time"),
                      name="total_time_idx"),
     ]
 # end-expression

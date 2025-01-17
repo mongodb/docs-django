@@ -21,12 +21,12 @@ Overview
 --------
 
 In this guide, you can learn how to create MongoDB **indexes** by using your
-Django models. Indexes can improve the efficiency of queries and add
+Django models. Indexes can improve the efficiency of queries and provide
 additional query and document storage functionality.
 
 Without indexes, MongoDB must scan every document in a collection to find the
-documents that match each query. These collection scans are
-slow and can negatively affect the performance of your application. However, if an
+documents that match a query. These collection scans are slow and can
+negatively affect the performance of your application. However, if an
 appropriate index exists for a query, MongoDB can use the index to limit the
 documents it inspects.
 
@@ -53,10 +53,11 @@ These model classes have the following definitions:
    :language: python
    :copyable:
 
-The ``db_table = "recipes"`` option instructs {+django-odm+} to map the ``Recipe``
-model to a MongoDB collection called ``recipes``. To learn how to
-create a Django application that uses models to interact with MongoDB
-collections, visit the :ref:`django-get-started` tutorial.
+In the ``Recipe`` model's ``Meta`` class, the ``db_table = "recipes"`` option
+instructs {+django-odm+} to map the ``Recipe`` model to a MongoDB collection
+called ``recipes``. To learn how to create a Django application that
+uses models to interact with MongoDB collections, visit the
+:ref:`django-get-started` tutorial.
 
 Create an Index
 ---------------
@@ -80,7 +81,7 @@ To define your index, pass the following arguments to the ``models.Index()`` met
 
 - ``expressions``: Specifies a database expression to index. If you don't pass
   the ``fields`` argument, this argument is required. To learn more about this
-  argument, see the :ref:`django-indexes-functions` section of this guide.
+  argument, see the :ref:`django-indexes-expressions` section of this guide.
 
 - ``fields``: Specifies a list of fields to index. If you don't pass the
   ``expressions`` argument, this argument is required.
@@ -203,7 +204,7 @@ index types:
 
 - :ref:`django-indexes-partial`
 - :ref:`django-indexes-unique`
-- :ref:`django-indexes-functions`
+- :ref:`django-indexes-expressions`
 
 .. _django-indexes-partial:
 
@@ -266,7 +267,7 @@ Compound Example
 ````````````````
 
 The following example updates the ``Recipe`` model's ``Meta`` class to create
-a compound index on the ``title`` and ``cuisine`` fields. Then, the code
+a compound index on the ``title`` and ``cuisine`` fields. The code
 sets the ``constraints`` option to a ``UniqueConstraint`` instance, which
 creates a unique compound index on these fields:
 
@@ -275,17 +276,19 @@ creates a unique compound index on these fields:
    :end-before: end-unique-compound
    :language: python
    :copyable:
-   :emphasize-lines: 6-8
+   :emphasize-lines: 3-6
 
 .. tip::
 
-   To learn more about the ``Meta`` class's ``constraint`` option, see `Constraints
-   <{+django-docs+}/ref/models/constraints/>`__ in the Django documentation.
+   Setting the ``constraints`` option to a ``UniqueConstraint`` automatically
+   creates an index on the specified fields. To learn more about the ``Meta``
+   class's ``constraint`` option, see `Constraints <{+django-docs+}/ref/models/constraints/>`__
+   in the Django documentation.
 
-.. _django-indexes-functions:
+.. _django-indexes-expressions:
 
-Function Indexes
-~~~~~~~~~~~~~~~~
+Expression Indexes
+~~~~~~~~~~~~~~~~~~
 
 To create indexes on expressions and database functions, pass the
 ``expressions`` argument to the ``models.Index()`` method. When using
