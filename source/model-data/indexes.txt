@@ -198,6 +198,13 @@ on the ``recipes`` collection:
 Advanced Index Configuration
 ----------------------------
 
+This section shows how to create the following advanced
+index types:
+
+- :ref:`django-indexes-partial`
+- :ref:`django-indexes-unique`
+- :ref:`django-indexes-functions`
+
 .. _django-indexes-partial:
 
 Partial Indexes
@@ -274,10 +281,10 @@ creates a unique compound index on these fields:
    To learn more about the ``Meta`` class's ``constraint`` option, see `Constraints
    <{+django-docs+}/ref/models/constraints/>`__ in the Django documentation.
 
-.. _django-indexes-expressions:
+.. _django-indexes-functions:
 
-Index Expressions
-~~~~~~~~~~~~~~~~~
+Function Indexes
+~~~~~~~~~~~~~~~~
 
 To create indexes on expressions and database functions, pass the
 ``expressions`` argument to the ``models.Index()`` method. When using
