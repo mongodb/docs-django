@@ -52,7 +52,7 @@ Sample Data
 
 The examples in this guide use the ``Movie`` and ``Theater`` models, which
 represent collections in the ``sample_mflix`` database from the :atlas:`Atlas sample datasets </sample-data>`.
-The ``Movie`` model explicitly sets the ``objects`` field to use a custom ``MongoManager``,
+These models explicitly set the ``objects`` field to use a custom ``MongoManager``,
 rather than Django's default ``Manager`` class. The model classes have the following
 definitions:
 
