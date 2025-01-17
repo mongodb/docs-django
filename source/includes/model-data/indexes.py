@@ -5,7 +5,6 @@ from django_mongodb_backend.fields import EmbeddedModelField, ArrayField
 
 class Nutrition(models.Model):
     calories = models.IntegerField(default=0)
-    fat_grams = models.IntegerField(default=0)
     carb_grams = models.IntegerField(default=0)
     protein_grams = models.IntegerField(default=0)
 
@@ -71,7 +70,7 @@ class Meta:
 # end-partial
 
 # start-unique-single
-title = models.CharField(max_length=200, unique=True)
+cuisine = models.CharField(max_length=200, unique=True)
 # end-unique-single
 
 # start-unique-compound
@@ -81,14 +80,16 @@ class Meta:
         models.Index(fields=["title", "cuisine"]),
     ]
     constraints = [
-        models.UniqueConstraint(fields=["title", "cuisine"], name="unique_regional_meal")
+        models.UniqueConstraint(fields=["title", "cuisine"],
+                                name="unique_regional_meal"),
     ]
 # end-unique-compound
 
-# start-multikey
+# start-expression
 class Meta:
     db_table = "recipes"
     indexes = [
-        models.Index(F("cook_time") + F("prep_time"), name="total_time_idx"),
+        models.Index(F("cook_time") + F("prep_time"),
+                     name="total_time_idx"),
     ]
-# end-multikey
+# end-expression

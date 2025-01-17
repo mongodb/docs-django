@@ -22,13 +22,13 @@ Overview
 
 In this guide, you can learn how to create MongoDB **indexes** by using your
 Django models. Indexes can improve the efficiency of queries and add
-additional functionality to querying and storing documents.
+additional query and document storage functionality.
 
 Without indexes, MongoDB must scan every document in a collection to find the
 documents that match each query. These collection scans are
 slow and can negatively affect the performance of your application. However, if an
 appropriate index exists for a query, MongoDB can use the index to limit the
-documents it must inspect.
+documents it inspects.
 
 Django provides the ``Index`` class, which you can use to create an
 index on your model. {+django-odm+} creates the same index on your
@@ -47,7 +47,7 @@ The examples in this guide use the ``Recipe`` model, which contains an
 embedded ``Nutrition`` model as the value of its ``nutrition`` field.
 These model classes have the following definitions:
 
-.. literalinclude:: /includes/interact-data/specify-a-query.py
+.. literalinclude:: /includes/model-data/indexes.py
    :start-after: start-models
    :end-before: end-models
    :language: python
@@ -76,11 +76,11 @@ code:
            # add more indexes here
        ]
 
-To define your index, pass the following arguments to the ``Index()`` method:
+To define your index, pass the following arguments to the ``models.Index()`` method:
 
 - ``expressions``: Specifies a database expression to index. If you don't pass
   the ``fields`` argument, this argument is required. To learn more about this
-  argument, see the :ref:`django-indexes-expressions` section of this guide.
+  argument, see the :ref:`django-indexes-functions` section of this guide.
 
 - ``fields``: Specifies a list of fields to index. If you don't pass the
   ``expressions`` argument, this argument is required.
@@ -189,8 +189,8 @@ an index on the ``nutrition`` embedded model field, which {+django-odm+} creates
 on the ``recipes`` collection:
 
 .. literalinclude:: /includes/model-data/indexes.py
-   :start-after: start-multikey
-   :end-before: end-multikey
+   :start-after: start-embedded
+   :end-before: end-embedded
    :language: python
    :copyable:
    :emphasize-lines: 3-5
@@ -211,7 +211,7 @@ Partial Indexes
 ~~~~~~~~~~~~~~~
 
 Partial indexes index only the documents in a collection that meet specified
-filter condition, which reduces storage use and performance costs.
+filter criteria, which reduces storage use and performance costs.
 
 To create a partial index, pass the ``condition`` argument to the ``models.Index()``
 method. Set the condition value to a ``Q`` object that includes the filter
@@ -233,7 +233,7 @@ only index documents that have a ``cook_time`` value less than ``30``:
    :end-before: end-partial
    :language: python
    :copyable:
-   :emphasize-lines: 3-5
+   :emphasize-lines: 3-7
 
 .. _django-indexes-unique:
 
@@ -275,6 +275,7 @@ creates a unique compound index on these fields:
    :end-before: end-unique-compound
    :language: python
    :copyable:
+   :emphasize-lines: 6-8
 
 .. tip::
 
@@ -295,11 +296,11 @@ The following example updates the ``Recipe`` model's ``Meta`` class to create
 an index on the sum of the ``cook_time`` and ``prep_time`` values:
 
 .. literalinclude:: /includes/model-data/indexes.py
-   :start-after: start-partial
-   :end-before: end-partial
+   :start-after: start-expression
+   :end-before: end-expression
    :language: python
    :copyable:
-   :emphasize-lines: 3-5
+   :emphasize-lines: 3-7
 
 .. tip::
 
@@ -315,7 +316,7 @@ To learn more about the index types mentioned in this guide,
 see the following {+mdb-server+} manual resources:
 
 - :manual:`Single Field Indexes </core/index-single/>`
-- :manual:`Compound Indexes </core/index-single/>`
+- :manual:`Compound Indexes </core/index-compound/>`
 - :manual:`Multikey Indexes </core/index-multikey/>`
 - :manual:`Embedded Document Indexes </core/index-single/create-embedded-object-index/>`
 - :manual:`Partial Indexes </core/index-partial/>`
