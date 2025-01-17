@@ -25,10 +25,10 @@ raw queries on your MongoDB database. Raw queries allow you to
 query the database by using MongoDB's aggregation pipeline syntax
 rather than Django methods.
 
-The Django ``QuerySet`` API provides a ``QuerySet.raw()`` method, which allows
+The Django ``QuerySet`` API provides a ``raw()`` method, which allows
 you to perform raw SQL queries on relational databases. However, {+django-odm+}
 does not support the ``raw()`` method. Instead, the ODM provides the
-``QuerySet.raw_aggregate()`` method, which you can use to send instructions
+``raw_aggregate()`` method, which you can use to send instructions
 to the database in pipeline stages.
 
 .. note::
@@ -39,12 +39,22 @@ to the database in pipeline stages.
    the ``aggregate()`` method, see `Aggregation <{+django-docs+}/topics/db/aggregation/>`__
    in the Django documentation.
 
+You can run database queries by calling ``QuerySet`` methods on your model's
+``Manager``. The ``Manager`` class handles database operations and allows you
+to interact with your MongoDB data by referencing Django models. By default,
+Django adds a ``Manager`` named ``objects`` to every model class. This default
+``Manager`` does not support the ``raw_aggregate()`` method. To use this
+MongoDB-specific method, set your model's ``objects`` field to a custom
+manager called ``MongoManager``.
+
 Sample Data
 ~~~~~~~~~~~
 
 The examples in this guide use the ``Movie`` and ``Theater`` models, which
 represent collections in the ``sample_mflix`` database from the :atlas:`Atlas sample datasets </sample-data>`.
-The model classes have the following definitions:
+The ``Movie`` model explicitly sets the ``objects`` field to use a custom ``MongoManager``,
+rather than Django's default ``Manager`` class. The model classes have the following
+definitions:
 
 .. literalinclude:: /includes/interact-data/raw-queries.py
    :start-after: start-models
@@ -62,7 +72,7 @@ Run Raw Queries
 ---------------
 
 To run a raw database query, pass an aggregation pipeline
-to the ``QuerySet.raw_aggregate()`` method. Aggregation pipelines
+to the ``raw_aggregate()`` method. Aggregation pipelines
 contain one or more stages that provide instructions on how to
 process documents. After calling the ``raw_aggregate()`` method,
 {+django-odm+} passes your pipeline to the ``pymongo.collection.Collection.aggregate()``
@@ -87,10 +97,9 @@ Filter and Project Document Fields
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This example runs a raw database query by calling the
-``raw_aggregate()`` method on your ``Movie`` objects,
-which represent documents in the ``sample_mflix.movies``
-collection. The code passes the following aggregation pipeline stages
-to ``raw_aggregate()``:
+``raw_aggregate()`` method on your ``Movie`` model's ``MongoManager``,
+which queries the ``sample_mflix.movies`` collection. The code
+passes the following aggregation pipeline stages to ``raw_aggregate()``:
 
 - ``$match``: Filters for documents that have a ``title``
   field value of ``"The Parent Trap"``
