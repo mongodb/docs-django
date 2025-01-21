@@ -45,8 +45,8 @@ the following field types:
 
 .. _django-models-django-fields:
 
-{+framework+} Fields
-~~~~~~~~~~~~~~~~~~~~
+Django Fields
+~~~~~~~~~~~~~
 
 The following table describes the {+framework+} model fields
 that {+django-odm+} supports:
