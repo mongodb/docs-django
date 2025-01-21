@@ -38,7 +38,8 @@ Supported Field Types
 ---------------------
 
 This section describes {+django-odm+}'s support for
-the following field types:
+the following field types, which you can include in
+your models:
 
 - :ref:`django-models-django-fields`
 - :ref:`django-models-mongodb-fields`
@@ -61,7 +62,7 @@ that {+django-odm+} supports:
    * - ``AutoField``
      - | Stores ``IntegerField`` values that automatically increment according to
          available ID values. If you don't explicitly specify this field,
-         MongoDB automatically assigns an ``ObjectId`` primary key value.
+         {+django-odm+} automatically assigns an ``ObjectId`` primary key value.
 
    * - ``BigAutoField``
      - | Stores ``AutoField`` values up to 64 bits in size.
@@ -108,7 +109,7 @@ that {+django-odm+} supports:
      - | Stores float values.
 
    * - ``GenericIPAddressField``
-     - | Stores an Pv4 or IPv6 address in string format.
+     - | Stores an IPv4 or IPv6 address in string format.
 
    * - ``IntegerField``
      - | Stores integer values.
@@ -147,7 +148,7 @@ MongoDB BSON Fields
 ~~~~~~~~~~~~~~~~~~~
 
 MongoDB organizes and stores documents in a binary representation
-called ``BSON`` that allows for flexible data processing.
+called BSON that allows for flexible data processing.
 
 .. tip::
 
@@ -163,7 +164,7 @@ The following table describes supported BSON field types and their
    :widths: 20 20 60
 
    * - BSON Field Type
-     - Django Field Type
+     - {+django-odm+} Field Type
      - BSON Description
 
    * - ``Array``
@@ -262,7 +263,7 @@ models or use existing collections to store model data:
 .. _django-models-define-ex:
 
 Example
-```````
+~~~~~~~
 
 This sample ``models.py`` file defines a ``Movie`` model
 class that includes the following information:
@@ -330,7 +331,7 @@ stores this data in BSON, or Binary JSON, format.
 
 - Some queries that use ``Q`` objects might not return the expected results.
 
-- When querying for field that have a ``None`` value, {+django-odm+} incorrectly
+- When querying for fields that have a ``None`` value, {+django-odm+} incorrectly
   returns documents in which the field doesn't exist.
 
 Example
