@@ -43,45 +43,9 @@ To learn more about the ``sample_mflix`` database, see :atlas:`Sample Mflix Data
       Open the ``models.py`` file in the ``sample_mflix`` directory and replace 
       its contents with the following code:
 
-      .. code-block:: python
-
-         from django.db import models
-         from django_mongodb_backend.fields import EmbeddedModelField, ArrayField
-
-         class Award(models.Model):
-             wins = models.IntegerField(default=0)
-             nominations = models.IntegerField(default=0)
-             text = models.CharField(max_length=100)
-
-             class Meta:
-                 managed = False
-
-         class Movie(models.Model):
-             title = models.CharField(max_length=200)
-             plot = models.TextField(blank=True)
-             runtime = models.IntegerField(default=0)
-             released = models.DateTimeField("release date", null=True, blank=True)
-             awards = EmbeddedModelField(Award, null=True, blank=True)
-             genres = ArrayField(models.CharField(max_length=100), null=True, blank=True)
-
-             class Meta:
-                 db_table = "movies"
-                 managed = False
-            
-             def __str__(self):
-                 return self.title
-
-         class Viewer(models.Model):
-             name = models.CharField(max_length=100)
-             email = models.CharField(max_length=200)
-             password = models.CharField(max_length=100)
-
-             class Meta:
-                 db_table = "users"
-                 managed = False
-
-             def __str__(self):
-                 return self.name
+      .. literalinclude:: /includes/get-started/models.py
+         :language: python
+         :copyable:
 
       The ``Movie`` model represents the ``sample_mflix.movies`` collection
       and stores information about movies. This model contains an embedded 
@@ -100,23 +64,9 @@ To learn more about the ``sample_mflix`` database, see :atlas:`Sample Mflix Data
       Open the ``views.py`` file in your ``sample_mflix`` directory and replace
       its contents with the following code:
       
-      .. code-block:: python
-
-         from django.http import HttpResponse
-         from django.shortcuts import render
-
-         from .models import Movie, Viewer
-
-         def index(request):
-             return HttpResponse("Hello, world. You're at the application index.")
-
-         def recent_movies(request):
-             movies = Movie.objects.order_by("-released")[:5]
-             return render(request, "recent_movies.html", {"movies": movies})
-
-         def viewers_list(request):
-             viewers = Viewer.objects.order_by("name")[:10]
-             return render(request, "viewers_list.html", {"viewers": viewers})
+      .. literalinclude:: /includes/get-started/views.py
+         :language: python
+         :copyable:
 
       These views display a landing page message and information about your ``Movie``
       and ``Viewer`` models.
@@ -127,18 +77,10 @@ To learn more about the ``sample_mflix`` database, see :atlas:`Sample Mflix Data
       To map the views defined in the preceding step to URLs, paste the following
       code into ``urls.py``:
       
-      .. code-block:: python
+      .. literalinclude:: /includes/get-started/urls.py
+         :language: python
+         :copyable:
 
-         from django.urls import path
-
-         from . import views
-
-         urlpatterns = [
-             path("", views.index, name="index"),
-             path("recent_movies/", views.recent_movies, name="recent_movies"),
-             path("viewers_list/", views.viewers_list, name="viewers_list"),
-         ]
-      
       Then, navigate to the ``quickstart/urls.py`` file and replace its contents with
       the following code:
 
@@ -158,69 +100,18 @@ To learn more about the ``sample_mflix`` database, see :atlas:`Sample Mflix Data
       ``templates``. Then, create a file called ``recent_movies.html``
       and paste the following code:
       
-      .. code-block:: html
-
-         <!-- templates/recent_movies.html -->
-         <!DOCTYPE html>
-         <html lang="en">
-         <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Recent Movies</title>
-         </head>
-         <body>
-            <h1>Five Most Recent Movies</h1>
-            <ul>
-               {% for movie in movies %}
-                     <li>
-                        <strong>{{ movie.title }}</strong> (Released: {{ movie.released }})
-                     </li>
-               {% empty %}
-                     <li>No movies found.</li>
-               {% endfor %}
-            </ul>
-         </body>
-         </html>
+      .. literalinclude:: /includes/get-started/recent_movies.html
+         :language: html
+         :copyable:
       
       This template formats the movie data requested by the ``recent_movies`` view.
 
       Create another file in the ``sample_mflix/templates`` directory called
       ``viewers_list.html`` and paste the following code:
 
-      .. code-block:: html
-
-         <!-- templates/viewers_list.html -->
-         <!DOCTYPE html>
-         <html lang="en">
-         <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Viewers List</title>
-         </head>
-         <body>
-            <h1>Alphabetical Viewers List</h1>
-            <table>
-               <thead>
-                     <tr>
-                        <th>Name</th>
-                        <th>Email</th>
-                     </tr>
-               </thead>
-               <tbody>
-                     {% for viewer in viewers %}
-                        <tr>
-                           <td>{{ viewer.name }}</td>
-                           <td>{{ viewer.email }}</td>
-                        </tr>
-                     {% empty %}
-                        <tr>
-                           <td colspan="2">No viewer found.</td>
-                        </tr>
-                     {% endfor %}
-               </tbody>
-            </table>
-         </body>
-         </html>
+      .. literalinclude:: /includes/get-started/viewers_list.html
+         :language: html
+         :copyable:
 
       This template formats the user data requested by the ``viewers_list`` view.
 
