@@ -96,6 +96,7 @@ the ``QuerySet`` API:
 - :ref:`filter() <django-query-retrieve-matching>`
 - :ref:`get() <django-query-retrieve-one>`
 - :ref:`exclude() <django-query-exclude>`
+- :ref:`raw_aggregate() <django-query-raw>`
 
 .. _django-query-retrieve-all:
 
@@ -234,6 +235,20 @@ exclude documents released before January 1, 1980 from the results:
    to query the collection. To learn more about comparison
    lookups, see the :ref:`django-query-comparison` section
    in this guide.
+
+.. _django-query-raw:
+
+Run Raw Database Queries
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+If you want to run complex queries that Django's query API
+cannot express, you can use the ``raw_aggregate()`` method. This
+method allows you to specify your query criteria in a MongoDB
+aggregation pipeline, which you pass as an argument to 
+``raw_aggregate()``. 
+
+To learn how to run raw database queries, see the :ref:`django-raw-queries`
+guide.
 
 Customize Your Query Filter
 ---------------------------
@@ -399,25 +414,32 @@ is less than or equal to ``50``:
 Combine Lookups
 ~~~~~~~~~~~~~~~
 
+You can run queries that use multiple sets of matching criteria
+in the following ways:
+
+- Pass multiple query filters to your query method, separated
+  by commas. To view an example, see `Retrieving objects
+  <{+django-docs+}/topics/db/queries/#retrieving-objects>`__ in the
+  Django documentation.
+
+- Chain query methods together. To learn more, see `Chaining filters
+  <{+django-docs+}/topics/db/queries/#chaining-filters>`__ in the Django
+  documentation.
+
+- Use ``Q`` objects and separate each object with a logical operator.
+  To learn more, see `Complex lookups with Q objects
+  <{+django-docs+}/topics/db/queries/#complex-lookups-with-q-objects>`__ in the Django
+  documentation.
+
+Q Object Example
+````````````````
+
 You can use ``Q`` objects to run queries with multiple
 sets of matching criteria. To create a ``Q`` object, pass your query
 filter to the ``Q()`` method. You can pass multiple ``Q`` objects as 
 arguments to your query method and separate each ``Q`` object by an OR
 (``|``), AND (``&``), or XOR (``^``) operator. You can also negate
-``Q`` objects by prefixing them with the ``~`` symbol. The following example
-shows the syntax for passing multiple ``Q`` objects to the ``filter()``
-method:
-
-
-.. code-block:: python
-   :copyable: false
-
-   Model.objects.filter(
-       Q(<field>__<lookup type>=<value>) <operator> Q(<field>__<lookup type>=<value>)
-   )
-
-Example
-```````
+``Q`` objects by prefixing them with the ``~`` symbol.
 
 This example uses ``Q`` objects to query for documents
 that meet the following query conditions:
