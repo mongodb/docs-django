@@ -77,14 +77,15 @@ models or use existing collections to store model data:
     python manage.py makemigrations <application name>
     python manage.py migrate
 
+.. _django-models-define-ex:
+
 Example
 ```````
 
-This sample ``models.py`` file defines ``Movie`` and ``Award``
-models. The ``Movie`` class includes the following information:
+This sample ``models.py`` file defines a ``Movie`` model
+class that includes the following information:
 
-- List of fields that represent movie data, including
-  an ``awards`` field that stores an embedded ``Award`` model.
+- List of fields that represent movie data.
 
 - ``Meta`` class that sets the ``db_table`` option
   to ``movies``. This instructs {+django-odm+} to use this model
@@ -98,15 +99,6 @@ models. The ``Movie`` class includes the following information:
 - ``__str__()`` method that defines the model's string
   representation as its ``title`` field value.
 
-The ``Award`` model stores data for the ``Movie`` model's
-``awards`` field. Its class includes the following information:
-
-- List of fields that represent movie award data.
-
-- ``Meta`` class that sets the ``managed`` option to ``False``.
-  This instructs {+django-odm+} not to create a new collection
-  for the model.
-
 .. literalinclude:: /includes/model-data/models.py
    :start-after: start-models
    :end-before: end-models
@@ -116,7 +108,7 @@ The ``Award`` model stores data for the ``Movie`` model's
 .. tip::
 
    To learn more about the field types used in the model
-   class definitions, see the following :ref:`django-models-fields`
+   class definition, see the following :ref:`django-models-fields`
    section of this guide.
 
 .. _django-models-fields:
@@ -235,17 +227,150 @@ Use a JSONField
 
 .. _django-models-mongodb-fields:
 
-MongoDB Fields
-~~~~~~~~~~~~~~
+MongoDB BSON Fields
+~~~~~~~~~~~~~~~~~~~
 
-The following table describes field types specific to
-{+django-odm+} that you can use in your models:
+MongoDB organizes and stores documents in a binary representation
+called ``BSON`` that allows for flexible data processing.
+
+.. tip::
+
+   To learn more about how MongoDB stores BSON data, see
+   :manual:`BSON Types </reference/bson-types>` in the {+mdb-server+}
+   manual.
+
+The following table describes supported BSON field types and their
+{+django-odm+} equivalents that you can use in your Django models:
+
+.. list-table::
+   :header-rows: 1
+   :widths: 20 20 60
+
+   * - BSON Field Type
+     - Django Field Type
+     - BSON Description
+
+   * - ``Array``
+     - ``ArrayField``
+     - | Stores array values. To learn more about using this field
+         with {+django-odm+}, see the :ref:`django-models-array` section
+         in this guide.
+
+   * - ``Object``
+     - ``EmbeddedModelField``
+     - | Stores embedded documents. To learn more about using this field
+         with {+django-odm+}, see the :ref:`django-models-embedded` section in this guide.
+
+   * - ``ObjectId``
+     - ``AutoField``
+     - | Stores unique 12-byte identifiers that MongoDB uses as primary keys.
+
+   * - ``Binary``
+     - ``BinaryField``
+     - | Stores binary data.
+
+   * - ``Boolean``
+     - ``BooleanField``
+     - | Stores ``true`` or ``false`` values.
+
+   * - ``Date``
+     - ``DatetimeField``
+     - | Stores dates and times in milliseconds since the Unix
+         epoch, or January 1, 1970.
+
+   * - ``Decimal128``
+     - ``DecimalField``
+     - | Stores 28-bit decimal values.
+
+   * - ``Double``
+     - ``FloatField``
+     - | Stores floating-point values.
+
+   * - ``Int32``
+     - ``IntegerField``
+     - | Stores 32-bit signed integers.
+
+   * - ``Int64``
+     - ``IntegerField`` or ``BigIntegerField``
+     - | Stores 64-bit signed integers.
+
+   * - ``String``
+     - ``CharField`` or ``TextField``
+     - | Stores UTF-8 encoded string values.
+
+.. _django-models-array:
 
 Use an ArrayField
 `````````````````
 
+You can use an ``ArrayField`` in your model to store a list of data.
+To create an ``ArrayField``, use the ``ArrayField()`` class constructor
+and pass the following arguments:
+
+- ``base_field``: Specifies the underlying data type of each value
+  stored in the array. You cannot specify ``EmbeddedModelField`` or
+  ``FileField`` as the base field type.
+
+- ``size``: Specifies the maximum size of the array. This field is
+  optional.
+
+- ``options``: Specifies Django field options. To view a list of
+  available options, see `Field options <{+django-docs+}/ref/models/fields/#field-options>`__
+  in the {+framework+} documentation.
+
+The following example adds an ``ArrayField`` value to the model created in
+the :ref:`Define a Model example <django-models-define-ex>` in this
+guide. The new field, called ``genres``, stores a list of ``CharField`` values
+that represent movie genres and can store a maximum of ``5`` values:
+
+.. literalinclude:: /includes/model-data/models.py
+   :start-after: start-array-field
+   :end-before: end-array-field
+   :language: python
+   :copyable:
+   :emphasize-lines: 9-13
+
+.. tip::
+
+   You can also store an array of array values in an ``ArrayField``.
+   To view an example of a multi-dimensional array, see `ArrayField
+   <{+django-docs+}/ref/contrib/postgres/fields/#arrayfield>`__ in the {+framework+} 
+   PostgreSQL documentation.
+
+.. _django-models-embedded:
+
 Use an EmbeddedModelField
 `````````````````````````
+
+You can use an ``EmbeddedModelField`` to represent a MongoDB ``Object``,
+which stores a nested document value. This type allows one model to
+store a separate model in one of its fields. To create an ``EmbeddedModelField``, use
+the ``EmbeddedModelField()`` class constructor and pass the following arguments:
+
+- ``embedded_model``: Specifies the model class to store.
+
+- ``options``: Specifies Django field options. To view a list of
+  available options, see `Field options <{+django-docs+}/ref/models/fields/#field-options>`__
+  in the {+framework+} documentation.
+
+.. important::
+
+   The ``makemigrations`` Django command does not detect changes to embedded
+   models. If you make changes to the embedded model's class, the model
+   stored in the ``EmbeddedModelField`` does not reflect the changes.
+
+This example adds an ``EmbeddedModelField`` value to the model created in
+the :ref:`Define a Model example <django-models-define-ex>` in this
+guide. The new field, called ``awards``, stores an embedded ``Award`` model
+as its value. The following code defines the ``Award`` model
+and modifies the ``Movie`` model to include the ``EmbeddedModelField``:
+
+.. literalinclude:: /includes/model-data/models.py
+   :start-after: start-embedded-field
+   :end-before: end-embedded-field
+   :language: python
+   :copyable:
+   :emphasize-lines: 17
 
 Additional Information
 ----------------------

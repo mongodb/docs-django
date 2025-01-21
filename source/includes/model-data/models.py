@@ -1,6 +1,46 @@
 # start-models
 from django.db import models
-from django_mongodb_backend.fields import EmbeddedModelField, ArrayField
+
+class Movie(models.Model):
+    title = models.CharField(max_length=200)
+    plot = models.TextField(blank=True)
+    runtime = models.IntegerField(default=0)
+    released = models.DateTimeField("release date", null=True, blank=True)
+
+    class Meta:
+        db_table = "movies"
+        managed = False
+    
+    def __str__(self):
+        return self.title
+# end-models
+
+# start-array-field
+from django.db import models
+from django_mongodb_backend.fields import ArrayField
+
+class Movie(models.Model):
+    title = models.CharField(max_length=200)
+    plot = models.TextField(blank=True)
+    runtime = models.IntegerField(default=0)
+    released = models.DateTimeField("release date", null=True, blank=True)
+    genres = ArrayField(
+             models.CharField(max_length=100),
+             size=5,
+             null=True,
+             blank=True)
+
+    class Meta:
+        db_table = "movies"
+        managed = False
+    
+    def __str__(self):
+        return self.title
+# end-array-field
+
+# start-embedded-field
+from django.db import models
+from django_mongodb_backend.fields import EmbeddedModelField
 
 class Award(models.Model):
     wins = models.IntegerField(default=0)
@@ -15,9 +55,7 @@ class Movie(models.Model):
     plot = models.TextField(blank=True)
     runtime = models.IntegerField(default=0)
     released = models.DateTimeField("release date", null=True, blank=True)
-    awards = EmbeddedModelField(Award)
-    genres = ArrayField(models.CharField(max_length=100), null=True, blank=True)
-    imdb = models.JSONField(null=True)
+    awards = EmbeddedModelField(Award, null=True, blank=True)
 
     class Meta:
         db_table = "movies"
@@ -25,4 +63,4 @@ class Movie(models.Model):
     
     def __str__(self):
         return self.title
-# end-models
+# end-embedded-field
