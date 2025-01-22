@@ -308,8 +308,7 @@ nor the ``raw_aggregate()`` method provide, you can operate on your
 can access the PyMongo driver's database operations. Use the following
 syntax to expose the ``MongoClient``:
 
-.. code-block::
-   :language: python
+.. code-block:: python
 
    from django.db import connections
 
