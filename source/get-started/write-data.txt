@@ -106,12 +106,12 @@ and delete functions on your model objects.
    .. step:: Render your new objects
 
       To ensure that you inserted a ``Movie`` object into the database,
-      visit the http://127.0.0.1:8000/sample_mflix/recent_movies/ URL.
+      visit the http://127.0.0.1:8000/recent_movies/ URL.
       You can see a list of five movies in the ``sample_mflix.movies``
       database, with your new movie listed at the top.
 
       Then, ensure that you inserted a ``Viewer`` object into the
-      database by visiting the http://127.0.0.1:8000/sample_mflix/viewers_list/
+      database by visiting the http://127.0.0.1:8000/viewers_list/
       URL. You can see a list of ten viewer names in the ``sample_mflix.users``
       database, with your new viewer listed at the top. Ensure that the
       viewer named "Alliser Thorne", deleted in a previous step, does not appear
