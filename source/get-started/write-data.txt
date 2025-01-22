@@ -51,7 +51,7 @@ and delete functions on your model objects.
          :language: python
          :copyable:
 
-   .. step:: Update your movie object
+   .. step:: Update your Movie object
 
       The ``Movie`` object created in the previous step has inaccurate data:
       the ``runtime`` value is ``217``, but the correct ``runtime`` value is ``117``.

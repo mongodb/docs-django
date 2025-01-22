@@ -24,8 +24,7 @@ movie.save()
 # start-insert-viewer
 viewer = Viewer.objects.create(
     name="Abigail Carter",
-    email="abigail.carter@fakegmail.com",
-    password="secure123"
+    email="abigail.carter@fakegmail.com"
 )
 # end-insert-viewer
 

@@ -31,7 +31,7 @@ To learn more about the ``sample_mflix`` database, see :atlas:`Sample Mflix Data
       
       .. code-block:: bash
 
-         python manage.py startapp sample_mflix --template https://github.com/mongodb-labs/django-mongodb-app/archive/refs/heads/{+django-version-number+}.x.zip
+         python manage.py startapp sample_mflix --template https://github.com/mongodb-labs/django-mongodb-app/archive/refs/heads/{+django-version+}.x.zip
 
       .. note:: App Template
 
@@ -57,7 +57,7 @@ To learn more about the ``sample_mflix`` database, see :atlas:`Sample Mflix Data
       represents the embedded document values stored in the ``Movie`` model.
       
       The ``Viewer`` model represents the ``sample_mflix.users`` collection
-      and stores account credentials for movie viewers.
+      and stores account information for movie viewers.
 
    .. step:: Create views to display data
 

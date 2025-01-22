@@ -24,7 +24,7 @@ you can create a Django project that connects to MongoDB.
       
       .. code-block:: bash
 
-         django-admin startproject quickstart --template https://github.com/mongodb-labs/django-mongodb-project/archive/refs/heads/{+django-version-number+}.x.zip
+         django-admin startproject quickstart --template https://github.com/mongodb-labs/django-mongodb-project/archive/refs/heads/{+django-version+}.x.zip
       
       .. note:: Project Template
 
