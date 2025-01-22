@@ -31,8 +31,6 @@ class Theater(models.Model):
 # end-models
 
 # start-filter-project
-from sample_mflix.models import Movie
-
 movies = Movie.objects.raw_aggregate([
     {"$match": {"title": "The Parent Trap"}},
     {"$project": {

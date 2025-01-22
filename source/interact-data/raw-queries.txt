@@ -65,9 +65,19 @@ definitions:
    :language: python
    :copyable:
 
-To learn how to create a Django application that uses a similar ``Movie``
-model to interact with MongoDB documents, visit the :ref:`django-get-started`
-tutorial.
+.. include:: /includes/use-sample-data.rst
+
+   .. replacement:: model-classes
+
+      ``Movie`` and ``Theater`` models include
+
+   .. replacement:: model-imports
+
+      .. code-block:: python
+
+         from <your application name>.models import Movie, Theater
+         from {+framework+}.utils import timezone
+         from datetime import datetime
 
 .. _django-raw-queries-run:
 
