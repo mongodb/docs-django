@@ -23,9 +23,19 @@ Overview
 In this guide, you can learn how to use {+django-odm+} to specify
 a database query.
 
+You can refine the set of documents that a query returns by creating a
+**query filter**. A query filter is an expression that specifies the search
+criteria MongoDB uses to match documents in a read or write operation.
+In a query filter, you can prompt {+django-odm+} to search for documents with an
+exact match to your query, or you can compose query filters to express more
+complex matching criteria.
+
+Query API
+~~~~~~~~~
+
 The Django ``QuerySet`` API provides methods that allow you to retrieve
 model objects. To run a MongoDB database query, call ``QuerySet`` methods
-on your model's ``Manager``. The ``Manager`` class handles database
+on your model's manager. The ``Manager`` class handles database
 operations and allows you to interact with your MongoDB data by referencing
 Django models. By default, Django adds a ``Manager`` named ``objects``
 to every model class. 
@@ -33,19 +43,12 @@ to every model class.
 When you assign a ``QuerySet`` to a variable, {+django-odm+} does not
 perform the operation until you evaluate the variable. After
 evaluating the ``QuerySet``, Django saves the query results in the ``QuerySet``
-cache. Future evaluations of the ``QuerySet`` reuse the cached results.
+cache. Future evaluations of the ``QuerySet`` use the cached results.
 
 .. tip::
 
-    To learn more about the Django ``QuerySet`` API, see `QuerySet API reference
-    <{+django-docs+}/ref/models/querysets/>`__ in the Django documentation.
-
-You can refine the set of documents that a query returns by creating a
-**query filter**. A query filter is an expression that specifies the search
-criteria MongoDB uses to match documents in a read or write operation.
-In a query filter, you can prompt {+django-odm+} to search for documents with an
-exact match to your query, or you can compose query filters to express more
-complex matching criteria.
+   To learn more about the Django ``QuerySet`` API, see `QuerySet API reference
+   <{+django-docs+}/ref/models/querysets/>`__ in the Django documentation.
 
 Sample Data
 ~~~~~~~~~~~
@@ -86,7 +89,7 @@ Run a Query
 -----------
 
 To query your MongoDB data, call a ``QuerySet`` method on your 
-model's ``Manager`` class and specify your matching criteria in a
+model's manager and specify your matching criteria in a
 query filter.
 
 This section describes how to use the following methods from
@@ -104,7 +107,7 @@ Retrieve All Documents
 ~~~~~~~~~~~~~~~~~~~~~~
 
 To retrieve all documents from a collection, call the ``all()``
-method on your model's ``Manager`` class.
+method on your model's manager.
 
 The following example calls the ``all()`` method to retrieve
 all documents in the ``sample_mflix.movies`` collection:
@@ -137,7 +140,7 @@ Retrieve Matching Documents
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To query a collection for documents that match a set of criteria,
-call the ``filter()`` method on your model's ``Manager`` class.
+call the ``filter()`` method on your model's manager.
 Pass a query filter to the ``filter()`` method that specifies your
 query criteria.
 
@@ -165,9 +168,8 @@ Retrieve One Document
 ~~~~~~~~~~~~~~~~~~~~~
 
 To retrieve one document from a collection, call the ``get()``
-method on your model's ``Manager`` class. Pass 
-a query filter to the ``get()`` method that specifies your
-query criteria.
+method on your model's manager. Pass a query filter to
+the ``get()`` method that specifies your query criteria.
 
 .. important::
 
@@ -175,7 +177,6 @@ query criteria.
    method generates an error. To retrieve one document from a query
    that might match multiple, use the :ref:`first() <django-query-first>`
    method.
-
 
 The following example calls the ``get()`` method
 to retrieve one document that has a ``title``
@@ -242,13 +243,15 @@ Run Raw Database Queries
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 If you want to run complex queries that Django's query API
-cannot express, you can use the ``raw_aggregate()`` method. This
+does not support, you can use the ``raw_aggregate()`` method. This
 method allows you to specify your query criteria in a MongoDB
 aggregation pipeline, which you pass as an argument to 
 ``raw_aggregate()``. 
 
-To learn how to run raw database queries, see the :ref:`django-raw-queries`
-guide.
+.. TODO: To learn how to run raw database queries, see the :ref:`django-raw-queries`
+ guide.
+
+.. _django-query-filter:
 
 Customize Your Query Filter
 ---------------------------
@@ -271,7 +274,7 @@ expression matching, and year value matching for datetime fields.
 
    To view a full list of lookup types, see `Field lookups
    <{+django-docs+}/ref/models/querysets/#field-lookups>`__ in the
-   ``QuerySet`` Django documentation.
+   ``QuerySet`` Django API reference.
 
 This section describes how to refine your query filters
 in the following ways:
@@ -296,33 +299,33 @@ matching criteria for text values:
    * - Lookup Type
      - Description
 
-   * - ``__exact``
+   * - ``exact``
      - | Specifies an exact text match. If you do not provide a 
          lookup type in your query filter, {+django-odm+} uses this
          type by default.
        
        | You can specify a case-insensitive exact text match
-         by using ``__iexact``.
-   * - ``__contains``
+         by using ``iexact``.
+   * - ``contains``
      - | Specifies a partial text match.
        
        | You can specify a case-insensitive partial text match
-         by using ``__icontains``.
-   * - ``__startswith``
+         by using ``icontains``.
+   * - ``startswith``
      - | Matches field values that begin with the specified text.
        
        | You can specify a case-insensitive partial text match
-         by using ``__istartswith``.
-   * - ``__endswith``
+         by using ``istartswith``.
+   * - ``endswith``
      - | Matches field values that end with the specified text.
        
        | You can specify a case-insensitive partial text match
-         by using ``__iendswith``.
+         by using ``iendswith``.
 
 Example
 ```````
 
-The following example uses the ``__contains`` lookup to 
+The following example uses the ``contains`` lookup to 
 query for documents in which the ``plot`` value
 includes the text ``"coming-of-age"``:
 
@@ -363,19 +366,19 @@ against a specified value:
    * - Lookup Type
      - Description
 
-   * - ``__gt``
+   * - ``gt``
      - | Matches field values that are greater than the
          specified value.
 
-   * - ``__gte``
+   * - ``gte``
      - | Matches field values that are greater than or equal
          to the specified value.
        
-   * - ``__lt``
+   * - ``lt``
      - | Matches field values that are less than the specified
          value.
 
-   * - ``__lte``
+   * - ``lte``
      - | Matches field values that are less or equal to than the specified
          value.
 
@@ -383,7 +386,7 @@ against a specified value:
 Example
 ```````
 
-The following example uses the ``__lte`` lookup to 
+The following example uses the ``lte`` lookup to 
 query for documents in which the ``runtime`` value
 is less than or equal to ``50``:
 
@@ -488,12 +491,15 @@ You can provide a sort order for your query results by using the
 of a given field, pass the field name as an argument. To specify a descending
 sort, pass the field name prefixed with a minus symbol (``-``) as an argument.
 
+You can pass multiple field names, separated by commas, to the ``order_by()`` method.
+{+django-odm+} sorts results by each field in the order provided.
+
 Example
 ```````
 
 This example performs the following actions:
 
-- Calls the ``filter()`` method on the ``Movie`` model's ``Manager`` to query
+- Calls the ``filter()`` method on the ``Movie`` model's manager to query
   the ``sample_mflix.movies`` collection
 - Queries documents that have a ``title`` value starting
   with the text ``"Rocky"``
@@ -517,8 +523,8 @@ This example performs the following actions:
 
 .. _django-query-limit:
 
-Limit Results
-~~~~~~~~~~~~~
+Skip and Limit Results
+~~~~~~~~~~~~~~~~~~~~~~
 
 You can specify the number of results that a query returns
 by using Python's array-slicing syntax, as shown
@@ -531,7 +537,7 @@ in the following code:
 
 Replace the ``<start>`` and ``<end>`` placeholders with integer
 values representing the subset of results you want to return.
-The start value is non-inclusive and the end value is inclusive.
+The start value is exclusive and the end value is inclusive.
 
 If you omit the ``<start>`` value, the query returns each result,
 beginning with the first match, until it returns the number specified
@@ -618,16 +624,19 @@ field you want to query, as shown in the following code:
 
    Model.objects.filter(<model field>__<embedded model field>=<value>)
 
+You can also use :ref:`field lookups <django-query-filter>` to refine
+your embedded model query. Add your lookup type after the embedded
+model field you're querying, prefixed by double underscores.
+
 Example
 ```````
 
-This example uses a lookup that spans the ``Movie`` and ``Award``
-relationship. The ``Movie`` model's ``awards`` field has an
-embedded ``Award`` model value. This embedded model represents
-the ``awards``  object field in the ``sample_mflix.movies`` collection
+This example uses a lookup to query the ``Award`` model, which is embedded
+in the ``Movie`` model. This embedded model represents the
+``awards`` field in the ``sample_mflix.movies`` collection
 and its nested ``wins``,  ``nominations``, and ``text`` fields. The
-following code uses a lookup to query for documents in which the ``awards.wins``
-nested field value is ``93``:
+following code queries for documents in which the ``awards.wins``
+nested field value is greater than ``150``:
 
 .. io-code-block::
    :copyable:
@@ -640,17 +649,21 @@ nested field value is ``93``:
    .. output::
       :visible: false
 
-      <QuerySet [<Movie: The Queen>, <Movie: Dallas Buyers Club>]>
+      <QuerySet [<Movie: The Lord of the Rings: The Return of the King>,
+      <Movie: No Country for Old Men>, <Movie: Slumdog Millionaire>,
+      <Movie: Boyhood>, <Movie: The Social Network>, <Movie: Inception>,
+      <Movie: Gravity>, <Movie: Gravity>, <Movie: The Artist>,
+      <Movie: 12 Years a Slave>, <Movie: Birdman: Or (The Unexpected Virtue of Ignorance)>]>
 
 .. _django-query-arrayfield:
 
 Query an ArrayField
-~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~
 
 You can query data stored in an ``ArrayField`` value
 by using the standard query syntax. {+django-odm+} provides
 additional field lookup types for querying ``ArrayField`` values,
-as described in the following table:
+which are described in the following table:
 
 .. list-table::
    :header-rows: 1
@@ -659,27 +672,27 @@ as described in the following table:
    * - Lookup Type
      - Description
 
-   * - ``__contains``
+   * - ``contains``
      - | Matches fields that store the provided value as
          a subset of their data. This ``ArrayField`` lookup overrides the
-         ``__contains`` lookup described in the :ref:`django-query-text-match`
+         ``contains`` lookup described in the :ref:`django-query-text-match`
          section of this guide.
 
-   * - ``__contained_by``
+   * - ``contained_by``
      - | Matches fields that store a subset of the provided values.
-         This lookup type is the inverse of ``__contains``.
+         This lookup type is the inverse of ``contains``.
        
-   * - ``__overlap``
+   * - ``overlap``
      - | Matches field that store any of the provided values.
 
-   * - ``__len``
+   * - ``len``
      - | Matches fields that store the number of values provided.
 
 Example
 ```````
 
-The following example uses the ``__overlap`` lookup to query
-for documents whose  ``genres`` field stores any values in the
+The following example uses the ``overlap`` lookup to query
+for documents whose  ``genres`` field contains any values in the
 ``["Adventure", "Family"]`` array:
 
 .. io-code-block::
@@ -713,7 +726,7 @@ section. Chain each field and nested field name together, separated
 by double underscores (``__``), until you reach the field you want
 to query.
 
-The following example queries the ``imdb`` field, a ``JSONField``,
+The following example queries the ``JSONField``-valued ``imdb`` field
 for values of its nested ``votes`` field that exceed ``900000``:
 
 .. io-code-block::
@@ -811,7 +824,7 @@ for a document whose primary key is ``ObjectId("573a1394f29313caabce0d37")``:
 
 The ``Movie`` model, which represents the ``sample_mflix.movies`` collection,
 uses the ``id`` field as its primary key. The following example constructs
-the same query as the preceding code:
+the same query as the preceding code by using the  ``id`` field:
 
 .. literalinclude:: /includes/interact-data/specify-a-query.py
     :language: python

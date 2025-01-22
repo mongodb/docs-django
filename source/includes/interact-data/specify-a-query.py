@@ -51,10 +51,6 @@ Movie.objects.filter(plot__contains="coming-of-age")
 Movie.objects.filter(runtime__lte=50)
 # end-filter-lte
 
-# start-filter-relationships
-Movie.objects.filter(awards__wins=93)
-# end-filter-relationships
-
 # start-filter-combine
 Movie.objects.filter(
     (Q(title__startswith="Funny") | Q(title__startswith="Laugh")) 
@@ -72,6 +68,10 @@ Movie.objects.filter(released=timezone.make_aware(datetime(2010, 7, 16)))[2:4]
 # start-first
 Movie.objects.filter(genres=["Crime", "Comedy"]).first()
 # end-first
+
+# start-filter-relationships
+Movie.objects.filter(awards__wins__gt=150)
+# end-filter-relationships
 
 # start-array
 Movie.objects.filter(genres__overlap=["Adventure", "Family"])
