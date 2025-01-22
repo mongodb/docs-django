@@ -54,7 +54,8 @@ Movie.objects.filter(runtime__lte=50)
 # start-filter-combine
 Movie.objects.filter(
     (Q(title__startswith="Funny") | Q(title__startswith="Laugh")) 
-    & ~Q(genres__contains=["Comedy"]))
+    & ~Q(genres__contains=["Comedy"])
+)
 # end-filter-combine
 
 # start-sort
