@@ -90,8 +90,8 @@ To learn more about the ``sample_mflix`` database, see :atlas:`Sample Mflix Data
          from django.urls import include, path
 
          urlpatterns = [
-             path("", include("sample_mflix.urls")),
              path("admin/", admin.site.urls),
+             path("", include("sample_mflix.urls")),
          ]
 
    .. step:: Create templates to format your data
