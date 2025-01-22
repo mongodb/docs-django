@@ -43,10 +43,10 @@ To connect to an instance or deployment not hosted on Atlas, see
       .. figure:: /includes/figures/atlas_connection_copy_string_python.png
          :alt: The connection string copy button in the Atlas UI
 
-   .. step:: Edit and save the connection string
+   .. step:: Edit your connection string credentials
 
       Paste your connection string into a file in your preferred text editor
-      and save this file to a safe location for use in the next step.
+      and save this file to a safe location for later use.
       Your connection string resembles the following example:
 
       .. code-block:: none
@@ -54,18 +54,21 @@ To connect to an instance or deployment not hosted on Atlas, see
 
          mongodb+srv://<username>:<password>@samplecluster.jkiff1s.mongodb.net/?retryWrites=true&w=majority&appName=SampleCluster
 
-      
       Replace the ``<username>`` and ``<password>`` placeholders with
       your database user's username and password.
 
-      Then, specify a connection to the ``sample_mflix`` database from the 
-      Atlas sample datasets by adding it after the hostname, as shown in
-      the following example:
+   .. step:: Add a database to your connection string
+
+      Specify a database connection in your connection string by adding
+      your database name after the hostname, as shown in the following example:
       
       .. code-block:: none
          :copyable: false
 
-         mongodb+srv://<username>:<password>@samplecluster.jkiff1s.mongodb.net/sample_mflix?retryWrites=true&w=majority&appName=SampleCluster
+         mongodb+srv://<username>:<password>@samplecluster.jkiff1s.mongodb.net/<database name>?retryWrites=true&w=majority&appName=SampleCluster
+
+      Replace the ``<database name>`` placeholder with ``sample_mflix`` to
+      configure a connection to the ``sample_mflix`` Atlas sample database.
 
 After completing these steps, you have a connection string that
 contains your database username, database password, and database name.
