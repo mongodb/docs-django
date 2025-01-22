@@ -202,8 +202,8 @@ Exclude Matching Documents
 
 To query a collection for documents that do not meet your
 search criteria, call the ``exclude()`` method on your model's
-``Manager`` class. Pass the exclusion criteria as an 
-argument to the ``exclude()`` method.
+manager. Pass the exclusion criteria as an argument to the
+``exclude()`` method.
 
 The following example calls the ``exclude()`` method to
 exclude documents released before January 1, 1980 from the results:
@@ -551,7 +551,7 @@ Example
 
 This example performs the following actions:
 
-- Calls the ``filter()`` method on the ``Movie`` model's ``Manager`` to query
+- Calls the ``filter()`` method on the ``Movie`` model's manager to query
   the ``sample_mflix.movies`` collection
 - Queries documents that have a ``released`` value of 
   ``datetime(2010, 7, 16)`` (July 16, 2010)
