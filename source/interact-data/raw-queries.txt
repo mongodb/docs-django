@@ -47,6 +47,9 @@ Django adds a ``Manager`` named ``objects`` to every model class. This default
 MongoDB-specific method, set your model's ``objects`` field to a custom
 manager called ``MongoManager``.
 
+As an alternative to the ``raw_aggregate()`` method, you can run queries directly
+on your ``MongoClient`` object for expanded access to your MongoDB data.
+
 Sample Data
 ~~~~~~~~~~~
 
@@ -292,6 +295,33 @@ code performs the following actions:
         Theater ID: 1777
         Theater ID: 814
         Theater ID: 323
+
+.. _django-client-operations:
+
+MongoClient Operations
+----------------------
+
+If you want to run database operations that neither the ``QuerySet`` API
+nor the ``raw_aggregate()`` method provide, you can operate on your
+``MongoClient`` directly. When working with the ``MongoClient``, you can
+can access the PyMongo driver's database operations. Use the following
+syntax to expose the ``MongoClient``:
+
+.. code-block::
+   :language: python
+
+   from django.db import connections
+
+   client = connections["<DATABASES key>"].database.client
+
+Replace the ``"<DATABASES key>"`` placeholder with the key in your
+``DATABASES`` dictionary that corresponds to your target database. To
+use your default database, replace the placeholder with ``"default"``.
+
+.. tip::
+
+   To learn how to use PyMongo to interact with MongoDB data,
+   see the `PyMongo documentation. <{+pymongo-docs+}>`__
 
 Additional Information
 ----------------------
