@@ -155,16 +155,17 @@ the ``raw_aggregate()`` method.
 
 .. important:: 
 
-   You cannot use {+django-odm+} to create Atlas Search indexes.
+   You cannot use the ``QuerySet`` API to create Atlas Search indexes.
+   However, you can create an index by exposing your ``MongoClient``
+   object directly, on which you can call the PyMongo driver's 
+   ``create_search_index()`` method. To learn how to expose the
+   ``MongoClient``, see the :ref:`django-client-operations` section
+   of this guide.
    
    For instructions on using the PyMongo driver to create an Atlas
    Search index, see `Atlas Search and Vector Search Indexes
-   <https://www.mongodb.com/docs/languages/python/pymongo-driver/current/indexes/atlas-search-index/>`__
+   <{+pymongo-docs+}/indexes/atlas-search-index/>`__
    in the PyMongo documentation.
-   
-   For instructions on alternative methods of creating search indexes,
-   see :atlas:`Create an Atlas Search Index </atlas-search/tutorial/create-index/>`
-   in the Atlas documentation.
 
 This example runs an Atlas Search query by passing the ``$search`` pipeline
 stage to the ``raw_aggregate()`` method. The code performs the following
@@ -251,16 +252,16 @@ the ``raw_aggregate()`` method:
 
 .. important:: 
 
-   You cannot use {+django-odm+} to create ``2d`` or ``2dsphere`` indexes.
+   You cannot use the ``QuerySet`` API to create ``2d`` or ``2dsphere`` indexes.
+   However, you can create indexes by exposing your ``MongoClient``
+   object directly, on which you can call the PyMongo driver's 
+   ``create_index()`` method. To learn how to expose the
+   ``MongoClient``, see the :ref:`django-client-operations` section
+   of this guide.
    
    For instructions on using the PyMongo driver to create geospatial
-   indexes, see `Geospatial Indexes
-   <https://www.mongodb.com/docs/languages/python/pymongo-driver/current/indexes/geospatial-index/>`__
+   indexes, see `Geospatial Indexes <{+pymongo-docs+}/indexes/geospatial-index/>`__
    in the PyMongo documentation.
-   
-   For instructions on using the MongoDB Shell to create geospatial
-   indexes, see :manual:`Geospatial Indexes </core/indexes/index-types/index-geospatial/>`
-   in the {+mdb-server+} manual.
 
 This example runs a geospatial query by passing the ``$match`` and
 ``$geoWithin`` pipeline stages to the ``raw_aggregate()`` method. The
