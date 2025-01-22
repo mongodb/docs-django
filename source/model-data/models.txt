@@ -59,14 +59,6 @@ that {+django-odm+} supports:
    * - Field Type
      - Description
 
-   * - ``AutoField``
-     - | Stores ``IntegerField`` values that automatically increment according to
-         available ID values. If you don't explicitly specify this field,
-         {+django-odm+} automatically assigns an ``ObjectId`` primary key value.
-
-   * - ``BigAutoField``
-     - | Stores ``AutoField`` values up to 64 bits in size.
-
    * - ``BigIntegerField``
      - | Stores ``IntegerField`` values up to 64 bits in size.
 
@@ -179,7 +171,7 @@ The following table describes supported BSON field types and their
          with {+django-odm+}, see the :ref:`django-models-embedded` section in this guide.
 
    * - ``ObjectId``
-     - ``AutoField``
+     - ``ObjectIdAutoField``
      - | Stores unique 12-byte identifiers that MongoDB uses as primary keys.
 
    * - ``Binary``
@@ -228,6 +220,7 @@ define a string representation of your model. Use the following syntax to
 define a model:
 
 .. code-block:: python
+   :copyable: false
 
     class <Model name>(models.Model):
         <field name> = <data type>
@@ -245,6 +238,7 @@ the name of the module that stores your ``models.py`` file, as shown
 in the following code: 
 
 .. code-block:: python
+   :copyable: false
 
     INSTALLED_APPS = [
         '<application module>',
