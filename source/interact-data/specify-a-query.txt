@@ -206,7 +206,8 @@ manager. Pass the exclusion criteria as an argument to the
 ``exclude()`` method.
 
 The following example calls the ``exclude()`` method to
-exclude documents released before January 1, 1980 from the results:
+exclude documents released before ``datetime(1980, 1, 1)`` (January 1, 1980)
+from the results:
 
 .. io-code-block::
    :copyable:
