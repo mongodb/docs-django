@@ -64,7 +64,7 @@ and delete functions on your model objects.
          :language: python
          :copyable:
 
-   .. step:: Insert a viewer into the database
+   .. step:: Insert a Viewer into the database
 
       You can also use your ``Viewer`` model to insert documents into the
       ``sample_mflix.users`` collection. Run the following code to create
@@ -76,7 +76,7 @@ and delete functions on your model objects.
          :language: python
          :copyable:
 
-   .. step:: Delete a viewer object
+   .. step:: Delete a Viewer object
 
       One movie viewer named "Alliser Thorne" no longer uses the movie streaming
       site. To remove this viewer's corresponding document from the database,
