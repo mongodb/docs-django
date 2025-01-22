@@ -79,12 +79,7 @@ code:
 
 To define your index, pass the following arguments to the ``models.Index()`` method:
 
-- ``expressions``: Specifies a database expression to index. If you don't pass
-  the ``fields`` argument, this argument is required. To learn more about this
-  argument, see the :ref:`django-indexes-expressions` section of this guide.
-
-- ``fields``: Specifies a list of fields to index. If you don't pass the
-  ``expressions`` argument, this argument is required.
+- ``fields``: Specifies a list of fields to index. This argument is required.
 
 - ``name``: Specifies the index name. This argument is optional, and Django
   automatically creates an index name if you don't provide one.
@@ -204,7 +199,6 @@ index types:
 
 - :ref:`django-indexes-partial`
 - :ref:`django-indexes-unique`
-- :ref:`django-indexes-expressions`
 
 .. _django-indexes-partial:
 
@@ -284,33 +278,6 @@ creates a unique compound index on these fields:
    creates an index on the specified fields. To learn more about the ``Meta``
    class's ``constraint`` option, see `Constraints <{+django-docs+}/ref/models/constraints/>`__
    in the Django documentation.
-
-.. _django-indexes-expressions:
-
-Expression Indexes
-~~~~~~~~~~~~~~~~~~
-
-To create indexes on expressions and database functions, pass the
-``expressions`` argument to the ``models.Index()`` method. When using
-the ``expressions`` argument, you must also pass the ``name``
-argument to ``models.Index()``.
-
-The following example updates the ``Recipe`` model's ``Meta`` class to create
-an index on the sum of the ``cook_time`` and ``prep_time`` values:
-
-.. literalinclude:: /includes/model-data/indexes.py
-   :start-after: start-expression
-   :end-before: end-expression
-   :language: python
-   :copyable:
-   :emphasize-lines: 3-7
-
-.. tip::
-
-   The preceding example uses ``F`` objects to create a database
-   function. To learn more about ``F`` objects, see `F() expressions
-   <{+django-docs+}/ref/models/expressions/#f-expressions>`__ in the Django
-   documentation.
 
 Additional Information
 ----------------------
