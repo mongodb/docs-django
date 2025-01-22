@@ -33,22 +33,22 @@ complex matching criteria.
 Query API
 ~~~~~~~~~
 
-The Django ``QuerySet`` API provides methods that allow you to retrieve
+The {+framework+} ``QuerySet`` API provides methods that allow you to retrieve
 model objects. To run a MongoDB database query, call ``QuerySet`` methods
 on your model's manager. The ``Manager`` class handles database
 operations and allows you to interact with your MongoDB data by referencing
-Django models. By default, Django adds a ``Manager`` named ``objects``
+{+framework+} models. By default, {+framework+} adds a ``Manager`` named ``objects``
 to every model class. 
 
 When you assign a ``QuerySet`` to a variable, {+django-odm+} does not
 perform the operation until you evaluate the variable. After
-evaluating the ``QuerySet``, Django saves the query results in the ``QuerySet``
+evaluating the ``QuerySet``, {+framework+} saves the query results in the ``QuerySet``
 cache. Future evaluations of the ``QuerySet`` use the cached results.
 
 .. tip::
 
-   To learn more about the Django ``QuerySet`` API, see `QuerySet API reference
-   <{+django-docs+}/ref/models/querysets/>`__ in the Django documentation.
+   To learn more about the {+framework+} ``QuerySet`` API, see `QuerySet API reference
+   <{+django-docs+}/ref/models/querysets/>`__ in the {+framework+} documentation.
 
 Sample Data
 ~~~~~~~~~~~
@@ -64,26 +64,19 @@ of its ``awards`` field. These model classes have the following definitions:
    :language: python
    :copyable:
 
-You can use the Python interactive shell to run the code examples.
-To enter the shell, run the following command from your project's 
-root directory:
+.. include:: /includes/use-sample-data.rst
 
-.. code-block:: bash
+   .. replacement:: model-classes
 
-   python manage.py shell
+      ``Movie`` model includes
 
-After entering the Python shell, ensure that you import the following models and
-modules:
+   .. replacement:: model-imports
 
-.. code-block:: python
+      .. code-block:: python
 
-   from <your application name>.models import Movie, Award
-   from django.utils import timezone
-   from datetime import datetime
-
-To learn how to create a Django application that uses the ``Movie``
-model and the Python interactive shell to interact with MongoDB documents,
-visit the :ref:`django-get-started` tutorial.
+         from <your application name>.models import Movie, Award
+         from django.utils import timezone
+         from datetime import datetime
 
 Run a Query
 -----------
@@ -243,7 +236,7 @@ from the results:
 Run Raw Database Queries
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-If you want to run complex queries that Django's query API
+If you want to run complex queries that {+framework+}'s query API
 does not support, you can use the ``raw_aggregate()`` method. This
 method allows you to specify your query criteria in a MongoDB
 aggregation pipeline, which you pass as an argument to 
@@ -275,7 +268,7 @@ expression matching, and year value matching for datetime fields.
 
    To view a full list of lookup types, see `Field lookups
    <{+django-docs+}/ref/models/querysets/#field-lookups>`__ in the
-   ``QuerySet`` Django API reference.
+   ``QuerySet`` {+framework+} API reference.
 
 This section describes how to refine your query filters
 in the following ways:
@@ -424,15 +417,15 @@ in the following ways:
 - Pass multiple query filters to your query method, separated
   by commas. To view an example, see `Retrieving objects
   <{+django-docs+}/topics/db/queries/#retrieving-objects>`__ in the
-  Django documentation.
+  {+framework+} documentation.
 
 - Chain query methods together. To learn more, see `Chaining filters
-  <{+django-docs+}/topics/db/queries/#chaining-filters>`__ in the Django
+  <{+django-docs+}/topics/db/queries/#chaining-filters>`__ in the {+framework+}
   documentation.
 
 - Use ``Q`` objects and separate each object with a logical operator.
   To learn more, see `Complex lookups with Q objects
-  <{+django-docs+}/topics/db/queries/#complex-lookups-with-q-objects>`__ in the Django
+  <{+django-docs+}/topics/db/queries/#complex-lookups-with-q-objects>`__ in the {+framework+}
   documentation.
 
 Q Object Example
@@ -766,7 +759,7 @@ provided ``KT()`` expressions.
 .. tip::
 
    To learn more about ``KT()`` expressions and the ``annotate()`` method,
-   see the following resources in the Django documentation:
+   see the following resources in the {+framework+} documentation:
 
    - `KT() expressions <{+django-docs+}/topics/db/queries/#module-django.db.models.fields.json>`__
    - `annotate() <{+django-docs+}/ref/models/querysets/#django.db.models.query.QuerySet.annotate>`__
@@ -842,5 +835,5 @@ pipeline syntax, see the :ref:`django-raw-queries` guide.
 To learn how to perform other ``QuerySet`` operations, see the
 :ref:`django-crud` guide.
 
-To learn more about Django queries, see `Making queries <{+django-docs+}/topics/db/queries>`__
-in the Django documentation.
+To learn more about {+framework+} queries, see `Making queries <{+django-docs+}/topics/db/queries>`__
+in the {+framework+} documentation.
