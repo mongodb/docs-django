@@ -1,8 +1,9 @@
 # start-models
 from django.db import models
+from django_mongodb_backend.models import EmbeddedModel
 from django_mongodb_backend.fields import EmbeddedModelField, ArrayField
 
-class Award(models.Model):
+class Award(EmbeddedModel):
     wins = models.IntegerField(default=0)
     nominations = models.IntegerField(default=0)
     text = models.CharField(max_length=100)
