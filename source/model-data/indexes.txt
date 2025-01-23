@@ -294,7 +294,7 @@ see the following {+mdb-server+} manual resources:
 - :manual:`Single Field Indexes </core/index-single/>`
 - :manual:`Compound Indexes </core/index-compound/>`
 - :manual:`Multikey Indexes </core/index-multikey/>`
-- :manual:`Embedded Document Indexes </core/index-single/create-embedded-object-index/>`
+- :manual:`Embedded Document Indexes </core/indexes/index-types/index-single/create-embedded-object-index/>`
 - :manual:`Partial Indexes </core/index-partial/>`
 - :manual:`Unique Indexes </core/index-unique/>`
 

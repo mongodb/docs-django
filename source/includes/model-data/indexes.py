@@ -13,7 +13,6 @@ class Recipe(models.Model):
     title = models.CharField(max_length=200)
     cuisine = models.CharField(max_length=200)
     cook_time = models.IntegerField(default=0)
-    prep_time = models.IntegerField(default=0)
     allergens = ArrayField(models.CharField(max_length=100), null=True, blank=True)
     nutrition = EmbeddedModelField(Nutrition, null=True, blank=True)
 
@@ -33,7 +32,8 @@ class Meta:
 # end-single-field-meta
 
 # start-single-field-option
-title = models.CharField(max_length=200, db_index=True)
+class Recipe(models.Model):
+    title = models.CharField(max_length=200, db_index=True)
 # end-single-field-option
 
 # start-compound
@@ -82,12 +82,3 @@ class Meta:
                                 name="unique_regional_meal"),
     ]
 # end-unique-compound
-
-# start-expression
-class Meta:
-    db_table = "recipes"
-    indexes = [
-        models.Index(expressions=F("cook_time") + F("prep_time"),
-                     name="total_time_idx"),
-    ]
-# end-expression
