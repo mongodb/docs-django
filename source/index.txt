@@ -11,6 +11,7 @@ Django MongoDB Backend
 
 .. toctree::
 
+    Limitations </limitations>
     Issues & Help </issues-and-help>
     Compatibility </compatibility>
 
