@@ -121,10 +121,6 @@ all documents in the ``sample_mflix.movies`` collection:
       <Movie: Traffic in Souls>, <Movie: Gertie the Dinosaur>,
       <Movie: In the Land of the Head Hunters>, <Movie: The Perils of Pauline>,
       <Movie: The Italian>, <Movie: Regeneration>, <Movie: Civilization>,
-      <Movie: Where Are My Children?>, <Movie: The Poor Little Rich Girl>,
-      <Movie: Wild and Woolly>, <Movie: The Blue Bird>, <Movie: From Hand to Mouth>,
-      <Movie: High and Dizzy>, <Movie: One Week>, <Movie: The Saphead>,
-      <Movie: The Ace of Hearts>, <Movie: The Four Horsemen of the Apocalypse>,
       '...(remaining elements truncated)...']>
 
 .. _django-query-retrieve-matching:
@@ -217,11 +213,6 @@ from the results:
       <Movie: The Devil Is a Woman>, <Movie: Children in the Wind>,
       <Movie: Too Much Johnson>, <Movie: Dots>, <Movie: The Blood of Jesus>,
       <Movie: The Land>, <Movie: The Brothers and Sisters of the Toda Family>,
-      <Movie: People on the Alps>, <Movie: Der groèe Kènig>,
-      <Movie: Kate & Leopold>, <Movie: Meshes of the Afternoon>,
-      <Movie: The Body Snatcher>, <Movie: Let There Be Light>,
-      <Movie: La porta del cielo>, <Movie: A Double Life>,
-      <Movie: One Wonderful Sunday>, <Movie: La Terra Trema>,
       <Movie: Begone Dull Care>, '...(remaining elements truncated)...']>
 
 .. tip::
@@ -338,10 +329,6 @@ includes the text ``"coming-of-age"``:
       <Movie: Girls Town>, <Movie: Get Real>, <Movie: Man of Steel>,
       <Movie: The Holy Land>, <Movie: Secondhand Lions>, <Movie: How to Be Louise>,
       <Movie: Mouth to Mouth>, <Movie: Che ne sarè di noi>, <Movie: Roll Bounce>,
-      <Movie: Quando sei nato non puoi piè nasconderti>,
-      <Movie: Hey Hey It's Esther Blueburger>, <Movie: A Guide to Recognizing Your Saints>,
-      <Movie: Archie's Final Project>, <Movie: Persepolis>, <Movie: The Runaways>,
-      <Movie: An Education>, <Movie: SoulBoy>, <Movie: The French Kissers>,
       '...(remaining elements truncated)...']>
 
 .. _django-query-comparison:
@@ -399,11 +386,6 @@ is less than or equal to ``50``:
       <Movie: Winsor McCay, the Famous Cartoonist of the N.Y. Herald and His Moving Comics>,
       <Movie: Gertie the Dinosaur>, <Movie: From Hand to Mouth>,
       <Movie: High and Dizzy>, <Movie: One Week>, <Movie: Now or Never>,
-      <Movie: Steamboat Willie>, <Movie: The Music Box>, <Movie: Three Little Pigs>,
-      <Movie: The Band Concert>, <Movie: Who Killed Cock Robin?>,
-      <Movie: Popeye the Sailor Meets Sindbad the Sailor>, <Movie: Dots>, <Movie: The Land>,
-      <Movie: Meshes of the Afternoon>, <Movie: The Memphis Belle: A Story of a Flying Fortress>,
-      <Movie: Report from the Aleutians>, <Movie: Saludos Amigos>,
       '...(remaining elements truncated)...']>
 
 .. _django-query-combine:
@@ -704,9 +686,6 @@ for documents whose  ``genres`` field contains any values in the
       <Movie: Peter Pan>, <Movie: The Thief of Bagdad>, <Movie: Clash of the Wolves>,
       <Movie: Beau Geste>, <Movie: The Black Pirate>, <Movie: The Son of the Sheik>,
       <Movie: Steamboat Willie>, <Movie: The Big Trail>, <Movie: The Champ>,
-      <Movie: Skippy>, <Movie: Tabu: A Story of the South Seas>, <Movie: Movie Crazy>,
-      <Movie: Shanghai Express>, <Movie: Tarzan the Ape Man>, <Movie: The Son of Kong>,
-      <Movie: Three Little Pigs>, <Movie: Wild Boys of the Road>, <Movie: The Black Cat>,
       '...(remaining elements truncated)...']>
 
 .. _django-query-jsonfield:
