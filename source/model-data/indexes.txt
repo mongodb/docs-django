@@ -176,9 +176,7 @@ Embedded Document Index
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 You can create indexes on fields that store embedded model values,
-which MongoDB represents as embedded documents. These indexes are only
-used in queries that specify the entire embedded document. Queries
-on a specific field within the embedded document do not use the index.
+which MongoDB represents as embedded documents.
 
 The following example updates the ``Recipe`` model's ``Meta`` class to create
 an index on the ``nutrition`` embedded model field, which {+django-odm+} creates
@@ -190,6 +188,14 @@ on the ``recipes`` collection:
    :language: python
    :copyable:
    :emphasize-lines: 3-5
+
+.. important::
+
+   The index created in the preceding example is only used in queries that
+   specify the entire embedded document. Queries on a specific field within
+   the embedded document do not use the index. However, you can index
+   fields within the embedded document by adding an inner ``Meta`` class
+   to the ``Nutrition`` model and specifying the ``indexes`` option.
 
 Advanced Index Configuration
 ----------------------------
