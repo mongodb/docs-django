@@ -27,7 +27,7 @@ class Theater(models.Model):
         managed = False
     
     def __str__(self):
-        return self.title
+        return self.theaterId
 # end-models
 
 # start-filter-project
