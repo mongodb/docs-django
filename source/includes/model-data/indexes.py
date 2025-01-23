@@ -1,9 +1,10 @@
 # start-models
 from django.db import models
 from django.db.models import Q, F
+from django_mongodb_backend.models import EmbeddedModel
 from django_mongodb_backend.fields import EmbeddedModelField, ArrayField
 
-class Nutrition(models.Model):
+class Nutrition(EmbeddedModel):
     calories = models.IntegerField(default=0)
     carb_grams = models.IntegerField(default=0)
     protein_grams = models.IntegerField(default=0)
