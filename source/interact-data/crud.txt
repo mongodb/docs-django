@@ -24,6 +24,14 @@ In this guide, you can learn how to use {+django-odm+} to run
 create, read, update, and delete (CRUD) operations on your MongoDB
 collection.
 
+You can also use the {+framework+} admin site to edit your models
+and their corresponding collections on a web interface. For
+more information, see the `Django Admin Site <https://docs.djangoproject.com/en/5.1/ref/contrib/admin/>`__
+entry in the {+framework+} documentation.
+
+Query API
+~~~~~~~~~
+
 You can use methods provided by the {+framework+} ``QuerySet`` API to run
 CRUD operations. To run these operations, you can call ``QuerySet`` methods
 on your model's manager. The ``Manager`` class handles database
@@ -31,23 +39,18 @@ operations and allows you to interact with your MongoDB data by referencing
 Django models. By default, {+framework+} adds a ``Manager`` named ``objects``
 to every model class. 
 
-This guide shows how to use the following ``QuerySet`` methods:
-
-- :ref:`create() <django-crud-insert>`: Inserts documents into the collection
-- :ref:`filter() and get() <django-crud-read>`: Retrieves one or multiple collection documents
-- :ref:`update() <django-crud-modify>`: Modifies collection documents
-- :ref:`delete() <django-crud-delete>`: Deletes collection documents
-
 .. tip::
 
     To learn more about {+framework+}'s ``QuerySet`` API, see the
     `QuerySet API reference <https://docs.djangoproject.com/en/5.1/ref/models/querysets/>`__
     in the {+framework+} documentation.
 
-You can also use the {+framework+} admin site to edit your models
-and their corresponding collections on a web interface. For
-more information, see the `Django Admin Site <https://docs.djangoproject.com/en/5.1/ref/contrib/admin/>`__
-entry in the {+framework+} documentation.
+This guide shows how to use the following ``QuerySet`` methods:
+
+- :ref:`create() <django-crud-insert>`: Inserts documents into the collection
+- :ref:`filter() and get() <django-crud-read>`: Retrieves one or multiple collection documents
+- :ref:`update() <django-crud-modify>`: Modifies collection documents
+- :ref:`delete() <django-crud-delete>`: Deletes collection documents
 
 Sample Data
 ~~~~~~~~~~~
