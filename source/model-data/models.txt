@@ -232,6 +232,12 @@ define a model:
         def __str__(self):
             # Include logic for displaying your model as a string here
 
+.. tip::
+
+   To learn more about the metadata options you can specify
+   in the ``Meta`` class, see `Model Meta options <{+django-docs+}/ref/models/options/>`__
+   in the {+framework+} documentation.
+
 To use your models, you must add them to your project's
 ``settings.py`` file. Edit the ``INSTALLED_APPS`` value to include
 the name of the module that stores your ``models.py`` file, as shown
@@ -431,7 +437,7 @@ and modifies the ``Movie`` model to include the ``EmbeddedModelField``:
    :end-before: end-embedded-field
    :language: python
    :copyable:
-   :emphasize-lines: 17
+   :emphasize-lines: 18
 
 .. tip::
 
