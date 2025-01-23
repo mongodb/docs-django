@@ -171,7 +171,7 @@ The following table describes supported BSON field types and their
          with {+django-odm+}, see the :ref:`django-models-embedded` section in this guide.
 
    * - ``ObjectId``
-     - ``ObjectIdAutoField``
+     - ``ObjectIdField``
      - | Stores unique 12-byte identifiers that MongoDB uses as primary keys.
 
    * - ``Binary``
@@ -216,7 +216,7 @@ To create an model that represents a MongoDB collection, add your model
 class definitions to your application's ``models.py`` file. In your model
 class, specify the fields you want to store and include any model metadata
 in an inner ``Meta`` class. You can also use the ``__str__()`` method to
-define a string representation of your model. Use the following syntax to
+define the string representation of your model. Use the following syntax to
 define a model:
 
 .. code-block:: python
@@ -226,11 +226,11 @@ define a model:
         <field name> = <data type>
         # Include additional fields here
 
-    class Meta:
-        # Include metadata here
+        class Meta:
+            # Include metadata here
 
-    def __str__(self):
-        # Include logic for displaying your model as a string here
+        def __str__(self):
+            # Include logic for displaying your model as a string here
 
 To use your models, you must add them to your project's
 ``settings.py`` file. Edit the ``INSTALLED_APPS`` value to include
