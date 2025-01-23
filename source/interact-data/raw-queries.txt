@@ -23,7 +23,11 @@ Overview
 In this guide, you can learn how to use {+django-odm+} to run
 raw queries on your MongoDB database. Raw queries allow you to
 query the database by using MongoDB's aggregation pipeline syntax
-rather than Django methods.
+rather than Django methods. You can also run queries directly
+on your ``MongoClient`` object for expanded access to your MongoDB data.
+
+Query API
+~~~~~~~~~
 
 The Django ``QuerySet`` API provides a ``raw()`` method, which allows
 you to perform raw SQL queries on relational databases. However, {+django-odm+}
@@ -46,9 +50,6 @@ Django adds a ``Manager`` named ``objects`` to every model class. This default
 ``Manager`` does not support the ``raw_aggregate()`` method. To use this
 MongoDB-specific method, set your model's ``objects`` field to a custom
 manager called ``MongoManager``.
-
-As an alternative to the ``raw_aggregate()`` method, you can run queries directly
-on your ``MongoClient`` object for expanded access to your MongoDB data.
 
 Sample Data
 ~~~~~~~~~~~
