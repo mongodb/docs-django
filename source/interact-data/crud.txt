@@ -76,7 +76,7 @@ The ``Movie`` model class has the following definition:
       .. code-block:: python
 
          from <your application name>.models import Movie
-         from {+framework+}.utils import timezone
+         from django.utils import timezone
          from datetime import datetime
 
 .. _django-crud-insert:
