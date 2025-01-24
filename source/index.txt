@@ -23,6 +23,12 @@ Django MongoDB Backend
    Connection Configuration </connect>
    Django Feature Limitations </feature-limitations>
    
+.. warning:: Public Preview
+
+   {+django-odm+} is in Public Preview and available for evaluation purposes.
+   Public Preview is not recommended for production deployments, as breaking changes
+   may be introduced.
+
 Introduction
 ------------
 
