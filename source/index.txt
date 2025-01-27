@@ -25,7 +25,7 @@ Django MongoDB Backend
    
 .. warning:: Public Preview
 
-   {+django-odm+} is in Public Preview and available for evaluation purposes.
+   {+django-odm+} is in Public Preview and intended for evaluation purposes only.
    Public Preview is not recommended for production deployments, as breaking changes
    may be introduced.
 
