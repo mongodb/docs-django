@@ -8,6 +8,7 @@ intersphinx = [ "https://www.mongodb.com/docs/manual/objects.inv",
 
 toc_landing_pages = [
     "/model-data",
+    "/get-started",
     "/interact-data",
 ]
 
@@ -18,4 +19,6 @@ mdb-server = "MongoDB Server"
 django-version = "5.0"
 django-docs = "https://docs.djangoproject.com/en/{+django-version+}"
 framework = "Django"
+django-api = "https://django-mongodb-backend.readthedocs.io/en/latest/"
+pymongo-version = "4.10"
 pymongo-docs = "https://www.mongodb.com/docs/languages/python/pymongo-driver/current"
