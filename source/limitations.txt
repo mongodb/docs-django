@@ -64,10 +64,10 @@ Fields
 
 - ``EmbeddedModelField``
 
-  - You cannot change embedded models after creation.
+  - ``EmbeddedModel`` schema changes do not register after creation.
   - Embedded documents cannot take Django foreign keys.
   - {+django-odm+} does not support arbitrary or untyped embedded model
-    fields. You must derive all fields from a ``Model`` class.
+    fields. You must derive all fields from a ``EmbeddedModel`` class.
 
 - ``JSONField``
 
@@ -88,11 +88,6 @@ Fields
 
   - The ``DurationField`` stores milliseconds rather than microseconds.
 
-The following field types are unavailable in {+django-odm+}:
-
-- ``GeneratedField``
-- ``ImageField``
-
 - ``ForeignKey``
 
   - When possible, you should use an ``EmbeddedModelField`` instead of a
@@ -105,6 +100,11 @@ The following field types are unavailable in {+django-odm+}:
   - The performance of `CASCADE deletes <{+django-docs+}/ref/models/fields/#foreignkey>`__ 
     on a ``ForeignKey`` field is not as performant as using an
     ``EmbeddedModelField``.
+
+The following field types are unavailable in {+django-odm+}:
+
+- ``GeneratedField``
+- ``ImageField``
 
 Querying Limitations
 --------------------
@@ -124,7 +124,7 @@ Geospatial Queries
 ~~~~~~~~~~~~~~~~~~
 
 - {+django-odm+} does not support ``GeoDjango``.
-- {+django-odm+} does not have any ``$lookup`` operators for MongoDB-specific
+- {+django-odm+} does not have any Django lookup operators for MongoDB-specific
   geospatial queries.
 
 Aggregation operators
