@@ -12,6 +12,7 @@ Django MongoDB Backend
 .. toctree::
 
     Get Started </get-started>
+    Connection Configuration </connect>
     Model Your Data </model-data>
     Interact with Data </interact-data>
     Issues & Help </issues-and-help>
@@ -19,7 +20,6 @@ Django MongoDB Backend
     API Documentation <{+api+}>
 
 .. TODO:
-   Connection Configuration </connect>
    Django Feature Limitations </feature-limitations>
    
 .. warning:: Public Preview
@@ -40,6 +40,12 @@ Get Started
 Learn how to install {+django-odm+}, establish a connection to MongoDB, and begin
 working with data in the :ref:`django-get-started` tutorial.
 
+Connection Configuration
+------------------------
+
+Learn how to configure a connection to a MongoDB deployment
+in the :ref:`django-connection-configuration` section.
+
 Model Your Data
 ---------------
 
@@ -53,12 +59,6 @@ Learn how to use {+django-odm+} to perform operations on MongoDB data
 in the :ref:`django-interact-data` section.
 
 .. TODO:
-
-.. Connect to MongoDB
-.. ------------------
-
-.. Learn how to configure a connection to a MongoDB deployment
-   in the :ref:`django-connection-configuration` section.
 
 .. Django Feature Limitations
 .. --------------------------
