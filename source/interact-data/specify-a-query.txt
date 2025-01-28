@@ -741,7 +741,7 @@ provided ``KT()`` expressions.
    see the following resources in the {+framework+} documentation:
 
    - `KT() expressions <{+django-docs+}/topics/db/queries/#module-django.db.models.fields.json>`__
-     :py:mod:`~django.db.models.fields.json`
+     :py:module:`~django.db.models.fields.json`
    - :py:meth:`~django.db.models.query.QuerySet.annotate`
 
 The following example uses  ``annotate()`` and ``KT()`` to create a
