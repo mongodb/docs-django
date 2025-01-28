@@ -40,13 +40,9 @@ to the database in pipeline stages.
    {+framework+} provides a ``QuerySet.aggregate()`` method, which differs from the
    ``QuerySet.raw_aggregate()`` method. You can use ``aggregate()`` to retrieve
    values by aggregating a collection of model objects. To learn more about
-   the ``aggregate()`` method, see :py:mod:`~topics/db/aggregation`
+   the ``aggregate()`` method, see :py:meth:`~django.db.models.query.QuerySet.aggregate`
    in the {+framework+} documentation.
-   :py:module:`~topics/db/aggregation`
-   :py:module:`topics/db/aggregation`
-   :py:mod:`topics/db/aggregation`
-   :py:meth:`~django.db.models.query.QuerySet.aggregate`
-
+   
 You can run database queries by calling ``QuerySet`` methods on your model's
 ``Manager``. The ``Manager`` class handles database operations and allows you
 to interact with your MongoDB data by referencing {+framework+} models. By default,

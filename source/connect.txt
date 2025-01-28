@@ -147,8 +147,11 @@ function accepts the following arguments:
 - ``uri``: Your MongoDB connection URI.
 - ``conn_max_age``: Configures persistent database connections.
   This argument is optional. To learn more, see 
-  `Persistent connections <{+django-docs+}/ref/databases/#persistent-database-connections>`__
+  :py:mod:`persistent-database-connections`
   in the {+framework+} documentation.
+  :py:module:`persistent-database-connections`
+  :py:mod:`~persistent-database-connections`
+  :py:module:`~persistent-database-connections`
 - ``test``: Provides a dictionary of settings for test
   databases. This argument is optional. To learn more, see 
   `the TEST setting <{+django-docs+}/ref/settings/#test>`__
