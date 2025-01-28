@@ -47,10 +47,9 @@ cache. Future evaluations of the ``QuerySet`` use the cached results.
 
 .. tip::
 
-   To learn more about the {+framework+} ``QuerySet`` API, see `QuerySet API reference
-   <{+django-docs+}/ref/models/querysets/>`__ in the {+framework+} documentation.
-   :py:class:`~django.db.models.query.QuerySet`
-
+   To learn more about the {+framework+} ``QuerySet`` API, see :py:class:`~django.db.models.query.QuerySet`
+   in the {+framework+} documentation.
+   
 Sample Data
 ~~~~~~~~~~~
 
