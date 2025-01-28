@@ -26,7 +26,7 @@ collection.
 
 You can also use the {+framework+} admin site to edit your models
 and their corresponding collections on a web interface. For
-more information, see :py:mod:`~django.contrib.admin`
+more information, see :py:mod:`~django.contrib.admindocs`
 in the {+framework+} documentation.
 
 Query API
@@ -116,10 +116,8 @@ code:
 .. tip::
 
    To learn more about the ``create()`` method, see
-   :py:method:`#django.db.models.query.QuerySet.create` in the {+framework+}
+   :py:meth:`~django.db.models.query.QuerySet.create` in the {+framework+}
    documentation.
-   :py:meth:`~django.db.models.query.QuerySet.create`
-   :py:class:`~django.contrib.auth.middleware.AuthenticationMiddleware`
    
 .. _django-crud-read:
 
@@ -158,7 +156,7 @@ returns ``Movie`` objects that represent movies released on January 1, 2000:
 .. tip::
 
    To learn more about the ``filter()`` method, see 
-   :py:method:`~django.db.models.query.QuerySet.filter`
+   :py:meth:`~django.db.models.query.QuerySet.filter`
    in the {+framework+} documentation.
    
 Return One Document Example
@@ -195,7 +193,7 @@ retrieves a document in which the ``title`` value is ``"Boyhood"``:
 .. tip::
 
    To learn more about the ``get()`` method, see
-   :py:method:`~django.db.models.query.QuerySet.get`
+   :py:meth:`~django.db.models.query.QuerySet.get`
    in the {+framework+} documentation.
 
 .. _django-crud-modify:
@@ -234,7 +232,7 @@ a document that has a ``title`` value of ``"High Fidelity"`` and adds a
 .. tip::
 
    To learn more about the ``update()`` method, see
-   :py:method:`~django.db.models.query.QuerySet.update`
+   :py:meth:`~django.db.models.query.QuerySet.update`
    in the {+framework+} documentation.
 
 .. _django-crud-delete:
@@ -271,7 +269,7 @@ and deletes documents that have a ``runtime`` value of ``5``:
 .. tip::
 
    To learn more about the ``delete()`` method, see
-   :py:method:`~django.db.models.query.QuerySet.delete`
+   :py:meth:`~django.db.models.query.QuerySet.delete`
    in the {+framework+} documentation.
 
 Additional Information
