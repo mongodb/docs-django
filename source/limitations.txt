@@ -56,7 +56,7 @@ Indexes
 - Updating indexes in ``EmbeddedModelFields`` after model creation
 
 To learn how to run unsupported database operations by operating directly on
-your ``MongoClient`` instance, see the :ref:`<django-client-operations>` guide.
+your ``MongoClient`` instance, see the :ref:`django-client-operations` guide.
 
 Fields
 ~~~~~~
