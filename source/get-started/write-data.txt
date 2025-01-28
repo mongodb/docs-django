@@ -39,7 +39,7 @@ and delete functions on your model objects.
          :language: python
          :copyable:
 
-   .. step:: Insert a movie into the database
+   .. step:: Insert a Movie into the database
 
       Run the following code to create an ``Movie`` object that
       stores data about a movie titled ``"Minari"``, including

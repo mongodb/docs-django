@@ -374,8 +374,9 @@ and pass the following arguments:
 - ``size``: Specifies the maximum size of the array. This field is
   optional.
 
-- ``options``: Specifies {+framework+} field options. To view a list of
-  available options, see `Field options <{+django-docs+}/ref/models/fields/#field-options>`__
+- ``options``: Specifies {+framework+} field options. This field is
+  optional. To view a list of available options, see `Field options
+  <{+django-docs+}/ref/models/fields/#field-options>`__
   in the {+framework+} documentation.
 
 .. tip::
@@ -417,7 +418,7 @@ the ``EmbeddedModelField()`` class constructor and pass the following arguments:
 
 - ``embedded_model``: Specifies the model class to store.
 
-- ``options``: Specifies {+framework+} field options. To view a list of
+- ``options``: Specifies {+framework+} field options. This field is optional. To view a list of
   available options, see `Field options <{+django-docs+}/ref/models/fields/#field-options>`__
   in the {+framework+} documentation.
 
@@ -452,7 +453,7 @@ Additional Information
 ----------------------
 
 To learn how to use your models to run database operations,
-see the :ref:`interact-data` guides.
+see the :ref:`django-interact-data` guides.
 
 To learn more about {+framework+} field types, see `Model index reference
 <{+django-docs+}/ref/models/fields/>`__ in the {+framework+} 
