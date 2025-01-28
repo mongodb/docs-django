@@ -1,7 +1,7 @@
 The |model-classes| an inner ``Meta`` class, which specifies
-model metadata, and a ``__str__()`` method, which sets the 
-model's string representation to its ``title`` field. To learn about
-these model features, see :ref:`django-models-define` in the
+model metadata, and a ``__str__()`` method, which defines the 
+model's string representation. To learn about these
+model features, see :ref:`django-models-define` in the
 Create Models guide.
 
 Run Code Examples
