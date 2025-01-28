@@ -26,7 +26,7 @@ collection.
 
 You can also use the {+framework+} admin site to edit your models
 and their corresponding collections on a web interface. For
-more information, see :py:mod:`~django.contrib.admindocs`
+more information, see :mod:`django.contrib.admin`
 in the {+framework+} documentation.
 
 Query API
