@@ -23,7 +23,9 @@ Overview
 On this page, you can find a list of features that
 {+django-odm+} does not support. Because {+django-odm+} is in active
 development, some features listed on this page might be considered for future
-releases based on customer demand.
+releases based on user demand. You can request support for a feature by leaving
+a suggestion on the `Drivers Feedback Forum
+<https://feedback.mongodb.com/forums/924286-drivers?category_id=370732>`__.
 
 Unsupported Database Variables
 ------------------------------
@@ -38,9 +40,10 @@ The following database variables are not supported by {+django-odm+}:
 Model Limitations
 -----------------
 
-The following model limitations apply to {+django-odm+}:
+The following limitations apply to models in {+django-odm+}:
 
-- {+django-odm+} does not support multiple models within a collection.
+- {+django-odm+} enforces a one-to-one mapping between a Django model and a
+  MongoDB collection. Because of this, multiple models cannot share the same collection.
 
 Indexes
 ~~~~~~~
@@ -51,6 +54,9 @@ Indexes
   Indexes API
 - Creating geospatial indexes through the Django Indexes API
 - Updating indexes in ``EmbeddedModelFields`` after model creation
+
+To learn how to run unsupported database operations by operating directly on
+your ``MongoClient`` instance, see the :ref:`<django-client-operations>` guide.
 
 Fields
 ~~~~~~
@@ -193,5 +199,9 @@ data type. Instead, use the ``CharField`` class.
 Performance
 -----------
 
-The engineering team is prioritizing performance improvements prior to the
-General Availability release of {+django-odm+}.
+The engineering team is prioritizing feature development for the Public Preview
+release of {+django-odm+}. Because of this, you might notice performance
+limitations with certain workloads. If you encounter any performance issues,
+please report it as shown in the :ref:`Issues & Help <django-issues-and-help>`
+guide. You can also share your feedback on the `Drivers Feedback Forum
+<https://feedback.mongodb.com/forums/924286-drivers?category_id=370732>`__.
