@@ -26,10 +26,8 @@ collection.
 
 You can also use the {+framework+} admin site to edit your models
 and their corresponding collections on a web interface. For
-more information, see :py:module:`~django.contrib.admin`
+more information, see :py:mod:`~django.contrib.admin`
 in the {+framework+} documentation.
-:py:attribute:`~django.views.generic.edit.ModelFormMixin.model`
-:py:class:`~django.contrib.gis.db.models.functions.AsGeoJSON`
 
 Query API
 ~~~~~~~~~
@@ -120,7 +118,7 @@ code:
    To learn more about the ``create()`` method, see
    :py:method:`#django.db.models.query.QuerySet.create` in the {+framework+}
    documentation.
-   :py:method:`~django.db.models.query.create`
+   :py:meth:`~django.db.models.query.QuerySet.create`
    :py:class:`~django.contrib.auth.middleware.AuthenticationMiddleware`
    
 .. _django-crud-read:
