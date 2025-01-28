@@ -212,7 +212,7 @@ The following table describes supported BSON field types and their
 Define a Model
 --------------
 
-To create an model that represents a MongoDB collection, add your model
+To create a model that represents a MongoDB collection, add your model
 class definitions to your application's ``models.py`` file. In your model
 class, specify the fields you want to store and include any model metadata
 in an inner ``Meta`` class. You can also use the ``__str__()`` method to
