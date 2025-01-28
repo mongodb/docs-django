@@ -22,7 +22,7 @@ Overview
 
 In this guide, you can learn how to use {+django-odm+} to run
 create, read, update, and delete (CRUD) operations on your MongoDB
-collection.
+collection. :py:method:`~django.db.models.query.QuerySet.create`
 
 You can also use the {+framework+} admin site to edit your models
 and their corresponding collections on a web interface. For
@@ -118,9 +118,8 @@ code:
    To learn more about the ``create()`` method, see
    :py:method:`~django.db.models.query.QuerySet.create` in the {+framework+}
    documentation.
-   :py:class:`~django.db.models.query.QuerySet.create`
-   :py:function:`~django.db.models.query.QuerySet.create`
-   :py:method:`django.db.models.query.QuerySet.create`
+   :py:method:`~django.db.models.query.create`
+   :py:class:`~django.contrib.auth.middleware.AuthenticationMiddleware`
    
 .. _django-crud-read:
 
