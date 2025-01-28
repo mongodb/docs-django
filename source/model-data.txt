@@ -7,7 +7,7 @@ Model Your Data
 .. contents:: On this page
    :local:
    :backlinks: none
-   :depth: 2
+   :depth: 1
    :class: singlecol
 
 .. facet::
@@ -16,10 +16,22 @@ Model Your Data
 
 .. meta::
    :description: Learn how to use Django MongoDB Backend to model MongoDB data.
-   :keywords: field, query, collection, object
+   :keywords: field, collection, object, model
 
 .. toctree::
    :titlesonly:
    :maxdepth: 1
 
    Create Models </model-data/models>
+   
+.. TODO:
+   Create Indexes </model-data/models>
+
+In this section, you can learn how to create and customize
+your Django models for use with MongoDB.
+
+- :ref:`django-models`: Learn how to create models by using supported field
+  types and Django's model configuration features.
+
+- :ref:`django-indexes`: Learn how to create indexes by modifying your
+  model classes.
