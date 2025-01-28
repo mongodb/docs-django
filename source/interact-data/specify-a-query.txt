@@ -234,8 +234,8 @@ method allows you to specify your query criteria in a MongoDB
 aggregation pipeline, which you pass as an argument to 
 ``raw_aggregate()``. 
 
-.. TODO: To learn how to run raw database queries, see the :ref:`django-raw-queries`
- guide.
+To learn how to run raw database queries, see the :ref:`django-raw-queries`
+guide.
 
 .. _django-query-filter:
 

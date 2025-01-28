@@ -275,7 +275,8 @@ and deletes documents that have a ``runtime`` value of ``5``:
 Additional Information
 ----------------------
 
-.. TODO: To learn more about performing read operations, see the Specify a Query guide.
+To learn more about performing read operations, see the :ref:`django-specify-query`
+guide.
 
 To view more create, read, update, and delete examples, see the following
 steps of the :ref:`django-get-started` tutorial:

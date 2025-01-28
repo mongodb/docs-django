@@ -149,7 +149,7 @@ called BSON that allows for flexible data processing.
    manual.
 
 The following table describes supported BSON field types and their
-{+django-odm+} equivalents that you can use in your Django models:
+{+django-odm+} equivalents that you can use in your {+framework+} models:
 
 .. list-table::
    :header-rows: 1
@@ -374,7 +374,7 @@ and pass the following arguments:
 - ``size``: Specifies the maximum size of the array. This field is
   optional.
 
-- ``options``: Specifies Django field options. To view a list of
+- ``options``: Specifies {+framework+} field options. To view a list of
   available options, see `Field options <{+django-docs+}/ref/models/fields/#field-options>`__
   in the {+framework+} documentation.
 
@@ -417,13 +417,13 @@ the ``EmbeddedModelField()`` class constructor and pass the following arguments:
 
 - ``embedded_model``: Specifies the model class to store.
 
-- ``options``: Specifies Django field options. To view a list of
+- ``options``: Specifies {+framework+} field options. To view a list of
   available options, see `Field options <{+django-docs+}/ref/models/fields/#field-options>`__
   in the {+framework+} documentation.
 
 .. important::
 
-   The ``makemigrations`` Django command does not detect changes to embedded
+   The ``makemigrations`` {+framework+} command does not detect changes to embedded
    models. If you make changes to the embedded model's class, the model
    stored in the ``EmbeddedModelField`` does not reflect the changes.
 
