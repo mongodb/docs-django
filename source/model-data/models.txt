@@ -453,8 +453,6 @@ Additional Information
 To learn how to use your models to run database operations,
 see the :ref:`django-interact-data` guides.
 
-To learn more about {+framework+} field types, see :py:module:`~module-django.db.models.fields`
-:py:mod:`~django.db.models.fields` :py:class:`~module-django.db.models.fields`
-:py:module:`~django.db.models.fields` :py:mod:`~module-django.db.models.fields`
-:py:ref:`~module-django.db.models.fields`
+To learn more about {+framework+} field types, see 
+`Model field reference <{+django-docs+}/ref/models/fields/>`__
 in the {+framework+} documentation.
