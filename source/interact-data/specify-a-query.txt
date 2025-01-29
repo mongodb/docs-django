@@ -400,7 +400,6 @@ in the following ways:
   by commas. To view an example, see `Retrieving objects
   <{+django-docs+}/topics/db/queries/#retrieving-objects>`__ in the
   {+framework+} documentation.
-  :std:label:`chaining-filters`
 
 - Chain query methods together. To learn more, see `Chaining filters
   <{+django-docs+}/topics/db/queries/#chaining-filters>`__ in the {+framework+}
@@ -741,9 +740,7 @@ provided ``KT()`` expressions.
    To learn more about ``KT()`` expressions and the ``annotate()`` method,
    see the following resources in the {+framework+} documentation:
 
-   - `KT() expressions <{+django-docs+}/topics/db/queries/#module-django.db.models.fields.json>`__
-     :py:module:`~django.db.models.fields.json`
-     :class:`KT() <django.db.models.fields.json.KT>`
+   - :py:class:`~django.db.models.fields.json.KT`
    - :py:meth:`~django.db.models.query.QuerySet.annotate`
 
 The following example uses  ``annotate()`` and ``KT()`` to create a

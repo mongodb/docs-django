@@ -28,9 +28,8 @@ documents by using model objects.
 
 .. tip::
 
-    To learn more about {+framework+} models, see `Models
-    <{+django-docs+}/topics/db/models/>`__ in the {+framework+}
-    documentation.
+    To learn more about {+framework+} models, see :py:class:`~django.db.models.Model`
+    in the {+framework+} documentation.
 
 .. _django-models-fields:
 
@@ -87,8 +86,7 @@ that {+django-odm+} supports:
          Python ``timedelta`` instances.
 
    * - ``EmailField``
-     - | Stores ``CharField`` values and uses an `EmailValidator
-         <{+django-docs+}/ref/validators/#django.core.validators.EmailValidator>`__
+     - | Stores ``CharField`` values and uses an :py:class:`~django.core.validators.EmailValidator`
          to verify that the value is an email address.
 
    * - ``FileField``
@@ -235,7 +233,7 @@ define a model:
 .. tip::
 
    To learn more about the metadata options you can specify
-   in the ``Meta`` class, see `Model Meta options <{+django-docs+}/ref/models/options/>`__
+   in the ``Meta`` class, see :py:class:`~django.db.models.options.Options`
    in the {+framework+} documentation.
 
 To use your models, you must add them to your project's
@@ -455,6 +453,5 @@ Additional Information
 To learn how to use your models to run database operations,
 see the :ref:`django-interact-data` guides.
 
-To learn more about {+framework+} field types, see `Model index reference
-<{+django-docs+}/ref/models/fields/>`__ in the {+framework+} 
-documentation.
+To learn more about {+framework+} field types, see :py:class:`~django.db.models.Field`
+in the {+framework+} documentation.

@@ -36,9 +36,8 @@ MongoDB collection that the model represents.
 
 .. tip::
 
-    To learn more about the ``Index`` class, see `Model index reference
-    <{+django-docs+}/ref/models/indexes/>`__ in the {+framework+}
-    documentation.
+    To learn more about the ``Index`` class, see :py:class:`~django.db.models.Index`
+    in the {+framework+} documentation.
 
 Sample Data
 ~~~~~~~~~~~
@@ -221,8 +220,7 @@ argument to ``models.Index()``.
 
 .. tip::
 
-   To learn more about ``Q`` objects, see `Complex lookups with Q objects
-   <{+django-docs+}/topics/db/queries/#complex-lookups-with-q-objects>`__
+   To learn more about ``Q`` objects, see :py:class:`~django.db.models.Q`
    in the {+framework+} documentation.
 
 The following example updates the ``Recipe`` model's ``Meta`` class to create
@@ -284,6 +282,7 @@ creates a unique compound index on these fields:
    creates an index on the specified fields. To learn more about the ``Meta``
    class's ``constraint`` option, see `Constraints <{+django-docs+}/ref/models/constraints/>`__
    in the {+framework+} documentation.
+   :py:attr:`~django.db.models.Options.constraints` or :py:attribute:`~django.db.models.Options.constraints`
 
 Additional Information
 ----------------------
@@ -299,5 +298,5 @@ see the following {+mdb-server+} manual resources:
 - :manual:`Unique Indexes </core/index-unique/>`
 
 To learn more about creating indexes on {+framework+} models, see
-`Model index reference <{+django-docs+}/ref/models/indexes/>`__ in the {+framework+}
+:py:class:`~django.db.models.Index` in the {+framework+}
 documentation.
