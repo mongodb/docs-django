@@ -282,7 +282,6 @@ creates a unique compound index on these fields:
    creates an index on the specified fields. To learn more about the ``Meta``
    class's ``constraint`` option, see `Constraints <{+django-docs+}/ref/models/constraints/>`__
    in the {+framework+} documentation.
-   :py:attr:`~django.db.models.Options.constraints` or :py:attribute:`~django.db.models.Options.constraints`
 
 Additional Information
 ----------------------
