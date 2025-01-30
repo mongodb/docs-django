@@ -101,6 +101,10 @@ that {+django-odm+} supports:
    * - ``GenericIPAddressField``
      - | Stores an IPv4 or IPv6 address in string format.
 
+   * - ``ImageField``
+     - | Stores a ``FileField`` value and verifies that the uploaded object
+         is a valid image.
+
    * - ``IntegerField``
      - | Stores integer values up to 32 bits in size.
 
