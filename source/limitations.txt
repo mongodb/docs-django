@@ -50,13 +50,14 @@ Indexes
 
 {+django-odm+} does not support the following index functionalities:
 
-- Creation of ``$vectorSearch`` and ``$search`` indexes through the Django
+- Creating ``$vectorSearch`` and ``$search`` indexes through the Django
   Indexes API
 - Creating geospatial indexes through the Django Indexes API
 - Updating indexes in ``EmbeddedModelFields`` after model creation
 
 To learn how to run unsupported database operations by operating directly on
-your ``MongoClient`` instance, see the :ref:`django-client-operations` guide.
+your ``MongoClient`` instance, see :ref:`django-client-operations`  in the
+Perform Raw Database Queries.
 
 Fields
 ~~~~~~
@@ -66,7 +67,7 @@ Fields
 - ``ArrayField``
 
   - {+django-odm+} does not support ``ArrayField`` polymorphism.
-  - {+django-odm+} does not support ``EmbeddedModelField`` within an ``ArrayField``.
+  - {+django-odm+} does not support nesting an ``EmbeddedModelField`` within an ``ArrayField``.
 
 - ``EmbeddedModelField``
 
@@ -82,28 +83,28 @@ Fields
     return both JSON and SQL ``null`` values.
   - Some queries with ``Q`` objects, such as ``Q(value__foo="bar")``, might
     not work as expected.
-  - Filtering with a ``None`` key incorrectly returns objects in which a key
+  - Filtering for ``None`` values incorrectly returns objects in which a field
     does not exist.
 
 - ``DateTimeField``
 
   - {+django-odm+} does not support microsecond granularity for
-  ``DateTimeField``.
+    ``DateTimeField``.
 
 - ``DurationField``
 
-  - The ``DurationField`` stores milliseconds rather than microseconds.
+  - ``DurationField`` stores milliseconds rather than microseconds.
 
 - ``ForeignKey``
 
   - When possible, you should use an ``EmbeddedModelField`` instead of a
     ``ForeignKey`` field to avoid using ``$lookup`` operations. An
-    ``EmbeddedModelField`` emulates a MongoDB embedded document, and performs
+    ``EmbeddedModelField`` emulates a MongoDB embedded document and performs
     better than a ``ForeignKey`` field. To learn more about how to reduce
     ``$lookup`` operations, see the :atlas:`Reduce $lookup Operations
     </schema-suggestions/reduce-lookup-operations/>` guide in the Atlas
     documentation.
-  - The performance of `CASCADE deletes <{+django-docs+}/ref/models/fields/#foreignkey>`__ 
+  - Performance of `CASCADE deletes <{+django-docs+}/ref/models/fields/#django.db.models.CASCADE>`__ 
     on a ``ForeignKey`` field is not as performant as using an
     ``EmbeddedModelField``.
 
@@ -133,12 +134,13 @@ Geospatial Queries
 - {+django-odm+} does not have any Django lookup operators for MongoDB-specific
   geospatial queries.
 
-Aggregation operators
+Aggregation Operators
 ~~~~~~~~~~~~~~~~~~~~~
 
-{+django-odm+} does not contain any custom Django Field lookups for the MongoDB
-aggregation framework. Instead, use the ``raw_aggregate`` method. For more
-information on the ``raw_aggregate`` method. 
+{+django-odm+} does not contain any custom Django field lookups for the MongoDB
+aggregation framework. Instead, use the ``raw_aggregate()`` method. For more
+information on the ``raw_aggregate()`` method, see
+the :ref:`django-raw-queries` guide.
 
 .. TODO: Link to aggregation
 
