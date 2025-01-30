@@ -57,7 +57,7 @@ Indexes
 
 To learn how to run unsupported database operations by operating directly on
 your ``MongoClient`` instance, see :ref:`django-client-operations`  in the
-Perform Raw Database Queries.
+Perform Raw Database Queries guide.
 
 Fields
 ~~~~~~
@@ -111,7 +111,9 @@ Fields
 The following field types are unavailable in {+django-odm+}:
 
 - ``GeneratedField``
-- ``ImageField``
+- ``AutoField``
+- ``BigAutoField``
+- ``SmallAutoField``
 
 Querying Limitations
 --------------------
@@ -204,6 +206,6 @@ Performance
 The engineering team is prioritizing feature development for the Public Preview
 release of {+django-odm+}. Because of this, you might notice performance
 limitations with certain workloads. If you encounter any performance issues,
-please report it as shown in the :ref:`Issues & Help <django-issues-and-help>`
+please report them as shown in the :ref:`Issues & Help <django-issues-and-help>`
 guide. You can also share your feedback on the `Drivers Feedback Forum
 <https://feedback.mongodb.com/forums/924286-drivers?category_id=370732>`__.
