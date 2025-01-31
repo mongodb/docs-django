@@ -445,7 +445,7 @@ and modifies the ``Movie`` model to include the ``EmbeddedModelField``:
    :end-before: end-embedded-field
    :language: python
    :copyable:
-   :emphasize-lines: 5, 18
+   :emphasize-lines: 5, 15
 
 .. tip::
 
