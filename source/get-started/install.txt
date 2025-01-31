@@ -60,7 +60,7 @@ in your development environment.
 
          pip install django-mongodb-backend=={+django-version+}.0<patch-version>
 
-      Replace the <patch-version> placeholder with the patch version you want
+      Replace the ``<patch-version>`` placeholder with the patch version you want
       to install (``a1``, ``a2``, ``a3``, or ``b0``).
 
       This command also installs the following dependencies:
