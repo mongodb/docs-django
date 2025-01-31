@@ -60,7 +60,7 @@ in your development environment.
 
          pip install --pre "django-mongodb-backend=={+django-version+}.*"
 
-      This command installs the latest compatible of our library for Django version
+      This command installs the latest compatible version of our library for Django version
       {+django-version+} and installs the following dependencies:
 
       - PyMongo version {+pymongo-version+} and its dependencies
