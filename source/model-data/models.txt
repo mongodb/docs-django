@@ -414,8 +414,10 @@ Use an EmbeddedModelField
 
 You can use an ``EmbeddedModelField`` to represent a MongoDB ``Object``,
 which stores a nested document value. This type allows one model to
-store a separate model in one of its fields. To create an ``EmbeddedModelField``, use
-the ``EmbeddedModelField()`` class constructor and pass the following arguments:
+store a separate model in one of its fields. To create an ``EmbeddedModelField``, 
+define an embedded model class as a subclass of the ``EmbeddedModel`` abstract model.
+Then, create a field in your base model class by using the ``EmbeddedModelField()``
+constructor and pass the following arguments:
 
 - ``embedded_model``: Specifies the model class to store.
 
@@ -443,7 +445,7 @@ and modifies the ``Movie`` model to include the ``EmbeddedModelField``:
    :end-before: end-embedded-field
    :language: python
    :copyable:
-   :emphasize-lines: 18
+   :emphasize-lines: 5, 18
 
 .. tip::
 
