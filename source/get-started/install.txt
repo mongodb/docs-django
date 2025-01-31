@@ -58,15 +58,13 @@ in your development environment.
 
       .. code-block:: bash
 
-         pip install django-mongodb-backend=={+django-version+}.0<patch-version>
+         pip install --pre "django-mongodb-backend=={+django-version+}.*"
 
-      Replace the ``<patch-version>`` placeholder with the patch version you want
-      to install (``a1``, ``a2``, ``a3``, or ``b0``).
-
-      This command also installs the following dependencies:
+      This command installs the latest compatible of our library for Django version
+      {+django-version+} and installs the following dependencies:
 
       - PyMongo version {+pymongo-version+} and its dependencies
-      - {+framework+} version {+django-version+}.x and its dependencies
+      - Latest {+framework+} {+django-version+}.x version and its dependencies
 
 After you complete these steps, you have {+django-odm+} and its
 dependencies installed in your development environment.
