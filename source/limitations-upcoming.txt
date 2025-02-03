@@ -266,11 +266,13 @@ MongoDB Features
 We plan to support the following MongoDB features in
 the upcoming GA release:
 
-- Creating Vector Search, Atlas Search, and geospatial indexes
-- Performing Vector Search, Atlas Search, and geospatial queries
-- Encrypting data by using Queryable Encryption and Client-side Field Level Encryption
-- Running database transactions
-- Storing Django's cached data in the database
+- Programmatic management of Vector Search, Atlas Search,
+  and geospatial indexes by using the Django API
+- Vector Search, Atlas Search, and geospatial queries
+  by using the Django API
+- Queryable Encryption and Client-side Field Level Encryption
+- Database transactions
+- Storage of cached data in the database
 
 We plan to support the following MongoDB features in
 future post-GA releases:
@@ -278,7 +280,6 @@ future post-GA releases:
 - Using GridFS to store large files
 - Opening change streams to monitor your data
 - Specifying schema validation
-- Using specialized aggregation operators
 
 .. tip::
 
@@ -306,20 +307,17 @@ Model Features
 We plan to support the following model features in
 the upcoming GA release:
 
-- Creating arrays of embedded documents
-- Creating polymorphic embedded documents and arrays
-- Applying changes to the schema of embedded models to
+- Arrays of embedded documents
+- Polymorphic embedded documents and arrays
+- Application of changes to the embedded model schema to
   ``EmbeddedModelField`` values
-- Creating multiple models within a collection
-- Improving form representation in embedded models
+- Multiple models within a collection
+- Improved form representation in embedded models
 
 We plan to support the following model features in
 future post-GA releases:
 
-- Interacting with ``JSONField`` values without the limitations on ``Q`` object queries and
-  ``None`` value filters listed in the :ref:`Field <django-limitations-models-fields>` limitations
-  section of this guide
-- Using a custom ``Field`` class for the ``BSONRegExp`` data type
+- Custom ``Field`` class for the ``BSONRegExp`` data type
 
 .. _django-upcoming-management:
 
@@ -331,12 +329,6 @@ the upcoming GA release:
 
 - ``dumpdata``
 - ``loaddata``
-
-We plan to support the following commands in
-future post-GA releases:
-
-- ``inspectdb``
-- ``optimizemigration``
 
 .. _django-upcoming-third-party:
 
