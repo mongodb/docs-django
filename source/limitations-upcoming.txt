@@ -264,17 +264,21 @@ MongoDB Features
 ~~~~~~~~~~~~~~~~
 
 We plan to support the following MongoDB features in
-upcoming releases:
+the upcoming GA release:
 
 - Creating Vector Search, Atlas Search, and geospatial indexes
 - Performing Vector Search, Atlas Search, and geospatial queries
 - Encrypting data by using Queryable Encryption and Client-side Field Level Encryption
 - Running database transactions
-- Using specialized aggregation operators
-- Specifying schema validation
+- Storing Django's cached data in the database
+
+We plan to support the following MongoDB features in
+future post-GA releases:
+
 - Using GridFS to store large files
 - Opening change streams to monitor your data
-- Storing Django's cached data in the database
+- Specifying schema validation
+- Using specialized aggregation operators
 
 .. tip::
 
@@ -300,7 +304,7 @@ Model Features
 ~~~~~~~~~~~~~~
 
 We plan to support the following model features in
-upcoming releases:
+the upcoming GA release:
 
 - Creating arrays of embedded documents
 - Creating polymorphic embedded documents and arrays
@@ -308,7 +312,11 @@ upcoming releases:
   ``EmbeddedModelField`` values
 - Creating multiple models within a collection
 - Using forms in embedded models
-- Resolve the ``JSONField`` limitations on ``Q`` object queries and
+
+We plan to support the following model features in
+future post-GA releases:
+
+- Interacting with ``JSONField`` values without the limitations on ``Q`` object queries and
   ``None`` value filters listed in the :ref:`Field <django-limitations-models-fields>` limitations
   section of this guide
 - Using a custom ``Field`` class for the ``BSONRegExp`` data type
@@ -319,10 +327,14 @@ Django Management Command Features
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 We plan to support the following Django commands in
-upcoming releases:
+the upcoming GA release:
 
 - ``dumpdata``
 - ``loaddata``
+
+We plan to support the following commands in
+future post-GA releases:
+
 - ``inspectdb``
 - ``optimizemigration``
 
@@ -332,7 +344,7 @@ Third Party Features
 ~~~~~~~~~~~~~~~~~~~~
 
 We plan to support the following third-party features in
-upcoming releases:
+the upcoming GA release:
 
 - `Django-filter <https://django-filter.readthedocs.io/en/stable/>`__
 - `Django Rest Framework <https://www.django-rest-framework.org/>`__
@@ -346,7 +358,7 @@ Database Variable Support
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 We plan to support the following Django variables for configuring
-your database connection in upcoming releases:
+your database connection in future post-GA releases:
 
 - ``CONN_HEALTH_CHECKS``
 - ``TIME_ZONE``
@@ -356,5 +368,5 @@ your database connection in upcoming releases:
 Asynchronous Support
 ~~~~~~~~~~~~~~~~~~~~
 
-We plan to offer asynchronous support for {+django-odm+} in future
-releases.
+We plan to offer asynchronous support for {+django-odm+} in
+future post-GA releases.
