@@ -314,10 +314,8 @@ the GA release:
 - Multiple models within a collection
 - Improved form representation in embedded models
 
-We plan to support the following model features in
-future post-GA releases:
-
-- Custom ``Field`` class for the ``BSONRegExp`` data type
+In future post-GA releases, we plan to support a custom ``Field``
+class for the ``BSONRegExp`` data type.
 
 .. _django-upcoming-management:
 
