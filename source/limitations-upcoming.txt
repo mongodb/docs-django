@@ -274,6 +274,7 @@ upcoming releases:
 - Specifying schema validation
 - Using GridFS to store large files
 - Opening change streams to monitor your data
+- Storing Django's cached data in the database
 
 .. tip::
 
