@@ -284,11 +284,11 @@ upcoming releases:
    - :atlas:`Atlas Search </atlas-search>` in the Atlas documentation
    - :manual:`Geospatial Queries </geospatial-queries/>` in the {+mdb-server+}
      manual
-   - :manual:`In-Use Encryption </security-in-use-encryption/>` in the {+mdb-server+}
+   - :manual:`In-Use Encryption </core/security-in-use-encryption/>` in the {+mdb-server+}
      manual
-   - :manual:`Transactions </transactions/>` in the {+mdb-server+}
+   - :manual:`Transactions </core/transactions/>` in the {+mdb-server+}
      manual
-   - :manual:`GridFS </gridfs/>` in the {+mdb-server+}
+   - :manual:`GridFS </core/gridfs/>` in the {+mdb-server+}
      manual
    - :manual:`Change Streams </changeStreams/>` in the {+mdb-server+}
      manual
