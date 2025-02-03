@@ -260,10 +260,10 @@ will likely introduce:
 
 .. _django-upcoming-mongodb:
 
-MongodB Features
+MongoDB Features
 ~~~~~~~~~~~~~~~~
 
-We plan to support the following database features in
+We plan to support the following MongoDB features in
 upcoming releases:
 
 - Creating Vector Search, Atlas Search, and geospatial indexes
