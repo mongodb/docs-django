@@ -251,36 +251,17 @@ types of {+framework+} and MongoDB features that
 General Availability (GA) and post-GA {+django-odm+} releases
 will likely introduce:
 
+- :ref:`django-upcoming-mongodb`
 - :ref:`django-upcoming-models`
-- :ref:`django-upcoming-database`
-- :ref:`django-upcoming-third-party`
 - :ref:`django-upcoming-management`
+- :ref:`django-upcoming-third-party`
 - :ref:`django-upcoming-variables`
 - :ref:`django-upcoming-async`
 
-.. _django-upcoming-models:
+.. _django-upcoming-mongodb:
 
-Model Features
-~~~~~~~~~~~~~~
-
-We plan to support the following model features in
-upcoming releases:
-
-- Creating arrays of embedded documents
-- Creating polymorphic embedded documents and arrays
-- Applying changes to the schema of embedded models to
-  ``EmbeddedModelField`` values
-- Creating multiple models within a collection
-- Using forms in embedded models
-- Resolve the ``JSONField`` limitations on ``Q`` object queries and
-  ``None`` value filters listed in the :ref:`Field <django-limitations-models-fields>` limitations
-  section of this guide
-- Using a custom ``Field`` class for the ``BSONRegExp`` data type
-
-.. _django-upcoming-database:
-
-Database Features
-~~~~~~~~~~~~~~~~~
+MongodB Features
+~~~~~~~~~~~~~~~~
 
 We plan to support the following database features in
 upcoming releases:
@@ -312,19 +293,24 @@ upcoming releases:
    - :manual:`Change Streams </changeStreams/>` in the {+mdb-server+}
      manual
 
-.. _django-upcoming-third-party:
+.. _django-upcoming-models:
 
-Third Party Features
-~~~~~~~~~~~~~~~~~~~~
+Model Features
+~~~~~~~~~~~~~~
 
-We plan to support the following third-party features in
+We plan to support the following model features in
 upcoming releases:
 
-- `Django-filter <https://django-filter.readthedocs.io/en/stable/>`__
-- `Django Rest Framework <https://www.django-rest-framework.org/>`__
-- `Django-allauth <https://docs.allauth.org/en/latest/>`__
-- `Wagtail <https://wagtail.org/>`__
-- `Django Debug Toolbar <https://django-debug-toolbar.readthedocs.io/en/latest/>`__
+- Creating arrays of embedded documents
+- Creating polymorphic embedded documents and arrays
+- Applying changes to the schema of embedded models to
+  ``EmbeddedModelField`` values
+- Creating multiple models within a collection
+- Using forms in embedded models
+- Resolve the ``JSONField`` limitations on ``Q`` object queries and
+  ``None`` value filters listed in the :ref:`Field <django-limitations-models-fields>` limitations
+  section of this guide
+- Using a custom ``Field`` class for the ``BSONRegExp`` data type
 
 .. _django-upcoming-management:
 
@@ -338,6 +324,20 @@ upcoming releases:
 - ``loaddata``
 - ``inspectdb``
 - ``optimizemigration``
+
+.. _django-upcoming-third-party:
+
+Third Party Features
+~~~~~~~~~~~~~~~~~~~~
+
+We plan to support the following third-party features in
+upcoming releases:
+
+- `Django-filter <https://django-filter.readthedocs.io/en/stable/>`__
+- `Django Rest Framework <https://www.django-rest-framework.org/>`__
+- `Django-allauth <https://docs.allauth.org/en/latest/>`__
+- `Wagtail <https://wagtail.org/>`__
+- `Django Debug Toolbar <https://django-debug-toolbar.readthedocs.io/en/latest/>`__
 
 .. _django-upcoming-variables:
 
