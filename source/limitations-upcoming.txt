@@ -311,7 +311,7 @@ the upcoming GA release:
 - Applying changes to the schema of embedded models to
   ``EmbeddedModelField`` values
 - Creating multiple models within a collection
-- Using forms in embedded models
+- Improving form representation in embedded models
 
 We plan to support the following model features in
 future post-GA releases:
