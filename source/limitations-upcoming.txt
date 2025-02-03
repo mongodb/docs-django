@@ -21,14 +21,11 @@ Overview
 --------
 
 On this page, you can find a list of features that
-{+django-odm+} does not support. Because {+django-odm+} is in active
-development, some features listed on this page might be considered for future
-releases based on user demand. You can request support for a feature by leaving
-a suggestion on the `Drivers Feedback Forum
+{+django-odm+} does not support and features currently planned for
+future releases. We will prioritize these upcoming features
+based on user demand, and you can request support
+for a feature by leaving a suggestion on the `Drivers Feedback Forum
 <https://feedback.mongodb.com/forums/924286-drivers?category_id=370732>`__.
-
-You can also find a list of features that {+django-odm+}
-will likely support in upcoming releases.
 
 Feature Limitations
 -------------------
