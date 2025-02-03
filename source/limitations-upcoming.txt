@@ -21,8 +21,9 @@ Overview
 --------
 
 On this page, you can find a list of features that
-{+django-odm+} does not support and features currently planned for
-future releases. We will prioritize these upcoming features
+{+django-odm+} does not support. You can also find features
+currently planned for the General Availability (GA) and post-GA
+releases. We will prioritize these upcoming features
 based on user demand, and you can request support
 for a feature by leaving a suggestion on the `Drivers Feedback Forum
 <https://feedback.mongodb.com/forums/924286-drivers?category_id=370732>`__.
@@ -243,13 +244,12 @@ please report them as shown in the :ref:`Issues & Help <django-issues-and-help>`
 guide. You can also share your feedback on the `Drivers Feedback Forum
 <https://feedback.mongodb.com/forums/924286-drivers?category_id=370732>`__.
 
-Upcoming Features
------------------
+General Availability Release Features
+-------------------------------------
 
 In this section, you can learn about the following
 types of {+framework+} and MongoDB features that 
-General Availability (GA) and post-GA {+django-odm+} releases
-will likely introduce:
+GA and post-GA {+django-odm+} releases will likely introduce:
 
 - :ref:`django-upcoming-mongodb`
 - :ref:`django-upcoming-models`
@@ -264,7 +264,7 @@ MongoDB Features
 ~~~~~~~~~~~~~~~~
 
 We plan to support the following MongoDB features in
-the upcoming GA release:
+the GA release:
 
 - Programmatic management of Vector Search, Atlas Search,
   and geospatial indexes by using the Django API
@@ -305,7 +305,7 @@ Model Features
 ~~~~~~~~~~~~~~
 
 We plan to support the following model features in
-the upcoming GA release:
+the GA release:
 
 - Arrays of embedded documents
 - Polymorphic embedded documents and arrays
@@ -325,7 +325,7 @@ Django Management Command Features
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 We plan to support the following Django commands in
-the upcoming GA release:
+the GA release:
 
 - ``dumpdata``
 - ``loaddata``
@@ -336,7 +336,7 @@ Third Party Features
 ~~~~~~~~~~~~~~~~~~~~
 
 We plan to support the following third-party features in
-the upcoming GA release:
+the GA release:
 
 - `Django-filter <https://django-filter.readthedocs.io/en/stable/>`__
 - `Django Rest Framework <https://www.django-rest-framework.org/>`__
