@@ -7,7 +7,7 @@ Limitations and Upcoming Features
 .. contents:: On this page
    :local:
    :backlinks: none
-   :depth: 1
+   :depth: 2
    :class: singlecol
 
 .. facet::
@@ -275,9 +275,9 @@ upcoming releases:
   ``EmbeddedModelField`` values
 - Creating multiple models within a collection
 - Using forms in embedded models
-- Resolve the ``JSONField`` limitations listed in the
-  :ref:`Field limitations <django-limitations-models-fields>` section of
-  this guide
+- Resolve the ``JSONField`` limitations on ``Q`` object queries and
+  ``None`` value filters listed in the :ref:`Field <django-limitations-models-fields>` limitations
+  section of this guide
 - Using a custom ``Field`` class for the ``BSONRegExp`` data type
 
 .. _django-upcoming-database:
