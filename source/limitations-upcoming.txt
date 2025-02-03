@@ -277,9 +277,9 @@ the GA release:
 We plan to support the following MongoDB features in
 future post-GA releases:
 
-- Using GridFS to store large files
-- Opening change streams to monitor your data
-- Specifying schema validation
+- GridFS for large file storage
+- Change streams for data monitoring
+- Schema validation
 
 .. tip::
 
