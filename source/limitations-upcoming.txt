@@ -85,7 +85,7 @@ Fields
 - ``ArrayField``
 
   - ``ArrayField`` polymorphism is not supported.
-  - Nested ``EmbeddedModelField`` values within an ``ArrayField`` is not supported.
+  - Nested ``EmbeddedModelField`` values within an ``ArrayField`` are not supported.
 
 - ``EmbeddedModelField``
 
