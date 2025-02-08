@@ -39,21 +39,18 @@ types of unsupported {+framework+} and MongoDB features:
 - :ref:`django-limitations-query`
 - :ref:`django-limitations-management`
 - :ref:`django-limitations-migration`
-- :ref:`django-limitations-async`
 - :ref:`django-limitations-data`
 - :ref:`django-limitations-performance`
 
 .. _django-limitations-database:
 
-Unsupported Database Variables
+Unsupported Database settings
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The following database variables are not supported by {+django-odm+}:
+The following database settings are not supported by {+django-odm+}:
 
 - ``ATOMIC_REQUESTS``
 - ``AUTOCOMMIT``
-- ``CONN_HEALTH_CHECKS``
-- ``TIME_ZONE``
 
 .. _django-limitations-models:
 
@@ -126,7 +123,7 @@ Fields
     ``$lookup`` operations, see the :atlas:`Reduce $lookup Operations
     </schema-suggestions/reduce-lookup-operations/>` guide in the Atlas
     documentation.
-  - Performance of `CASCADE deletes <{+django-docs+}/ref/models/fields/#django.db.models.CASCADE>`__ 
+  - Performance of `CASCADE deletes <{+django-docs+}/ref/models/fields/#django.db.models.CASCADE>`__
     on a ``ForeignKey`` field is not as performant as using an
     ``EmbeddedModelField``.
 
@@ -199,9 +196,6 @@ Django Management Command Limitations
 
 - ``createcachetable``
 - ``inspectdb``
-- ``optimizemigration``
-- ``sqlflush``
-- ``sqlsequencereset``
 
 .. _django-limitations-migration:
 
@@ -214,15 +208,7 @@ Migration Limitations
   {+mdb-server+} manual.
 - {+django-odm+} does not support `DDL Transactions
   <{+django-docs+}/topics/migrations/#transactions>`__.
-- {+django-odm+} does not support the ``migrate --fake-initial`` command.
-
-.. _django-limitations-async:
-
-Asynchronous Limitations
-~~~~~~~~~~~~~~~~~~~~~~~~
-
-{+django-odm+} has not been tested for support of the asynchronous functionality of
-the Django API.
+- {+django-odm+} does not support the ``migrate --fake-initial`` option.
 
 .. _django-limitations-data:
 
@@ -248,15 +234,13 @@ General Availability Release Features
 -------------------------------------
 
 In this section, you can learn about the following
-types of {+framework+} and MongoDB features that 
+types of {+framework+} and MongoDB features that
 GA and post-GA {+django-odm+} releases will likely introduce:
 
 - :ref:`django-upcoming-mongodb`
 - :ref:`django-upcoming-models`
 - :ref:`django-upcoming-management`
 - :ref:`django-upcoming-third-party`
-- :ref:`django-upcoming-variables`
-- :ref:`django-upcoming-async`
 
 .. _django-upcoming-mongodb:
 
@@ -330,10 +314,10 @@ the GA release:
 
 .. _django-upcoming-third-party:
 
-Third Party Features
-~~~~~~~~~~~~~~~~~~~~
+Third Party Libraries
+~~~~~~~~~~~~~~~~~~~~~
 
-We plan to support the following third-party features in
+We plan to support the following third-party libraries in
 the GA release:
 
 - `Django-filter <https://django-filter.readthedocs.io/en/stable/>`__
@@ -341,22 +325,3 @@ the GA release:
 - `Django-allauth <https://docs.allauth.org/en/latest/>`__
 - `Wagtail <https://wagtail.org/>`__
 - `Django Debug Toolbar <https://django-debug-toolbar.readthedocs.io/en/latest/>`__
-
-.. _django-upcoming-variables:
-
-Database Variable Support
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
-We plan to support the following Django variables for configuring
-your database connection in future post-GA releases:
-
-- ``CONN_HEALTH_CHECKS``
-- ``TIME_ZONE``
-
-.. _django-upcoming-async:
-
-Asynchronous Support
-~~~~~~~~~~~~~~~~~~~~
-
-We plan to offer asynchronous support for {+django-odm+} in
-future post-GA releases.
