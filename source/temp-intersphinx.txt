@@ -2,7 +2,8 @@
 Test Intersphinx Links
 ======================
 
-This page is for testing purposes only.
+This page is for testing purposes only and includes
+the Django refs that do not work.
 
 Attribute
 ---------
@@ -67,13 +68,6 @@ Doc
 #. :std:doc:`Django's LOGGING setting <topics/logging>`
 #. :std:doc:`Django's LOGGING setting <~topics/logging>`
 #. :doc:`Django's LOGGING setting <topics/logging>`
-
-Envvar
-------
-
-1. :std:envvar:`<DJANGO_SUPERUSER_PASSWORD>`
-#. :std:envvar:`~DJANGO_SUPERUSER_PASSWORD`
-#. :envvar:`~DJANGO_SUPERUSER_PASSWORD`
 
 Django-admin
 ------------
