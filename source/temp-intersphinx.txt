@@ -1,0 +1,67 @@
+======================
+Test Intersphinx Links
+======================
+
+This page is for testing purposes only.
+
+Attribute
+---------
+
+1. :py:attr:`Constraints <~django.db.models.Options.constraints>`
+#. :py:attr:`Constraints <django.db.models.Options.constraints>`
+#. :py:attribute:`Constraints <~django.db.models.Options.constraints>`
+#. :py:attribute:`Constraints <django.db.models.Options.constraints>`
+#. :attribute:`Constraints <django.db.models.Options.constraints>`
+#. :attr:`Constraints <django.db.models.Options.constraints>`
+#. :py:attr:`Constraints <django.db.models.Options.constraints>`
+#. :attr:`~django.db.models.Options.constraints`
+#. :py:attr:`~django.db.models.Options.constraints`
+
+Data
+----
+
+Exception
+---------
+
+1. :py:exception:`~django.core.exceptions.ViewDoesNotExist`
+#. :py:exception:`<django.core.exceptions.ViewDoesNotExist>`
+#. :py:exc:`<django.core.exceptions.ViewDoesNotExist>`
+#. :py:exc:`~django.core.exceptions.ViewDoesNotExist`
+#. :exc:`~django.core.exceptions.ViewDoesNotExist`
+#. :py:exc:`ViewDoesNotExist <django.core.exceptions.ViewDoesNotExist>`
+
+Function
+--------
+
+Module
+------
+
+1. :py:module:`Fields <~django.db.models.fields>`
+#. :py:mod:`Fields <~django.db.models.fields>`
+#. :py:mod:`Fields <~module-django.db.models.fields>`
+#. :py:mod:`Fields <module-django.db.models.fields>`
+#. :py:module:`Fields <module-django.db.models.fields>`
+#. :mod:`Fields <~django.db.models.fields>`
+#. :mod:`Fields <~module-django.db.models.fields>`
+#. :py:mod:`Fields <django.db.models.fields>`
+
+Doc
+---
+
+1. :doc:`Django's LOGGING setting <django:topics/logging>`
+#. :py:doc:`Django's LOGGING setting <django:topics/logging>`
+#. :std:doc:`Django's LOGGING setting <django:topics/logging>`
+#. :std:doc:`Django's LOGGING setting <~django:topics/logging>`
+#. :std:doc:`Django's LOGGING setting <topics/logging>`
+#. :std:doc:`Django's LOGGING setting <~topics/logging>`
+#. :doc:`Django's LOGGING setting <topics/logging>`
+
+Envvar
+------
+
+1. :std:envvar:`<DJANGO_SUPERUSER_PASSWORD>`
+#. :std:envvar:`~DJANGO_SUPERUSER_PASSWORD`
+#. :envvar:`~DJANGO_SUPERUSER_PASSWORD`
+
+Django-admin
+------------
