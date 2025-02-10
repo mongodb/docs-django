@@ -75,6 +75,8 @@ Django-admin
 1. :std:django-admin:`<createsuperuser>`
 #. :std:django-admin:`~createsuperuser`
 #. :django-admin:`~createsuperuser`
+#. :djadmin:`inspectdb`
+#. :py:djadmin:`inspectdb`
 
 Command option
 --------------
@@ -83,6 +85,8 @@ Command option
 #. :std:cmdoption:`<--skip-checks>`
 #. :std:cmdoption:`~--skip-checks`
 #. :cmdoption:`--skip-checks`
+#. :option:`migrate --fake-initial`
+#. :py:option:`migrate --fake-initial`
 
 Field lookup
 ------------
