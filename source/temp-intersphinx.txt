@@ -20,6 +20,12 @@ Attribute
 Data
 ----
 
+1. :py:data:`~django.conf.urls.handler400`
+#. :py:data:`<django.conf.urls.handler400>`
+#. :py:data:`django.conf.urls.handler400`
+#. :data:`~django.conf.urls.handler400`
+
+
 Exception
 ---------
 
@@ -32,6 +38,12 @@ Exception
 
 Function
 --------
+
+1. :py:function:`~django.db.models.SET`
+#. :py:func:`~django.db.models.SET`
+#. :func:`~django.db.models.SET`
+#. :py:func:`<django.db.models.SET>`
+#. :func:`~django:django.db.models.SET`
 
 Module
 ------
@@ -65,3 +77,7 @@ Envvar
 
 Django-admin
 ------------
+
+1. :std:django-admin:`<createsuperuser>`
+#. :std:django-admin:`~createsuperuser`
+#. :django-admin:`~createsuperuser`
