@@ -81,3 +81,21 @@ Django-admin
 1. :std:django-admin:`<createsuperuser>`
 #. :std:django-admin:`~createsuperuser`
 #. :django-admin:`~createsuperuser`
+
+Command option
+--------------
+
+1. :std:cmdoption:`--skip-checks`
+#. :std:cmdoption:`<--skip-checks>`
+#. :std:cmdoption:`~--skip-checks`
+#. :cmdoption:`--skip-checks`
+
+Field lookup
+------------
+
+1. :std:fieldlookup:`arrayfield.overlap`
+#. :std:fieldlookup:`~arrayfield.overlap`
+#. :std:fieldlookup:`django:arrayfield.overlap`
+#. :std:fieldlookup:`Overlap <arrayfield.overlap>`
+#. :fieldlookup:`arrayfield.overlap`
+#. :py:fieldlookup:`arrayfield.overlap`
