@@ -8,15 +8,14 @@ the Django refs that do not work.
 Attribute
 ---------
 
-1. :py:attr:`Constraints <~django.db.models.Options.constraints>`
-#. :py:attr:`Constraints <django.db.models.Options.constraints>`
-#. :py:attribute:`Constraints <~django.db.models.Options.constraints>`
+1. :py:attr:`Constraints <django.db.models.Options.constraints>`
 #. :py:attribute:`Constraints <django.db.models.Options.constraints>`
 #. :attribute:`Constraints <django.db.models.Options.constraints>`
 #. :attr:`Constraints <django.db.models.Options.constraints>`
 #. :py:attr:`Constraints <django.db.models.Options.constraints>`
 #. :attr:`~django.db.models.Options.constraints`
 #. :py:attr:`~django.db.models.Options.constraints`
+#. :py:attribute:`~django.db.models.Options.constraints`
 
 Data
 ----
@@ -49,13 +48,13 @@ Function
 Module
 ------
 
-1. :py:module:`Fields <~django.db.models.fields>`
-#. :py:mod:`Fields <~django.db.models.fields>`
-#. :py:mod:`Fields <~module-django.db.models.fields>`
+1. :py:module:`Fields <django.db.models.fields>`
+#. :py:mod:`Fields <django.db.models.fields>`
+#. :py:mod:`~module-django.db.models.fields`
 #. :py:mod:`Fields <module-django.db.models.fields>`
 #. :py:module:`Fields <module-django.db.models.fields>`
-#. :mod:`Fields <~django.db.models.fields>`
-#. :mod:`Fields <~module-django.db.models.fields>`
+#. :mod:`~django.db.models.fields`
+#. :mod:`Fields <module-django.db.models.fields>`
 #. :py:mod:`Fields <django.db.models.fields>`
 
 Doc
@@ -64,19 +63,10 @@ Doc
 1. :doc:`Django's LOGGING setting <django:topics/logging>`
 #. :py:doc:`Django's LOGGING setting <django:topics/logging>`
 #. :std:doc:`Django's LOGGING setting <django:topics/logging>`
-#. :std:doc:`Django's LOGGING setting <~django:topics/logging>`
+#. :std:doc:`~django:topics/logging`
 #. :std:doc:`Django's LOGGING setting <topics/logging>`
-#. :std:doc:`Django's LOGGING setting <~topics/logging>`
+#. :std:doc:`~topics/logging`
 #. :doc:`Django's LOGGING setting <topics/logging>`
-
-Django-admin
-------------
-
-1. :std:django-admin:`<createsuperuser>`
-#. :std:django-admin:`~createsuperuser`
-#. :django-admin:`~createsuperuser`
-#. :djadmin:`inspectdb`
-#. :py:djadmin:`inspectdb`
 
 Command option
 --------------
@@ -87,13 +77,3 @@ Command option
 #. :cmdoption:`--skip-checks`
 #. :option:`migrate --fake-initial`
 #. :py:option:`migrate --fake-initial`
-
-Field lookup
-------------
-
-1. :std:fieldlookup:`arrayfield.overlap`
-#. :std:fieldlookup:`~arrayfield.overlap`
-#. :std:fieldlookup:`django:arrayfield.overlap`
-#. :std:fieldlookup:`Overlap <arrayfield.overlap>`
-#. :fieldlookup:`arrayfield.overlap`
-#. :py:fieldlookup:`arrayfield.overlap`
