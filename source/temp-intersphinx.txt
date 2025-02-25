@@ -9,13 +9,12 @@ Attribute
 ---------
 
 1. :py:attr:`Constraints <django.db.models.Options.constraints>`
-#. :py:attribute:`Constraints <django.db.models.Options.constraints>`
-#. :attribute:`Constraints <django.db.models.Options.constraints>`
-#. :attr:`Constraints <django.db.models.Options.constraints>`
 #. :py:attr:`Constraints <django.db.models.Options.constraints>`
-#. :attr:`~django.db.models.Options.constraints`
 #. :py:attr:`~django.db.models.Options.constraints`
-#. :py:attribute:`~django.db.models.Options.constraints`
+#. :py:attr:`~django.db.models.Index.condition`
+#. :py:attr:`django.db.models.Index.condition`
+#. :py:attr:`Condition <django.db.models.Index.condition>`
+#. :py:attr:`#django.db.models.Index.condition`
 
 Data
 ----
@@ -23,38 +22,33 @@ Data
 1. :py:data:`~django.conf.urls.handler400`
 #. :py:data:`<django.conf.urls.handler400>`
 #. :py:data:`django.conf.urls.handler400`
-#. :data:`~django.conf.urls.handler400`
 
 
 Exception
 ---------
 
-1. :py:exception:`~django.core.exceptions.ViewDoesNotExist`
-#. :py:exception:`<django.core.exceptions.ViewDoesNotExist>`
-#. :py:exc:`<django.core.exceptions.ViewDoesNotExist>`
+1. :py:exc:`<django.core.exceptions.ViewDoesNotExist>`
 #. :py:exc:`~django.core.exceptions.ViewDoesNotExist`
-#. :exc:`~django.core.exceptions.ViewDoesNotExist`
 #. :py:exc:`ViewDoesNotExist <django.core.exceptions.ViewDoesNotExist>`
 
 Function
 --------
 
-1. :py:function:`~django.db.models.SET`
-#. :py:func:`~django.db.models.SET`
-#. :func:`~django.db.models.SET`
+1. :py:func:`~django.db.models.SET`
 #. :py:func:`<django.db.models.SET>`
-#. :func:`~django:django.db.models.SET`
+#. :py:func:`SET <django.db.models.SET>`
+#. :py:func:`django.db.models.SET`
+#. :py:func:`#django.db.models.SET`
 
 Module
 ------
 
-1. :py:module:`Fields <django.db.models.fields>`
-#. :py:mod:`Fields <django.db.models.fields>`
+1. :py:mod:`Fields <django.db.models.fields>`
 #. :py:mod:`~module-django.db.models.fields`
+#. :py:mod:`module-django.db.models.fields`
+#. :py:mod:`django.db.models.fields`
+#. :py:mod:`~django.db.models.fields`
 #. :py:mod:`Fields <module-django.db.models.fields>`
-#. :py:module:`Fields <module-django.db.models.fields>`
-#. :mod:`~django.db.models.fields`
-#. :mod:`Fields <module-django.db.models.fields>`
 #. :py:mod:`Fields <django.db.models.fields>`
 
 Doc
