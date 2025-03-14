@@ -15,7 +15,7 @@ Django MongoDB Backend
     Connection Configuration </connect>
     Model Your Data </model-data>
     Interact with Data </interact-data>
-    Limitations & Upcoming Features </limitations-upcoming>
+    Django & MongoDB Feature Compatibility </feature-compatibility>
     Issues & Help </issues-and-help>
     Compatibility </compatibility>
     API Documentation <{+api+}>
