@@ -1,9 +1,8 @@
 .. _django-limitations:
-.. _django-feature-compat:
 
-========================================
-Django and MongoDB Feature Compatibility
-========================================
+=================================
+Limitations and Upcoming Features
+=================================
 
 .. facet::
    :name: genre
@@ -21,8 +20,8 @@ Django and MongoDB Feature Compatibility
 Overview
 --------
 
-On this page, you can find information about supported and unsupported
-features in {+django-odm+}. You can also find features
+On this page, you can find information about the feature support
+limitations of {+django-odm+}. You can also find features
 currently planned for the General Availability (GA) and post-GA
 releases. We will prioritize these upcoming features
 based on user demand, and you can request support
@@ -31,12 +30,13 @@ for a feature by :ref:`creating a JIRA issue <django-issues-and-help>`.
 MongoDB Features
 ----------------
 
-This section indicates whether the {+django-odm+} supports various
-MongoDB features and which features we plan to support in
-the GA release.
+This section describes MongoDB features that are unsupported or
+partially supported in the the Public Preview release of {+django-odm+}.
+Each table indicates whether we plan to support these features
+in the GA release.
 
-Index Support
-~~~~~~~~~~~~~
+Index Limitations
+~~~~~~~~~~~~~~~~~
 
 .. list-table::
    :header-rows: 1
@@ -62,8 +62,8 @@ Index Support
      - *Unsupported*
      - ✓
 
-Field Type Support
-~~~~~~~~~~~~~~~~~~
+Field Type Limitations
+~~~~~~~~~~~~~~~~~~~~~~
 
 .. list-table::
    :header-rows: 1
@@ -98,8 +98,8 @@ Field Type Support
 in the preceding table. To view a full list of supported fields, see the :ref:`django-models-mongodb-fields`
 section of the Create Models guide.
 
-Query Support
-~~~~~~~~~~~~~
+Query Limitations
+~~~~~~~~~~~~~~~~~
 
 .. list-table::
    :header-rows: 1
@@ -134,8 +134,8 @@ Query Support
        the :ref:`raw_aggregate() method <django-raw-queries-search>`.
      - ✓
 
-Database and Collection Support
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Database and Collection Limitations
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. list-table::
    :header-rows: 1
@@ -149,7 +149,7 @@ Database and Collection Support
      - *Unsupported*.
      - ✓
 
-   * - Encryption: Client-side Field Level Encryption and Queryable Encryption
+   * - Client-side Field Level Encryption and Queryable Encryption
      - *Unsupported*.
      - ✓
 
@@ -179,12 +179,13 @@ Database and Collection Support
 Django Features
 ---------------
 
-This section indicates whether the {+django-odm+} supports various
-{+framework+} features and which features we plan to support in
-the GA release.
+This section describes {+framework+} features that are unsupported or
+partially supported in the the Public Preview release of {+django-odm+}.
+Each table indicates whether we plan to support these features
+in the GA release.
 
-Field Type Support
-~~~~~~~~~~~~~~~~~~
+Field Type Limitations
+~~~~~~~~~~~~~~~~~~~~~~
 
 .. list-table::
    :header-rows: 1
@@ -260,8 +261,8 @@ Field Type Support
 the preceding table. To view a full list of supported fields, see the :ref:`django-models-django-fields`
 section of the Create Models guide.
 
-Query Support
-~~~~~~~~~~~~~
+Query Limitations
+~~~~~~~~~~~~~~~~~
 
 .. list-table::
    :header-rows: 1
@@ -301,8 +302,8 @@ Query Support
        queries that span multiple collections.
      - *Full Support Not Planned*.
 
-Database Function Support
-~~~~~~~~~~~~~~~~~~~~~~~~~
+Database Function Limitations
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. list-table::
    :header-rows: 1
@@ -361,8 +362,8 @@ Database Function Support
        properly because MongoDB converts the result back to UTC.
      - *Full Support Not Planned*.
 
-Management Command Support
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+Management Command Limitations
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. list-table::
    :header-rows: 1
@@ -389,8 +390,8 @@ Management Command Support
      - *Unsupported*.
      - ✓
 
-Migration Support
-~~~~~~~~~~~~~~~~~
+Migration Limitations
+~~~~~~~~~~~~~~~~~~~~~
 
 .. list-table::
    :header-rows: 1
@@ -408,8 +409,8 @@ Migration Support
      - *Unsupported*.
      - *Unsupported*.
 
-Third Party Library Support
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Third Party Library Limitations
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. list-table::
    :header-rows: 1
