@@ -89,7 +89,7 @@ Index Support
      - ✓
 
    * - Updating ``EmbeddedModelFields`` indexes after model creation
-     - *Unsupported*
+     - *Unsupported*.
      - ✓
 
 Field Type Support
