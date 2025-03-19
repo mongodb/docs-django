@@ -28,18 +28,18 @@ releases. We will prioritize these upcoming features
 based on user demand, and you can request support
 for a feature by :ref:`creating a JIRA issue <django-issues-and-help>`.
 
-.. important::
-
-   Unsupported features that have a checkmark (``✓``) symbol in the
-   ``General Availability Support`` column are planned for the GA
-   release. However, support is not guaranteed.
-
 MongoDB Features
 ----------------
 
 This section indicates whether the {+django-odm+} supports various
 MongoDB features and which features we plan to support in
 the GA release.
+
+.. important::
+
+   Unsupported MongoDB features that have a checkmark (``✓``) symbol in the
+   **General Availability Support** column are planned for the GA
+   release. However, support is not guaranteed.
 
 Index Support
 ~~~~~~~~~~~~~
@@ -153,7 +153,7 @@ Query Support
      - ✓
 
    * - Delete operations
-     - ✓ Use ``delete()``.
+     - ✓
      - ✓
 
    * - Geospatial queries
@@ -163,15 +163,15 @@ Query Support
      - ✓
 
    * - Insert operations
-     - ✓ Use ``create()`` or ``save()``.
+     - ✓
      - ✓
 
    * - Read operations
-     - ✓ Use ``filter()`` or ``get()``.
+     - ✓
      - ✓
 
    * - Update operations
-     - ✓ Use ``update()``.
+     - ✓
      - ✓
 
    * - Vector Search queries
@@ -193,26 +193,32 @@ Database and Collection Support
 
    * - Asynchronous support
      - *Unsupported*.
-     - ✓
+     - *Unsupported*. However, we plan to add support for this feature
+       in a post-GA release.
 
-   * - Collection interaction
-     - ✓ Use Django models to represent MongoDB collections.
-     - ✓
-
-   * - Database interaction
+   * - Authentication
      - ✓
      - ✓
 
-   * - Transactions
+   * - Cached data storage
      - *Unsupported*.
      - ✓
+
+   * - Change Streams
+     - *Unsupported*.
+     - *Unsupported*. However, we plan to add support for this feature
+       in a post-GA release.
 
    * - Client-side Field Level Encryption and Queryable Encryption
      - *Unsupported*.
      - ✓
 
-   * - Multiple models for one collection
-     - *Unsupported*.
+   * - Collection interaction
+     - ✓
+     - ✓
+
+   * - Database interaction
+     - ✓
      - ✓
 
    * - GridFS
@@ -220,17 +226,24 @@ Database and Collection Support
      - *Unsupported*. However, we plan to add support for this feature
        in a post-GA release.
 
-   * - Change Streams
+   * - Multiple models for one collection
      - *Unsupported*.
-     - *Unsupported*. However, we plan to add support for this feature
-       in a post-GA release.
+     - ✓
+
+   * - Representing documents
+     - ✓ Use models to represent MongoDB documents.
+     - ✓
 
    * - Schema validation
      - *Unsupported*.
      - *Unsupported*. However, we plan to add support for this feature
        in a post-GA release.
 
-   * - Cached data storage
+   * - Timeseries data
+     - ✓
+     - ✓
+
+   * - Transactions
      - *Unsupported*.
      - ✓
 
@@ -240,6 +253,12 @@ Django Features
 This section indicates whether the {+django-odm+} supports various
 {+framework+} features and which features we plan to support in
 the GA release.
+
+.. important::
+
+   Unsupported {+framework+} features that have a checkmark (``✓``) symbol in the
+   **General Availability Support** column are planned for the GA
+   release. However, support is not guaranteed.
 
 Field Type Support
 ~~~~~~~~~~~~~~~~~~
@@ -442,6 +461,11 @@ Query Support
      - ✓
      - ✓
 
+   * - ``JOIN`` operations
+     - *Partially Supported*. You can use MongoDB's :manual:`$lookup </reference/operator/aggregation/lookup/>`
+       pipeline stage to perform joins.
+     - *Full Support Not Planned*.
+
    * - ``last()``
      - ✓
      - ✓
@@ -579,18 +603,41 @@ Database Function Support
 Management Support
 ~~~~~~~~~~~~~~~~~~
 
-{+django-odm+} supports the {+framework+} Admin interface, which
-you can use as a management tool. To learn more, see the :ref:`django-get-started-create-admin`
-step in the Get Started guide.
+.. list-table::
+   :header-rows: 1
+   :widths: 30 30 40
 
-The following table describes {+django-odm+}'s support for 
-{+framework+} management commands:
+   * - {+framework+} Feature
+     - Public Preview Support
+     - General Availability Support
+
+   * - {+framework+} Admin
+     - ✓
+     - ✓
+
+   * - {+framework+} Forms
+     - ✓
+     - ✓
+
+   * - {+framework+} Authentication
+     - ✓
+     - ✓
+
+   * - Management commands
+     - *Partially Supported*. For a full list of supported and unsupported
+       commands, see the :ref:`following section <django-management-commands>`.
+     - *Full Support Not Planned*.
+
+.. _django-management-commands:
+
+Management Command Support
+``````````````````````````
 
 .. list-table::
    :header-rows: 1
    :widths: 30 30 40
 
-   * - {+framework+} Admin Command
+   * - {+framework+} Command
      - Public Preview Support
      - General Availability Support
 
