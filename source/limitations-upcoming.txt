@@ -49,11 +49,11 @@ Index Support
    :widths: 30 30 40
 
    * - MongoDB Feature
-     - Public Preview Support
+     - Current Support
      - General Availability Support
 
    * - Atlas Search and Atlas Vector Search indexes
-     - *Partially Supported*. You cannot use the Django
+     - *Unsupported*. You cannot use the Django
        Indexes API to create these indexes, but you can use
        the PyMongo Driver by :ref:`exposing your MongoClient <django-client-operations>`.
      - ✓
@@ -67,7 +67,7 @@ Index Support
      - ✓
 
    * - Geospatial indexes
-     - *Partially Supported*. You cannot use the Django
+     - *Unsupported*. You cannot use the Django
        Indexes API to create these indexes, but you can use
        the PyMongo Driver by :ref:`exposing your MongoClient <django-client-operations>`.
      - ✓
@@ -92,15 +92,15 @@ Index Support
      - *Unsupported*.
      - ✓
 
-Field Type Support
-~~~~~~~~~~~~~~~~~~
+Data Type Support
+~~~~~~~~~~~~~~~~~
 
 .. list-table::
    :header-rows: 1
    :widths: 30 30 40
 
-   * - MongoDB Field Type
-     - Public Preview Support
+   * - BSON Data Type
+     - Current Support
      - General Availability Support
 
    * - ``Array``
@@ -124,8 +124,13 @@ Field Type Support
      - *Partial Support Planned*. We plan to add support for registering 
        ``EmbeddedModel`` schema changes after creation.
 
-{+django-odm+} currently supports all other MongoDB field types not included
-in the preceding table. To view a full list of supported fields, see the :ref:`django-models-mongodb-fields`
+   * - ``Regular Expression``
+     - *Unsupported*.
+     - *Unsupported*. However, we plan to support this type
+       in a post-GA release.
+
+{+django-odm+} currently supports all other MongoDB data types not included
+in the preceding table. To view a full list of supported types, see the :ref:`django-models-mongodb-fields`
 section of the Create Models guide.
 
 Query Support
@@ -136,7 +141,7 @@ Query Support
    :widths: 30 30 40
 
    * - MongoDB Feature
-     - Public Preview Support
+     - Current Support
      - General Availability Support
 
    * - Aggregation operations
@@ -188,13 +193,12 @@ Database and Collection Support
    :widths: 30 30 40
 
    * - MongoDB Feature
-     - Public Preview Support
+     - Current Support
      - General Availability Support
 
    * - Asynchronous support
-     - *Unsupported*.
-     - *Unsupported*. However, we plan to add support for this feature
-       in a post-GA release.
+     - ✓
+     - ✓
 
    * - Authentication
      - ✓
@@ -268,18 +272,13 @@ Field Type Support
    :widths: 30 30 40
 
    * - {+framework+} Field Type
-     - Public Preview Support
+     - Current Support
      - General Availability Support
 
    * - ``AutoField``
      - *Unsupported*. The ``BigAutoField`` and ``SmallAutoField`` types are also
        not supported. Instead, use ``ObjectIdField``.
      - *Unsupported*.
-
-   * - ``BSONRegExp``
-     - *Unsupported*.
-     - *Unsupported*. However, we plan to support this field
-       in a post-GA release.
 
    * - ``DateTimeField``
      - *Partially Supported*. You can use this field type with the
@@ -345,7 +344,7 @@ Query Support
    :widths: 30 30 40
 
    * - {+framework+} ``QuerySet`` Feature
-     - Public Preview Support
+     - Current Support
      - General Availability Support
 
    * - ``aggregate()``
@@ -548,7 +547,7 @@ Database Function Support
    :widths: 30 30 40
 
    * - {+framework+} Function
-     - Public Preview Support
+     - Current Support
      - General Availability Support
 
    * - ``Chr``
@@ -608,7 +607,7 @@ Management Support
    :widths: 30 30 40
 
    * - {+framework+} Feature
-     - Public Preview Support
+     - Current Support
      - General Availability Support
 
    * - {+framework+} Admin
@@ -638,7 +637,7 @@ Management Command Support
    :widths: 30 30 40
 
    * - {+framework+} Command
-     - Public Preview Support
+     - Current Support
      - General Availability Support
 
    * - ``check``
@@ -750,7 +749,7 @@ Migration Support
    :widths: 30 30 40
 
    * - {+framework+} Feature
-     - Public Preview Support
+     - Current Support
      - General Availability Support
 
    * - Creating, deleting, and updating indexes through migration
@@ -763,21 +762,9 @@ Migration Support
      - *Unsupported*.
      - *Unsupported*.
 
-   * - Making migrations
-     - ✓
-     - ✓
-
    * - ``migrate --fake-initial`` option
      - *Unsupported*.
      - *Unsupported*.
-
-   * - Recording schema history
-     - ✓
-     - ✓
-
-   * - Storing migration files
-     - ✓
-     - ✓
 
 Third Party Library Support
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -787,7 +774,7 @@ Third Party Library Support
    :widths: 30 30 40
 
    * - Library
-     - Public Preview Support
+     - Current Support
      - General Availability Support
 
    * - `Django-filter <https://django-filter.readthedocs.io/en/stable/>`__
