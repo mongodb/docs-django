@@ -785,24 +785,24 @@ Third Party Library Support
    * - `Django-filter <https://django-filter.readthedocs.io/en/stable/>`__
      - *Unsupported*.
      - *Partially Supported*. This release will support most use cases and outline
-        limitations.
+       limitations.
 
    * - `Django Rest Framework <https://www.django-rest-framework.org/>`__
      - *Unsupported*.
      - *Partially Supported*. This release will support most use cases and outline
-        limitations.
+       limitations.
 
    * - `Django-allauth <https://docs.allauth.org/en/latest/>`__
      - *Unsupported*.
      - *Partially Supported*. This release will support most use cases and outline
-        limitations.
+       limitations.
 
    * - `Wagtail <https://wagtail.org/>`__
      - *Unsupported*.
      - *Partially Supported*. This release will support most use cases and outline
-        limitations.
+       limitations.
 
    * - `Django Debug Toolbar <https://django-debug-toolbar.readthedocs.io/en/latest/>`__
      - *Unsupported*.
      - *Partially Supported*. This release will support most use cases and outline
-        limitations.
+       limitations.
