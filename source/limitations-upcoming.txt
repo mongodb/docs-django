@@ -599,6 +599,11 @@ Database Function Support
        properly because MongoDB converts the result back to UTC.
      - *Full Support Not Planned*.
 
+{+django-odm+} currently supports all other database functions not included in
+the preceding table. To view a full list of functions, see `Database Functions
+<{+django-docs+}/ref/models/database-functions/>`__ in the {+framework+}
+documentation.
+
 Management Support
 ~~~~~~~~~~~~~~~~~~
 
