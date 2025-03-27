@@ -347,49 +347,9 @@ Query Support
      - Current Support
      - General Availability Support
 
-   * - ``aggregate()``
-     - ✓
-     - ✓
-
-   * - ``all()``
-     - ✓
-     - ✓
-
-   * - ``alias()``
-     - ✓
-     - ✓
-
-   * - ``AND`` operator (``&``)
-     - ✓
-     - ✓
-
-   * - ``annotate()``
-     - ✓
-     - ✓
-
-   * - ``as_manager()``
-     - ✓
-     - ✓
-
-   * - ``bulk_create()``
-     - ✓
-     - ✓
-
    * - ``bulk_update()``
      - *Unsupported*.
      - *Unsupported*.
-
-   * - ``count()``
-     - ✓
-     - ✓
-
-   * - ``contains()``
-     - ✓
-     - ✓
-
-   * - ``create()``
-     - ✓
-     - ✓
 
    * - ``dates()``
      - *Unsupported*.
@@ -399,95 +359,23 @@ Query Support
      - *Unsupported*.
      - *Unsupported*.
 
-   * - ``defer()``
-     - ✓
-     - ✓
-
    * - ``delete()``
      - *Partially Supported*. You cannot use this method to perform
        queries that span multiple collections.
      - *Full Support Not Planned*.
 
-   * - ``difference()``
-     - ✓
-     - ✓
-
    * - ``distinct()``
      - *Unsupported*.
      - *Unsupported*.
-
-   * - ``earliest()``
-     - ✓
-     - ✓
-
-   * - ``exclude()``
-     - ✓
-     - ✓
-
-   * - ``exists()``
-     - ✓
-     - ✓
-
-   * - ``explain()``
-     - ✓
-     - ✓
 
    * - ``extra()``
      - *Unsupported*.
      - *Unsupported*.
 
-   * - ``filter()``
-     - ✓
-     - ✓
-
-   * - ``first()``
-     - ✓
-     - ✓
-
-   * - ``get()``
-     - ✓
-     - ✓
-
-   * - ``get_or_create()``
-     - ✓
-     - ✓
-
-   * - ``in_bulk()``
-     - ✓
-     - ✓
-
-   * - ``intersection()``
-     - ✓
-     - ✓
-
    * - ``JOIN`` operations
      - *Partially Supported*. You can use MongoDB's :manual:`$lookup </reference/operator/aggregation/lookup/>`
        pipeline stage to perform joins.
      - *Full Support Not Planned*.
-
-   * - ``last()``
-     - ✓
-     - ✓
-
-   * - ``latest()``
-     - ✓
-     - ✓
-
-   * - ``none()``
-     - ✓
-     - ✓
-
-   * - ``only()``
-     - ✓
-     - ✓
-
-   * - ``OR`` operator (``|``)
-     - ✓
-     - ✓
-
-   * - ``order_by()``
-     - ✓
-     - ✓
 
    * - ``prefetch_related()``
      - *Unsupported*.
@@ -498,46 +386,15 @@ Query Support
        to run queries that use MongoDB's aggregation pipeline syntax.
      - *Unsupported*.
 
-   * - ``reverse()``
-     - ✓
-     - ✓
-
-   * - ``union()``
-     - ✓
-     - ✓
-
    * - ``update()``
      - *Partially Supported*. You cannot use this method to perform
        queries that span multiple collections.
      - *Full Support Not Planned*.
 
-   * - ``update_or_create()``
-     - ✓
-     - ✓
-
-   * - ``using()``
-     - ✓
-     - ✓
-
-   * - ``select_for_update()``
-     - ✓
-     - ✓
-
-   * - ``select_related()``
-     - ✓
-     - ✓
-
-   * - ``values()``
-     - ✓
-     - ✓
-
-   * - ``values_list()``
-     - ✓
-     - ✓
-
-   * - ``XOR`` operator (``^``)
-     - ✓
-     - ✓
+{+django-odm+} currently supports all other {+framework+} ``QuerySet`` methods not
+included in the preceding table. To view the supported methods, see `QuerySet API
+<{+django-docs+}/ref/models/querysets/#queryset-api>`__ in the {+framework+}
+documentation.
 
 Database Function Support
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -628,7 +485,7 @@ Management Support
      - ✓
 
    * - Management commands
-     - *Partially Supported*. For a full list of supported and unsupported
+     - *Partially Supported*. To view the unsupported
        commands, see the :ref:`following section <django-management-commands>`.
      - *Full Support Not Planned*.
 
@@ -645,32 +502,12 @@ Management Command Support
      - Current Support
      - General Availability Support
 
-   * - ``check``
-     - ✓
-     - ✓
-
-   * - ``compilemessages``
-     - ✓
-     - ✓
-
    * - ``createcachetable``
      - *Unsupported*.
      - *Unsupported*.
 
-   * - ``dbshell``
-     - ✓
-     - ✓
-
-   * - ``diffsettings``
-     - ✓
-     - ✓
-
    * - ``dumpdata``
      - *Unsupported*.
-     - ✓
-
-   * - ``flush``
-     - ✓
      - ✓
 
    * - ``inspectdb``
@@ -682,69 +519,18 @@ Management Command Support
      - *Unsupported*.
      - ✓
 
-   * - ``makemessages``
-     - ✓
-     - ✓
-
-   * - ``makemigrations``
-     - ✓
-     - ✓
-
-   * - ``migrate``
-     - ✓
-     - ✓
-
-   * - ``optimizemigration``
-     - ✓
-     - ✓
-
-   * - ``runserver``
-     - ✓
-     - ✓
-
-   * - ``sendtestemail``
-     - ✓
-     - ✓
-
-   * - ``shell``
-     - ✓
-     - ✓
-
-   * - ``showmigrations``
-     - ✓
-     - ✓
-
    * - ``sqlflush``
      - *Unsupported*.
      - *Unsupported*.
-
-   * - ``sqlmigrate``
-     - ✓
-     - ✓
 
    * - ``sqlsequencereset``
      - *Unsupported*.
      - *Unsupported*.
 
-   * - ``squashmigrations``
-     - ✓
-     - ✓
-
-   * - ``startapp``
-     - ✓
-     - ✓
-
-   * - ``startproject``
-     - ✓
-     - ✓
-
-   * - ``test``
-     - ✓
-     - ✓
-
-   * - ``testserver``
-     - ✓
-     - ✓
+{+django-odm+} currently supports all other management commands not included in
+the preceding table. To view a full list of commands, see `Available commands
+<{+django-docs+}/ref/django-admin/#available-commands>`__ in the {+framework+}
+documentation.
 
 Migration Support
 ~~~~~~~~~~~~~~~~~
