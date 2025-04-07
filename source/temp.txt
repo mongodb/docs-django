@@ -3,17 +3,23 @@ Test Intersphinx Links
 ======================
 
 1. :std:ext-doc:`Persistent connections <databases/#persistent-database-connections>`
-#. :std:ext-doc:`Persistent connections <persistent-database-connections>`
-#. :std:ext-doc:`Persistent connections <ref/databases/#persistent-connections>`
-#. :std:ext-doc:`CONN_MAX_AGE <ref/settings/#std-setting-CONN_MAX_AGE>`
-#. :std:ext-doc:`CONN_MAX_AGE <CONN_MAX_AGE>`
+#. :py:mod:`django.databases.persistent-database-connections`
+#. :py:mod:`django.settings.CONN_MAX_AGE`
 
 1. :std:ext-doc:`the TEST setting <ref/settings/#test>`
-#. :std:ext-doc:`the TEST setting <test>`
-#. :std:ext-doc:`~ref/settings/#test`
+#. :py:mod:`django.settings.test`
 
-1. :py:attr:`The Django admin site <django.contrib.admin>`
-#. :py:attr:`The Django admin site <django.contrib.admin.AdminSite>`
-#. :py:mod:`django.contrib.admin`
-#. :py:mod:`django.contrib.admin.AdminSite`
-#. :std:ext-doc:`The Django admin site <ref/contrib/admin>`
+1. :py:mod:`django.contrib.admin`
+
+1. :std:ext-doc:`Field lookups <ref/models/querysets/#field-lookups>`
+#. :py:attr:`django.db.models.field-lookups`
+#. :py:attr:`~django.db.models.field-lookups`
+#. :py:mod:`django.db.models.field-lookups`
+#. :py:mod:`~django.db.models.field-lookups`
+
+1. :std:ext-doc:`Retrieving objects <topics/db/queries/#retrieving-objects>`
+#. :py:mod:`django.db.queries.retrieving-objects`
+#. :py:mod:`~django.db.queries.retrieving-objects`
+#. :py:attr:`django.db.queries.retrieving-objects`
+#. :py:attr:`~django.db.queries.retrieving-objects`
+#. :std:ext-doc:`~retrieving-objects`
