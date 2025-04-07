@@ -17,9 +17,9 @@ Test Intersphinx Links
 #. :py:mod:`django.db.models.field-lookups`
 #. :py:mod:`~django.db.models.field-lookups`
 
-1. :std:ext-doc:`Retrieving objects <topics/db/queries/#retrieving-objects>`
-#. :py:mod:`django.db.queries.retrieving-objects`
-#. :py:mod:`~django.db.queries.retrieving-objects`
-#. :py:attr:`django.db.queries.retrieving-objects`
-#. :py:attr:`~django.db.queries.retrieving-objects`
-#. :std:ext-doc:`~retrieving-objects`
+1. :py:attr:`django.db.models.Field`
+#. :py:attr:`~django.db.models.Field`
+#. :py:attr:`django.db.models`
+#. :py:mod:`django.db.models`
+#. :py:mod:`django.db.models.Field`
+#. :py:mod:`~django.db.models.Field`
