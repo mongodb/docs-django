@@ -115,7 +115,7 @@ Fields
     ``$lookup`` operations, see the :atlas:`Reduce $lookup Operations
     </schema-suggestions/reduce-lookup-operations/>` guide in the Atlas
     documentation.
-  - Performance of `CASCADE deletes <{+django-docs+}/ref/models/fields/#django.db.models.CASCADE>`__
+  - Performance of :py:mod:`CASCADE deletes <django.db.models.CASCADE>`
     on a ``ForeignKey`` field is not as performant as using an
     ``EmbeddedModelField``.
 
@@ -196,7 +196,7 @@ Migration Limitations
   validation in your application, see the :manual:`Specify JSON
   Schema Validation </core/schema-validation/specify-json-schema/>` guide in the
   {+mdb-server+} manual.
-- `DDL Transactions <{+django-docs+}/topics/migrations/#transactions>`__.
+- :std:ext-doc:`DDL Transactions <topics/migrations/#transactions>`
 - The ``migrate --fake-initial`` option.
 
 .. _django-limitations-performance:

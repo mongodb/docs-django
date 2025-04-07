@@ -146,11 +146,11 @@ function accepts the following arguments:
 - ``db_name``: The name of the database you want to use.
 - ``conn_max_age``: Configures persistent database connections.
   This argument is optional. To learn more, see
-  `Persistent connections <{+django-docs+}/ref/databases/#persistent-database-connections>`__
+  :std:ext-doc:`Persistent connections <databases/#persistent-database-connections>`
   in the {+framework+} documentation.
 - ``test``: Provides a dictionary of settings for test
   databases. This argument is optional. To learn more, see
-  `the TEST setting <{+django-docs+}/ref/settings/#test>`__
+  :std:ext-doc:`the TEST setting <ref//settings/#test>`
   in the {+framework+} documentation.
 
 Example
