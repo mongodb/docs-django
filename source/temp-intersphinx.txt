@@ -39,8 +39,8 @@ Module
 Doc
 ---
 
-1. :std:ext-doc:`Django's LOGGING setting <django:topics/logging>`
-#. :std:ext-doc:`django:topics/logging`
+1. :std:ext-doc:`Django's LOGGING setting <topics/logging>`
+#. :std:ext-doc:`~topics/logging`
 
 Command option
 --------------
