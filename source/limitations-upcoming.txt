@@ -365,8 +365,8 @@ Query Support
      - *Full Support Not Planned*.
 
    * - ``distinct()``
-     - *Unsupported*.
-     - *Unsupported*.
+     - ✓
+     - ✓
 
    * - ``extra()``
      - *Unsupported*.
@@ -569,14 +569,14 @@ Third Party Library Support
      - General Availability Support
 
    * - `Django-filter <https://django-filter.readthedocs.io/en/stable/>`__
-     - *Unsupported*.
-     - *Partially Supported*. This release will support most use cases and outline
-       limitations.
+     - ✓ Most use cases are supported. For more information about support
+       for this library, see `Django filter <{+odm-cli+}/supported-libraries/django-filter.html>`__
+       in the {+django-odm+} CLI documentation.
+     - ✓
 
    * - `Django Rest Framework <https://www.django-rest-framework.org/>`__
-     - *Unsupported*.
-     - *Partially Supported*. This release will support most use cases and outline
-       limitations.
+     - *Partially Supported*.
+     - *Partially Supported*.
 
    * - `Django-allauth <https://docs.allauth.org/en/latest/>`__
      - *Unsupported*.
