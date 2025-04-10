@@ -46,6 +46,7 @@ Index Support
 
 .. list-table::
    :header-rows: 1
+   :stub-columns: 1
    :widths: 30 30 40
 
    * - MongoDB Feature
@@ -101,6 +102,7 @@ in the following table. To view a full list of supported types, see the
 
 .. list-table::
    :header-rows: 1
+   :stub-columns: 1
    :widths: 30 30 40
 
    * - BSON Data Type
@@ -138,6 +140,7 @@ Query Support
 
 .. list-table::
    :header-rows: 1
+   :stub-columns: 1
    :widths: 30 30 40
 
    * - MongoDB Feature
@@ -190,6 +193,7 @@ Database and Collection Support
 
 .. list-table::
    :header-rows: 1
+   :stub-columns: 1
    :widths: 30 30 40
 
    * - MongoDB Feature
@@ -273,6 +277,7 @@ section of the Create Models guide.
 
 .. list-table::
    :header-rows: 1
+   :stub-columns: 1
    :widths: 30 30 40
 
    * - {+framework+} Field Type
@@ -346,6 +351,7 @@ documentation.
 
 .. list-table::
    :header-rows: 1
+   :stub-columns: 1
    :widths: 30 30 40
 
    * - {+framework+} ``QuerySet`` Feature
@@ -402,6 +408,7 @@ documentation.
 
 .. list-table::
    :header-rows: 1
+   :stub-columns: 1
    :widths: 30 30 40
 
    * - {+framework+} Function
@@ -462,6 +469,7 @@ Management Support
 
 .. list-table::
    :header-rows: 1
+   :stub-columns: 1
    :widths: 30 30 40
 
    * - {+framework+} Feature
@@ -533,6 +541,7 @@ Migration Support
 
 .. list-table::
    :header-rows: 1
+   :stub-columns: 1
    :widths: 30 30 40
 
    * - {+framework+} Feature
@@ -558,6 +567,7 @@ Third Party Library Support
 
 .. list-table::
    :header-rows: 1
+   :stub-columns: 1
    :widths: 30 30 40
 
    * - Library
