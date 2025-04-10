@@ -384,7 +384,7 @@ Query Support
    * - ``raw()``
      - *Unsupported*. However, you can use the ``raw_aggregate()`` method
        to run queries that use MongoDB's aggregation pipeline syntax.
-     - *Unsupported*.
+     - *Full Support Not Planned*.
 
    * - ``update()``
      - *Partially Supported*. You cannot use this method to perform
@@ -569,26 +569,21 @@ Third Party Library Support
      - General Availability Support
 
    * - `Django-filter <https://django-filter.readthedocs.io/en/stable/>`__
-     - ✓ Most use cases are supported. For more information about support
-       for this library, see `Django filter <{+odm-cli+}/supported-libraries/django-filter.html>`__
-       in the {+django-odm+} CLI documentation.
-     - ✓
+     - *Partially Supported*. Most use cases are supported.
+     - *Partially Supported*. This release will outline use case limitations.
 
    * - `Django Rest Framework <https://www.django-rest-framework.org/>`__
-     - *Partially Supported*.
-     - *Partially Supported*.
+     - *Partially Supported*. Most use cases are supported.
+     - *Partially Supported*. This release will outline use case limitations.
 
    * - `Django-allauth <https://docs.allauth.org/en/latest/>`__
-     - *Unsupported*.
-     - *Partially Supported*. This release will support most use cases and outline
-       limitations.
+     - *Partially Supported*. Most use cases are supported.
+     - *Partially Supported*. This release will outline use case limitations.
 
    * - `Wagtail <https://wagtail.org/>`__
-     - *Unsupported*.
-     - *Partially Supported*. This release will support most use cases and outline
-       limitations.
+     - *Partially Supported*. Most use cases are supported.
+     - *Partially Supported*. This release will outline use case limitations.
 
    * - `Django Debug Toolbar <https://django-debug-toolbar.readthedocs.io/en/latest/>`__
-     - *Unsupported*.
-     - *Partially Supported*. This release will support most use cases and outline
-       limitations.
+     - *Partially Supported*. Most use cases are supported.
+     - *Partially Supported*. This release will outline use case limitations.
