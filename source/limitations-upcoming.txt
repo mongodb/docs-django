@@ -95,6 +95,10 @@ Index Support
 Data Type Support
 ~~~~~~~~~~~~~~~~~
 
+{+django-odm+} currently supports all MongoDB data types not included
+in the following table. To view a full list of supported types, see the
+:ref:`django-models-mongodb-fields` section of the Create Models guide.
+
 .. list-table::
    :header-rows: 1
    :widths: 30 30 40
@@ -128,10 +132,6 @@ Data Type Support
      - *Unsupported*.
      - *Unsupported*. However, we plan to support this type
        in a post-GA release.
-
-{+django-odm+} currently supports all other MongoDB data types not included
-in the preceding table. To view a full list of supported types, see the :ref:`django-models-mongodb-fields`
-section of the Create Models guide.
 
 Query Support
 ~~~~~~~~~~~~~
@@ -267,6 +267,10 @@ the GA release.
 Field Type Support
 ~~~~~~~~~~~~~~~~~~
 
+{+django-odm+} currently supports all {+framework+} field types not included in
+the following table. To view a full list of supported fields, see the :ref:`django-models-django-fields`
+section of the Create Models guide.
+
 .. list-table::
    :header-rows: 1
    :widths: 30 30 40
@@ -332,12 +336,13 @@ Field Type Support
      - *Full Support Not Planned*. However, we plan to address the
        ``Q`` object and ``None`` key filtering limitations in a post-GA release.
 
-{+django-odm+} currently supports all other {+framework+} field types not included in
-the preceding table. To view a full list of supported fields, see the :ref:`django-models-django-fields`
-section of the Create Models guide.
-
 Query Support
 ~~~~~~~~~~~~~
+
+{+django-odm+} currently supports all {+framework+} ``QuerySet`` methods not
+included in the following table. To view the supported methods, see `QuerySet API
+<{+django-docs+}/ref/models/querysets/#queryset-api>`__ in the {+framework+}
+documentation.
 
 .. list-table::
    :header-rows: 1
@@ -364,10 +369,6 @@ Query Support
        queries that span multiple collections.
      - *Full Support Not Planned*.
 
-   * - ``distinct()``
-     - ✓
-     - ✓
-
    * - ``extra()``
      - *Unsupported*.
      - *Unsupported*.
@@ -391,13 +392,13 @@ Query Support
        queries that span multiple collections.
      - *Full Support Not Planned*.
 
-{+django-odm+} currently supports all other {+framework+} ``QuerySet`` methods not
-included in the preceding table. To view the supported methods, see `QuerySet API
-<{+django-docs+}/ref/models/querysets/#queryset-api>`__ in the {+framework+}
-documentation.
-
 Database Function Support
 ~~~~~~~~~~~~~~~~~~~~~~~~~
+
+{+django-odm+} currently supports all database functions not included in
+the following table. To view a full list of functions, see `Database Functions
+<{+django-docs+}/ref/models/database-functions/>`__ in the {+framework+}
+documentation.
 
 .. list-table::
    :header-rows: 1
@@ -456,11 +457,6 @@ Database Function Support
        properly because MongoDB converts the result back to UTC.
      - *Full Support Not Planned*.
 
-{+django-odm+} currently supports all other database functions not included in
-the preceding table. To view a full list of functions, see `Database Functions
-<{+django-docs+}/ref/models/database-functions/>`__ in the {+framework+}
-documentation.
-
 Management Support
 ~~~~~~~~~~~~~~~~~~
 
@@ -494,6 +490,11 @@ Management Support
 Management Command Support
 ``````````````````````````
 
+{+django-odm+} currently supports all management commands not included in
+the following table. To view a full list of commands, see `Available commands
+<{+django-docs+}/ref/django-admin/#available-commands>`__ in the {+framework+}
+documentation.
+
 .. list-table::
    :header-rows: 1
    :widths: 30 30 40
@@ -526,11 +527,6 @@ Management Command Support
    * - ``sqlsequencereset``
      - *Unsupported*.
      - *Unsupported*.
-
-{+django-odm+} currently supports all other management commands not included in
-the preceding table. To view a full list of commands, see `Available commands
-<{+django-docs+}/ref/django-admin/#available-commands>`__ in the {+framework+}
-documentation.
 
 Migration Support
 ~~~~~~~~~~~~~~~~~
@@ -581,7 +577,7 @@ Third Party Library Support
      - *Partially Supported*. This release will outline use case limitations.
 
    * - `Wagtail <https://wagtail.org/>`__
-     - *Partially Supported*. Most use cases are supported.
+     - *Unsupported*.
      - *Partially Supported*. This release will outline use case limitations.
 
    * - `Django Debug Toolbar <https://django-debug-toolbar.readthedocs.io/en/latest/>`__
