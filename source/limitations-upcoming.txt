@@ -123,6 +123,7 @@ The following field types are unavailable in {+django-odm+}:
 
 - ``GeneratedField``
 - ``AutoField`` (including ``BigAutoField`` and ``SmallAutoField``)
+- ``CompositePrimaryKey``
 
 .. _django-limitations-query:
 
