@@ -237,7 +237,7 @@ define a model:
 .. tip::
 
    To learn more about the metadata options you can specify
-   in the ``Meta`` class, see `Model Meta options <{+django-docs+}/ref/models/options/>`__
+   in the ``Meta`` class, see :py:attr:`Model Meta options <django.db.models.Options>`
    in the {+framework+} documentation.
 
 To use your models, you must add them to your project's
@@ -376,8 +376,8 @@ and pass the following arguments:
 - ``size``: *(Optional)* Specifies the maximum size of the array.
 
 - ``options``: *(Optional)* Specifies {+framework+} field options.
-  To view a list of available options, see `Field options
-  <{+django-docs+}/ref/models/fields/#field-options>`__
+  To view a list of available options, see
+  :std:ext-doc:`Field options <ref/models/fields/#field-options>`
   in the {+framework+} documentation.
 
 .. tip::

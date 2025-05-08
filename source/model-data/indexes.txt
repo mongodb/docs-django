@@ -92,8 +92,9 @@ same indexes on the MongoDB collection.
 
 .. tip::
 
-   To learn how to create and apply database migrations, see `Migrations
-   <{+django-docs+}/topics/migrations/>`__ in the {+framework+} documentation.
+   To learn how to create and apply database migrations, see
+   :std:ext-doc:`Migrations <topics/migrations>` in the
+   {+framework+} documentation.
 
 This section shows how to create the following index types:
 
@@ -280,7 +281,7 @@ creates a unique compound index on these fields:
 
    Setting the ``constraints`` option to a ``UniqueConstraint`` automatically
    creates an index on the specified fields. To learn more about the ``Meta``
-   class's ``constraint`` option, see `Constraints <{+django-docs+}/ref/models/constraints/>`__
+   class's ``constraint`` option, see :std:ext-doc:`Constraints <ref/models/constraints>`
    in the {+framework+} documentation.
 
 Additional Information
