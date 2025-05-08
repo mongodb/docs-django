@@ -65,8 +65,10 @@ class Meta:
 class Meta:
     db_table = "recipes"
     indexes = [
-        SearchIndex(fields=["title"],
-                     name="title_search_idx"),
+        SearchIndex(
+            fields=["title"],
+            name="title_search_idx",
+        )
     ]
 # end-atlas-search
 

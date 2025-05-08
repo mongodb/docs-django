@@ -211,8 +211,8 @@ index types:
 Atlas Search Indexes
 ~~~~~~~~~~~~~~~~~~~~
 
-Atlas Search indexes specify the behavior of an Atlas Search, or a full-text
-search on collections hosted on MongoDB Atlas.
+Atlas Search indexes specify the behavior of an Atlas Search, which is a
+full-text search on collections hosted on MongoDB Atlas.
 
 To create an Atlas Search index, assign the ``indexes`` option in your model's
 ``Meta`` class to a ``SearchIndex`` object. Pass the following arguments to the
@@ -220,7 +220,7 @@ To create an Atlas Search index, assign the ``indexes`` option in your model's
 
 - ``fields``: The fields you want to index.
 - ``name``: *(Optional)* The name of your Atlas Search index. If you do not
-  specify this argument, {+django-odm+} automatically generates an index name.
+  specify this argument, {+framework+} automatically generates an index name.
 
 The following example updates the ``Recipe`` model's ``Meta`` class to create
 an Atlas Search index named ``"title_search_idx"`` on the ``title`` field:
@@ -234,8 +234,11 @@ an Atlas Search index named ``"title_search_idx"`` on the ``title`` field:
 
 .. tip::
 
-   To learn more about Atlas Search queries and indexes, see :atlas:`Atlas Search </atlas-search>`
-   in the Atlas documentation.
+   To learn more about Atlas Search queries and indexes, see the following resources:
+   
+   - :atlas:`Atlas Search </atlas-search>` in the Atlas documentation.
+   - `SearchIndex <{+api+}ref/models/indexes/#searchindex>`__ class in the
+     {+django-odm+} API documentation.
 
 .. _django-indexes-partial:
 
