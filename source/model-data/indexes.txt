@@ -230,7 +230,7 @@ an Atlas Search index named ``"title_search_idx"`` on the ``title`` field:
    :end-before: end-atlas-search
    :language: python
    :copyable:
-   :emphasize-lines: 3-6
+   :emphasize-lines: 3-8
 
 .. tip::
 
