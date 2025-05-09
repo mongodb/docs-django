@@ -64,8 +64,6 @@ Indexes
 
 {+django-odm+} does not support the following index functionalities:
 
-- Creating ``$vectorSearch`` and ``$search`` indexes through the Django
-  Indexes API
 - Creating geospatial indexes through the Django Indexes API
 - Updating indexes in ``EmbeddedModelFields`` after model creation
 
