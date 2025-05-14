@@ -209,7 +209,8 @@ Database and Collection Support
      - ✓
 
    * - Cached data storage
-     - *Unsupported*.
+     - ✓ Use the ``django_mongodb_backend.cache.MongoDBCache`` backend rather
+       than {+framework+}'s built-in database cache backend, ``django.core.cache.backends.db.DatabaseCache``.
      - ✓
 
    * - Change Streams
@@ -358,18 +359,6 @@ documentation.
      - Current Support
      - General Availability Support
 
-   * - ``bulk_update()``
-     - *Unsupported*.
-     - *Unsupported*.
-
-   * - ``dates()``
-     - *Unsupported*.
-     - *Unsupported*.
-
-   * - ``datetimes()``
-     - *Unsupported*.
-     - *Unsupported*.
-
    * - ``delete()``
      - *Partially Supported*. You cannot use this method to perform
        queries that span multiple collections.
@@ -378,11 +367,6 @@ documentation.
    * - ``extra()``
      - *Unsupported*.
      - *Unsupported*.
-
-   * - ``JOIN`` operations
-     - *Partially Supported*. You can use MongoDB's :manual:`$lookup </reference/operator/aggregation/lookup/>`
-       pipeline stage to perform joins.
-     - *Full Support Not Planned*.
 
    * - ``prefetch_related()``
      - *Unsupported*.
@@ -460,8 +444,10 @@ documentation.
      - *Unsupported*.
 
    * - ``Trunc``
-     - *Partially Supported*. The ``tzinfo`` parameter doesn't work
-       properly because MongoDB converts the result back to UTC.
+     - *Partially Supported*. The ``tzinfo`` parameter of the
+       :py:class:`~django.db.models.functions.TruncDate` and
+       :py:class:`~django.db.models.functions.TruncTime` database
+       functions is not supported.
      - *Full Support Not Planned*.
 
 Management Support
@@ -512,7 +498,7 @@ documentation.
      - General Availability Support
 
    * - ``createcachetable``
-     - *Unsupported*.
+     - *Unsupported*. Instead, use {+django-odm+}'s ``createcachecollection`` command.
      - *Unsupported*.
 
    * - ``dumpdata``
