@@ -39,7 +39,7 @@ the GA release.
 
    Unsupported MongoDB features that have a checkmark (``✓``) symbol in the
    **General Availability Support** column are planned for the GA
-   release. However, support is not guaranteed.
+   release later in 2025. However, support is not guaranteed.
 
 Index Support
 ~~~~~~~~~~~~~
@@ -267,7 +267,7 @@ the GA release.
 
    Unsupported {+framework+} features that have a checkmark (``✓``) symbol in the
    **General Availability Support** column are planned for the GA
-   release. However, support is not guaranteed.
+   release later in 2025. However, support is not guaranteed.
 
 Field Type Support
 ~~~~~~~~~~~~~~~~~~
