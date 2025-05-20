@@ -38,7 +38,7 @@ the GA release.
 .. important::
 
    Unsupported MongoDB features that have a checkmark (``✓``) symbol in the
-   **General Availability Support** column are planned for the GA
+   **Planned GA Support** column are planned for the General Availability
    release later in 2025. However, support is not guaranteed.
 
 Index Support
@@ -51,7 +51,7 @@ Index Support
 
    * - MongoDB Feature
      - Current Support
-     - General Availability Support
+     - Planned GA Support
 
    * - Atlas Search and Atlas Vector Search indexes
      - *Unsupported*. You cannot use the Django
@@ -107,7 +107,7 @@ in the following table. To view a full list of supported types, see the
 
    * - BSON Data Type
      - Current Support
-     - General Availability Support
+     - Planned GA Support
 
    * - ``Array``
      - *Partially Supported*. You can use the ``ArrayField`` field type with the
@@ -145,7 +145,7 @@ Query Support
 
    * - MongoDB Feature
      - Current Support
-     - General Availability Support
+     - Planned GA Support
 
    * - Aggregation operations
      - *Partially Supported*. The {+django-odm+} does not include custom
@@ -198,7 +198,7 @@ Database and Collection Support
 
    * - MongoDB Feature
      - Current Support
-     - General Availability Support
+     - Planned GA Support
 
    * - Asynchronous support
      - ✓
@@ -283,7 +283,7 @@ section of the Create Models guide.
 
    * - {+framework+} Field Type
      - Current Support
-     - General Availability Support
+     - Planned GA Support
 
    * - ``AutoField``
      - *Unsupported*. The ``BigAutoField`` and ``SmallAutoField`` types are also
@@ -357,7 +357,7 @@ documentation.
 
    * - {+framework+} ``QuerySet`` Feature
      - Current Support
-     - General Availability Support
+     - Planned GA Support
 
    * - ``delete()``
      - *Partially Supported*. You cannot use this method to perform
@@ -397,7 +397,7 @@ documentation.
 
    * - {+framework+} Function
      - Current Support
-     - General Availability Support
+     - Planned GA Support
 
    * - ``Chr``
      - *Unsupported*.
@@ -460,7 +460,7 @@ Management Support
 
    * - {+framework+} Feature
      - Current Support
-     - General Availability Support
+     - Planned GA Support
 
    * - {+framework+} Admin
      - ✓
@@ -495,7 +495,7 @@ documentation.
 
    * - {+framework+} Command
      - Current Support
-     - General Availability Support
+     - Planned GA Support
 
    * - ``createcachetable``
      - *Unsupported*. Instead, use {+django-odm+}'s ``createcachecollection`` command.
@@ -532,7 +532,7 @@ Migration Support
 
    * - {+framework+} Feature
      - Current Support
-     - General Availability Support
+     - Planned GA Support
 
    * - Creating, deleting, and updating indexes through migration
        commands
@@ -558,7 +558,7 @@ Third Party Library Support
 
    * - Library
      - Current Support
-     - General Availability Support
+     - Planned GA Support
 
    * - `Django-filter <https://django-filter.readthedocs.io/en/stable/>`__
      - *Partially Supported*. Most use cases are supported.
