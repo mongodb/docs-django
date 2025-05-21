@@ -247,7 +247,7 @@ Vector Search Indexes
 ~~~~~~~~~~~~~~~~~~~~~
 
 Vector Search indexes specify the behavior of an Atlas Vector Search, which allows
-you to query data based on its semantic meaning rather than only keyword matches.
+you to query data based on its semantic meaning rather than by keyword matches.
 You can integrate vector search with full-text search queries and AI frameworks to
 support a range of use cases.
 
@@ -257,15 +257,17 @@ To create a Vector Search index, assign the ``indexes`` option in your model's
 
 - ``name``: *(Optional)* The name of your Vector Search index. If you do not
   specify this argument, {+framework+} automatically generates an index name.
-- ``fields``: The fields you want to index.
+- ``fields``: The fields you want to index. At least one must be a vector
+  field, represented by an array of ``FloatField`` or ``IntegerField`` values and an 
+  array size.
 - ``similarities``: The :atlas:`similarity function </atlas-vector-search/vector-search-type/#std-label-avs-similarity-functions>`
-  to use. You can specify the ``"cosine"``, ``"dotProduct"``, or ``"euclidean"``
-  similarity function, as a single string value or a list of values that assigns
-  different functions to individual vector fields.
+  to use. You can use the ``"cosine"``, ``"dotProduct"``, or ``"euclidean"``
+  similarity function. Specify the function as a single string value or a list
+  of values that assigns functions to individual vector fields.
 
 The following example updates the ``Recipe`` model's ``Meta`` class to create
-a Vector Search index named ``"vector_search_idx"`` on the ``ratings`` and ``cook_time``
-fields:
+a Vector Search index named ``"vector_search_idx"`` on the ``ratings`` vector field
+and the ``cook_time`` numeric field:
 
 .. literalinclude:: /includes/model-data/indexes.py
    :start-after: start-vector-search
