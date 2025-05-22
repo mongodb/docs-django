@@ -36,7 +36,6 @@ Django Compatibility
 
 Your major and minor version of {+django-odm+} must match your Django version.
 For example, {+django-odm+} version {+django-version+} requires Django {+django-version+}.
-The minimum supported Django version is 5.0.
 
 Language Compatibility
 ----------------------
