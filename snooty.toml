@@ -27,5 +27,5 @@ pymongo-docs = "https://www.mongodb.com/docs/languages/python/pymongo-driver/cur
 targets = ["*"]
 variant = "info"
 value = """\
-    This version of the documentation is archived and no longer supported. View the `current documentation <https://www.mongodb.com/docs/languages/python/django-mongodb/current/>`__ to learn how to `install supported versions of the {+django-odm+} <https://www.mongodb.com/docs/languages/python/django-mongodb/current/get-started/install/>`__.\
+    This version of the documentation is archived and no longer supported. View the `current documentation <https://www.mongodb.com/docs/languages/python/django-mongodb/current/>`__ to learn how to `install supported versions of {+django-odm+} <https://www.mongodb.com/docs/languages/python/django-mongodb/current/get-started/install/>`__.\
     """
