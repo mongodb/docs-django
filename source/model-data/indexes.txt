@@ -258,7 +258,7 @@ To create a vector search index, assign the ``indexes`` option in your model's
   specify this argument, {+framework+} automatically generates an index name.
 - ``fields``: The fields you want to index. At least one must be a vector
   field, represented by an array of ``FloatField`` or ``IntegerField`` values with
-  a `size <{+api+}ref/models/fields/#django_mongodb_backend.fields.ArrayField.size>__`.
+  a `size <{+api+}ref/models/fields/#django_mongodb_backend.fields.ArrayField.size>`__.
 - ``similarities``: The :atlas:`similarity function </atlas-vector-search/vector-search-type/#std-label-avs-similarity-functions>`
   to use. You can use the ``"cosine"``, ``"dotProduct"``, or ``"euclidean"``
   similarity function. Specify the function as a single string value or a list
