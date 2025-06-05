@@ -459,7 +459,7 @@ Use an EmbeddedModelArrayField
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 You can use an ``EmbeddedModelArrayField`` to represent a MongoDB ``Object``
-that stores an array of document values. Each document in the array corresponds
+that stores an array of documents. Each document in the array corresponds
 to a {+django-odm+} ``EmbeddedModelField`` value. To create an ``EmbeddedModelArrayField``,
 use the ``EmbeddedModelArrayField()`` class constructor and pass the following arguments:
 
