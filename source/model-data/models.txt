@@ -168,7 +168,7 @@ The following table describes supported BSON field types and their
          in this guide.
 
    * - ``Object``
-     - ``EmbeddedModelField``
+     - ``EmbeddedModelField`` or ``EmbeddedModelArrayField``
      - | Stores embedded documents. To learn more about using this field
          with {+django-odm+}, see the :ref:`django-models-embedded` section in this guide.
 
@@ -451,6 +451,36 @@ and modifies the ``Movie`` model to include the ``EmbeddedModelField``:
 
    To learn how to query data stored in an ``EmbeddedModelField``, see
    :ref:`django-query-embedded` in the Specify a Query guide.
+
+.. _django-models-embedded-array:
+
+Use an EmbeddedModelArrayField
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You can use an ``EmbeddedModelArrayField`` to represent a MongoDB ``Object``
+that stores an array of document values. Each document in the array corresponds
+to a {+django-odm+} ``EmbeddedModelField`` value. To create an ``EmbeddedModelArrayField``,
+use the ``EmbeddedModelArrayField()`` class constructor and pass the following arguments:
+
+- ``embedded_model``: Specifies the model stored in each array item.
+
+- ``max_size``: *(Optional)* Specifies the maximum size of the array.
+
+Example
+```````
+
+This example adds an ``EmbeddedModelArrayField`` value to the model created in
+the :ref:`Define a Model example <django-models-define-ex>` in this
+guide. This ``cast`` field stores an array of embedded ``Actor`` models.
+The following code defines the ``Actor`` model and modifies the ``Movie`` model
+to include the ``EmbeddedModelArrayField``:
+
+.. literalinclude:: /includes/model-data/models.py
+   :start-after: start-embedded-array-field
+   :end-before: end-embedded-array-field
+   :language: python
+   :copyable:
+   :emphasize-lines: 5, 15
 
 Additional Information
 ----------------------
