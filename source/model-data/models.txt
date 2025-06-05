@@ -169,8 +169,9 @@ The following table describes supported BSON field types and their
 
    * - ``Object``
      - ``EmbeddedModelField`` or ``EmbeddedModelArrayField``
-     - | Stores embedded documents. To learn more about using this field
-         with {+django-odm+}, see the :ref:`django-models-embedded` section in this guide.
+     - | Stores one or multiple embedded documents. To learn more about using these fields
+         with {+django-odm+}, see the :ref:`django-models-embedded` and :ref:`django-models-embedded-array`
+         sections.
 
    * - ``ObjectId``
      - ``ObjectIdField``
