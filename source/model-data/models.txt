@@ -458,9 +458,9 @@ and modifies the ``Movie`` model to include the ``EmbeddedModelField``:
 Use an EmbeddedModelArrayField
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You can use an ``EmbeddedModelArrayField`` to represent a MongoDB ``Object``
-that stores an array of documents. Each document in the array corresponds
-to a {+django-odm+} ``EmbeddedModelField`` value. To create an ``EmbeddedModelArrayField``,
+You can use an ``EmbeddedModelArrayField`` to represent a MongoDB document
+field that stores an array of documents in a one-to-many relationship. Each
+document in the array corresponds to a {+django-odm+} ``EmbeddedModelField`` value. To create an ``EmbeddedModelArrayField``,
 use the ``EmbeddedModelArrayField()`` class constructor and pass the following arguments:
 
 - ``embedded_model``: Specifies the model stored in each array item.
