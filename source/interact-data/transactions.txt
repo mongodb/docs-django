@@ -1,0 +1,28 @@
+.. _django-transactions:
+
+=========================
+Transactions and Sessions
+=========================
+
+.. facet::
+   :name: genre
+   :values: reference
+
+.. meta::
+   :keywords: code example, ACID compliance, multi-document
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 2
+   :class: singlecol
+
+Overview
+--------
+
+In this guide, you can learn how to use the {+django-odm+} to perform
+**transactions**. Transactions allow you to perform a series of operations
+that change data only if the entire transaction is committed.
+If any operation in the transaction does not succeed, the library stops the
+transaction and discards all data changes before they ever become
+visible. This feature is called **atomicity**.
