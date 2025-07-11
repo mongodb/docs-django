@@ -105,13 +105,13 @@ preceding example but uses a context manager to start a transaction:
 Run Callbacks After a Transaction
 ---------------------------------
 
-If you want to run certain operations only if a transaction successfully
-completes, you can us the ``on_commit()`` method. This method allows you to
+If you want to perform certain actions only if a transaction successfully
+completes, you can use the ``on_commit()`` method. This method allows you to
 register callbacks that run after a transaction is committed to the 
 database. Pass a function, or any callable object, as an argument to
 ``on_commit()``.
 
-The following example queries for movies that have a genre value of
+The following example queries for movies that have a ``genre`` value of
 ``["Horror", "Comedy"]`` only after a related database transaction completes:
 
 .. literalinclude:: /includes/interact-data/transactions.py
