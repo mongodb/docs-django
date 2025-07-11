@@ -255,7 +255,7 @@ Database and Collection Support
 
        - ``QuerySet.union()`` is not supported within a transaction.
        - If a transaction generates an error, the transaction is no longer usable.
-       - Nested atomic blocks are not supported. The outermost atomic block starts
+       - Savepoints, or nested atomic blocks, are not supported. The outermost atomic block starts
          a transaction, and any subsequent atomic blocks have no effect.
        - Migration operations do not run inside a transaction, which differs from {+framework+}'s
          default migration behavior.

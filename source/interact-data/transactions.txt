@@ -82,6 +82,9 @@ This decorator guarantees the atomicity of any database operations
 within the function. If the function successfully completes, the 
 changes are committed MongoDB.
 
+Examples
+~~~~~~~~
+
 The following example calls the ``create()`` method within a transaction,
 inserting a document into the ``sample_mflix.movies`` collection:
 
@@ -108,6 +111,22 @@ To handle exceptions that occur during a transaction, add error handling
 logic around your atomic code block. If you include error handing logic inside
 the atomic block, {+framework+} might ignore these errors, resulting in unexpected
 behavior.
+
+If a transaction does not succeed, your application does not revert any changes made
+to a model's fields. To avoid inconsistencies between your models and database documents,
+you might need to manually restore the original field values.
+
+Example
+~~~~~~~
+
+The following example includes error handling logic that reverts the modified
+``title`` value of the retrieved document if the database transaction fails:
+
+.. literalinclude:: /includes/interact-data/transactions.py
+   :start-after: start-handle-errors
+   :end-before: end-handle-errors
+   :language: python
+   :copyable:
 
 Additional Information
 ----------------------
