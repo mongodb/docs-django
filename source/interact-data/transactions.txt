@@ -82,9 +82,6 @@ This decorator guarantees the atomicity of any database operations
 within the function. If the function successfully completes, the 
 changes are committed MongoDB.
 
-Examples
-~~~~~~~~
-
 The following example calls the ``create()`` method within a transaction,
 inserting a document into the ``sample_mflix.movies`` collection if the
 transaction succeeds:
