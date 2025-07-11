@@ -21,6 +21,24 @@ def insert_movie_transaction():
         )
 # end-transaction-manager
 
+# start-callback
+def get_horror_comedies():
+    movies = Movie.objects.filter(genres=["Horror", "Comedy"])
+    for m in movies:
+        print(f"Title: {m.title}, runtime: {m.runtime}")
+
+def insert_movie_with_callback():
+    with transaction.atomic():
+        Movie.objects.create(
+            title="The Substance",
+            runtime=140,
+            genres=["Horror", "Comedy"]
+        )
+
+        # Registers the callback to run only after the transaction commits
+        transaction.on_commit(get_horror_comedies)
+# end-callback
+
 # start-handle-errors
 movie = Movie.objects.get(
     title="Jurassic Park",
