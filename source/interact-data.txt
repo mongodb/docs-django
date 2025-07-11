@@ -38,5 +38,5 @@ MongoDB data.
 - :ref:`django-raw-queries`: Learn how to use MongoDB's aggregation pipeline syntax
   or the PyMongo driver to query your data.
 
-- :ref:`django-transactions`: Learn how to use {+framework+}'s transactions API
+- :ref:`django-transactions`: Learn how to use {+framework+}'s transaction API
   to run data operations within a transaction.

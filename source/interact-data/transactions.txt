@@ -86,7 +86,8 @@ Examples
 ~~~~~~~~
 
 The following example calls the ``create()`` method within a transaction,
-inserting a document into the ``sample_mflix.movies`` collection:
+inserting a document into the ``sample_mflix.movies`` collection if the
+transaction succeeds:
 
 .. literalinclude:: /includes/interact-data/transactions.py
    :start-after: start-transaction-decorator
@@ -96,7 +97,7 @@ inserting a document into the ``sample_mflix.movies`` collection:
 
 Alternatively, you can use the ``transaction.atomic()`` context manager
 to create an atomic block. This example runs the same operation as the
-previous example but uses a context manager to start a transaction:
+preceding example but uses a context manager to start a transaction:
 
 .. literalinclude:: /includes/interact-data/transactions.py
    :start-after: start-transaction-manager
