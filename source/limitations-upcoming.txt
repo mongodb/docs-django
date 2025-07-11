@@ -259,7 +259,8 @@ Database and Collection Support
          a transaction, and any subsequent atomic blocks have no effect.
        - Migration operations do not run inside a transaction, which differs from {+framework+}'s
          default migration behavior.
-     - ✓
+       - Your MongoDB deployment must be a replica set or sharded cluster.
+     - *Partially Supported*.
 
 Django Features
 ---------------
