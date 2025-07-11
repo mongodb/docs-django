@@ -34,8 +34,7 @@ def insert_movie_with_callback():
             runtime=140,
             genres=["Horror", "Comedy"]
         )
-
-        # Registers the callback to run only after the transaction commits
+        
         transaction.on_commit(get_horror_comedies)
 # end-callback
 
