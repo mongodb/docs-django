@@ -44,7 +44,7 @@ manually start a session before running a transaction.
    {+django-odm+}'s support for the {+framework+} transaction API
    has several limitations. To view a list of limitations, see
    :ref:`Database and Collection Support <django-feature-compat-db-coll>`
-   in the Django and MongoDB Feature Compatibility guide.
+   in the {+framework+} and MongoDB Feature Compatibility guide.
 
 Sample Data
 ~~~~~~~~~~~
@@ -129,7 +129,7 @@ the atomic block, you might obscure these errors from {+framework+}. Since
 {+framework+} uses errors to determine whether to commit or roll
 back a transaction, this can cause unexpected behavior.
 
-If a transaction does not succeed, Django does not revert any changes made
+If a transaction does not succeed, {+framework+} does not revert any changes made
 to a model's fields. To avoid inconsistencies between your models and database documents,
 you might need to manually restore the original field values.
 

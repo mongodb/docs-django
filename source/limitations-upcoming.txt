@@ -250,7 +250,7 @@ Database and Collection Support
      - ✓
 
    * - Transactions
-     - *Partially Supported*. You can use {+framework+}'s transactions API with the
+     - ✓ You can use {+framework+}'s transactions API with the
        following limitations:
 
        - ``QuerySet.union()`` is not supported within a transaction.
@@ -259,7 +259,7 @@ Database and Collection Support
          a transaction, and any subsequent atomic blocks have no effect.
        - Migration operations do not run inside a transaction.
        - Your MongoDB deployment must be a replica set or sharded cluster.
-     - *Partially Supported*.
+     - ✓
 
 Django Features
 ---------------
