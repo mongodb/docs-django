@@ -24,7 +24,7 @@ In this guide, you can learn how to use {+django-odm+} to perform
 **transactions**. Transactions allow you to run a series of operations
 that change data only if the entire transaction is committed.
 If any operation in the transaction does not succeed, {+django-odm+} stops the
-transaction and discards all data changes before they ever become
+transaction and discards all changes to the data before they ever become
 visible. This feature is called **atomicity**.
 
 In MongoDB, transactions run within logical sessions. A
@@ -80,10 +80,10 @@ To start a database transaction, define an atomic block of code
 by adding the ``@transaction.atomic`` decorator above your function.
 This decorator guarantees the atomicity of any database operations
 within the function. If the function successfully completes, the 
-changes are committed MongoDB.
+changes are committed to MongoDB.
 
 The following example calls the ``create()`` method within a transaction,
-inserting a document into the ``sample_mflix.movies`` collection if the
+which inserts a document into the ``sample_mflix.movies`` collection if the
 transaction succeeds:
 
 .. literalinclude:: /includes/interact-data/transactions.py
@@ -105,8 +105,8 @@ preceding example but uses a context manager to start a transaction:
 Run Callbacks After a Transaction
 ---------------------------------
 
-If you want to perform certain actions only if a transaction successfully
-completes, you can use the ``transaction.on_commit()`` method. This method allows you to
+To perform certain actions only if a transaction successfully completes,
+you can use the ``transaction.on_commit()`` function. This function allows you to
 register callbacks that run after a transaction is committed to the 
 database. Pass a function, or any callable object, as an argument to
 ``on_commit()``.
@@ -124,11 +124,12 @@ Handle Transaction Errors
 -------------------------
 
 To handle exceptions that occur during a transaction, add error handling
-logic around your atomic code block. If you include error handing logic inside
-the atomic block, {+framework+} might ignore these errors, resulting in unexpected
-behavior.
+logic around your atomic code block. If you handle errors inside
+the atomic block, you might obscure these errors from {+framework+}. Since
+{+framework+} uses errors to determine whether to commit or roll
+back a transaction, this can cause unexpected behavior.
 
-If a transaction does not succeed, your application does not revert any changes made
+If a transaction does not succeed, Django does not revert any changes made
 to a model's fields. To avoid inconsistencies between your models and database documents,
 you might need to manually restore the original field values.
 

@@ -34,18 +34,21 @@ def insert_movie_with_callback():
             runtime=140,
             genres=["Horror", "Comedy"]
         )
-        
         transaction.on_commit(get_horror_comedies)
 # end-callback
 
 # start-handle-errors
-movie = Movie.objects.get(
-    title="Jurassic Park",
-    released=timezone.make_aware(datetime(1993, 6, 11))
-)
+movie = Movie.objects.get(title="Jurassic Park")
+movie.title = "Jurassic Park I"
 try:
     with transaction.atomic():
-        movie.update(title="Jurassic Park I")
+        movie.save()
 except DatabaseError:
-    movie.update(title="Jurassic Park")
+    movie.title = "Jurassic Park"
+
+if movie.title == "Jurassic Park I":
+    movie.plot = "An industrialist invites experts to visit his theme park of cloned dinosaurs. After a power failure," \
+    "   the creatures run loose, putting everyone's lives, including his grandchildren's, in danger."
+    movie.save()
+
 # end-handle-errors
