@@ -145,6 +145,10 @@ The following example includes error handling logic that reverts the modified
    :language: python
    :copyable:
 
+Since the code performs a second database operation based on the
+model's ``title`` value, reverting the change if the transaction errors
+prevents further data inconsistencies.
+
 Additional Information
 ----------------------
 
