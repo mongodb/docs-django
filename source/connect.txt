@@ -166,7 +166,7 @@ example:
     DATABASES["default"] = django_mongodb_backend.parse_uri(
       MONGODB_URI,
       db_name="<database name>",
-      options={"retryWrites": "true", "w": "majority"}
+      options={"retryWrites": True, "w": "majority"}
     )
 
 Additional Information
