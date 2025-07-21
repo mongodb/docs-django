@@ -261,6 +261,9 @@ expression matching, and year value matching for datetime fields.
    :std:ext-doc:`Field lookups <ref/models/querysets/#field-lookups>`
    in the ``QuerySet`` {+framework+} API reference.
 
+   :ref:`Field Lookups <django:field-lookups>`
+   :py:mod:`QuerySet <django.db.models.querysets>`
+
 This section describes how to refine your query filters
 in the following ways:
 
