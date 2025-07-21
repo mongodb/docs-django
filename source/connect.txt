@@ -145,7 +145,7 @@ function accepts the following arguments:
 - ``uri``: Your MongoDB connection URI.
 - ``db_name``: The name of the database you want to use.
 - ``options``: *(Optional)* A dictionary of options to apply to the connection.
-  These options take precedence over any duplicate options specified in the URI.
+  These options take precedence over any duplicate options that you specify in the URI.
 - ``test``: *(Optional)* Provides a dictionary of settings for test
   databases. To learn more, see
   `the TEST setting <{+django-docs+}/ref/settings/#test>`__
